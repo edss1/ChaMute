@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -67,17 +67,19 @@ public class PlayerController : MonoBehaviour
     private void UpdateMove()
     {
         Vector3 dir = _destPos - transform.position;
-        if (dir.magnitude < 0.0001f)
+        if (dir.magnitude < 0.1f)
         {
             _state = PlayerState.Idle;
         }
 
         else
         {
+            //TODO
+            NavMeshAgent nma= gameObject.GetOrAddComponent<NavMeshAgent>();
+            //nma.CalculatePath
+
             float moveDist = Mathf.Clamp(speed * Time.deltaTime, 0, dir.magnitude);
-
-            transform.position += dir.normalized * moveDist;
-
+            nma.Move(dir.normalized * moveDist);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 15 * Time.deltaTime);
         }
 
