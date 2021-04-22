@@ -10,19 +10,27 @@ public class InputManager
     public Action<Define.MouseEvent> MouseAction = null;
 
     bool _pressed = false;
+    float _pressedTime = 0;
+
+
     public void OnUpdate()
     {
         //UI버튼을 클릭했을경우
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (Input.anyKey&& KeyAction != null)
+        if (Input.anyKey && KeyAction != null)
             KeyAction.Invoke();
 
-        if(MouseAction !=null)
+        if (MouseAction != null)
         {
-            if(Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
+                if (!_pressed)
+                {
+                    MouseAction.Invoke(Define.MouseEvent.PointerDown);
+                    _pressedTime = Time.time;
+                }
                 MouseAction.Invoke(Define.MouseEvent.Press);
                 _pressed = true;
             }
@@ -30,9 +38,13 @@ public class InputManager
             else
             {
                 if (_pressed)
-                    MouseAction.Invoke(Define.MouseEvent.Click);
+                {
+                    if (Time.time < _pressedTime + 0.2f)
+                        MouseAction.Invoke(Define.MouseEvent.Click);
+                    MouseAction.Invoke(Define.MouseEvent.PointUp);
+                }
                 _pressed = false;
-
+                _pressedTime = 0.0f;
             }
         }
     }
