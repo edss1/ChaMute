@@ -13,12 +13,12 @@ public class DataManager
 {
 
     //데이터를 늘린다면 이줄이랑
-    public Dictionary<int, Stat> StatDict { get; private set; } = new Dictionary<int, Stat>();
+    public Dictionary<int, Data.Stat> StatDict { get; private set; } = new Dictionary<int, Data.Stat>();
 
     public void Init()
     {
         //이것 추가
-        StatDict = LoadJson<StatData, int, Stat>("StatData").MakeDict();
+        StatDict = LoadJson<Data.StatData, int, Data.Stat>("StatData").MakeDict();
     }
 
 
