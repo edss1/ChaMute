@@ -67,7 +67,7 @@ public class MonsterController : BaseController
             nma.SetDestination(_destPos);
             nma.speed = _stat.MoveSpeed;
             
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 15 * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 1000 * Time.deltaTime);
 
         }
     }
