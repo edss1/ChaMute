@@ -50,6 +50,7 @@ public class MonsterController : BaseController
                 NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
                 nma.SetDestination(transform.position);
                 State = Define.State.Skill;
+
                 return;
             }
         }
@@ -57,18 +58,21 @@ public class MonsterController : BaseController
         Vector3 dir = _destPos - transform.position;
         if (dir.magnitude < 0.1f)
         {
+            NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
             State = Define.State.Idle;
         }
 
         else
         {
-            
             NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
             nma.SetDestination(_destPos);
             nma.speed = _stat.MoveSpeed;
-            
+            nma.acceleration = 1000000;
+
+
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 15 * Time.deltaTime);
 
+            
         }
     }
 
@@ -80,6 +84,7 @@ public class MonsterController : BaseController
             Quaternion quat = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
         }
+
     }
 
     void OnHitEvent()
