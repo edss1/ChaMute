@@ -74,7 +74,11 @@ MonoBehaviour:
   m_MinSize: {x: 276, y: 192}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 143
+=======
+  controlID: 186
+>>>>>>> 87688d7ed863c1b97590438c7ed64fe95f95fc28
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +129,11 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 149
+=======
+  controlID: 99
+>>>>>>> 87688d7ed863c1b97590438c7ed64fe95f95fc28
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +205,11 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 40
+=======
+  controlID: 185
+>>>>>>> 87688d7ed863c1b97590438c7ed64fe95f95fc28
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,7 +255,11 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 41
+=======
+  controlID: 159
+>>>>>>> 87688d7ed863c1b97590438c7ed64fe95f95fc28
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -263,8 +279,8 @@ MonoBehaviour:
     y: 0
     width: 565
     height: 620
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -511,10 +527,17 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
+<<<<<<< HEAD
       scrollPos: {x: 0, y: 222}
       m_SelectedIDs: aead0100
       m_LastClickedID: 109998
       m_ExpandedIDs: b4a6fcff0aab010032ac010014ad0100aead0100
+=======
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 743f0000
+      m_LastClickedID: 16244
+      m_ExpandedIDs: 5ce4ffff
+>>>>>>> 87688d7ed863c1b97590438c7ed64fe95f95fc28
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -621,6 +644,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scripts/Controllers
   m_LastFoldersGridSize: 16
+<<<<<<< HEAD
   m_LastProjectPath: C:\Users\edsss\Desktop\Unity\ChaMute\MMO_Unity
   m_LockTracker:
     m_IsLocked: 0
@@ -629,6 +653,16 @@ MonoBehaviour:
     m_SelectedIDs: 2ab40100
     m_LastClickedID: 111658
     m_ExpandedIDs: 000000009cb301009eb30100a0b30100a2b30100a4b30100a6b30100a8b30100aab30100acb30100aeb30100b0b30100b2b30100b4b30100b6b30100b8b30100bab30100bcb30100beb30100c0b30100c2b30100c4b30100c6b30100c8b30100cab30100ccb30100ceb30100d0b30100d2b30100d4b30100d6b30100d8b30100dab30100dcb30100deb30100e0b30100e2b30100e4b30100e6b30100e8b30100eab30100ecb30100eeb30100f0b30100f2b30100f4b30100f6b3010000ca9a3b
+=======
+  m_LastProjectPath: C:\Users\SGA\Desktop\Unity\ChaMute\MMO_Unity
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 439}
+    m_SelectedIDs: 58490000
+    m_LastClickedID: 18776
+    m_ExpandedIDs: 00000000aa480000ac480000ae480000b0480000b2480000b4480000b6480000b8480000ba480000bc480000be480000c0480000c2480000c4480000c6480000c8480000ca480000cc480000ce480000d0480000d2480000d4480000d6480000d8480000da480000dc480000de480000e0480000e2480000e4480000e6480000e8480000ea480000ec480000ee480000f0480000f2480000f4480000f6480000f8480000fa480000fc480000fe4800000049000002490000044900005c49000000ca9a3b
+>>>>>>> 87688d7ed863c1b97590438c7ed64fe95f95fc28
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Data
@@ -656,7 +690,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 000000009cb301009eb30100a0b30100a2b30100a4b30100a6b30100a8b30100aab30100acb30100aeb30100b0b30100b2b30100b4b30100b6b30100b8b30100bab30100bcb30100beb30100c0b30100c2b30100c4b30100c6b30100c8b30100cab30100ccb30100ceb30100d0b30100d2b30100d4b30100d6b30100d8b30100dab30100dcb30100deb30100e0b30100e2b30100e4b30100e6b30100e8b30100eab30100ecb30100eeb30100f0b30100f2b30100f4b30100f6b30100
+=======
+    m_ExpandedIDs: 00000000aa480000ac480000ae480000b0480000b2480000b4480000b6480000b8480000ba480000bc480000be480000c0480000c2480000c4480000c6480000c8480000ca480000cc480000ce480000d0480000d2480000d4480000d6480000d8480000da480000dc480000de480000e0480000e2480000e4480000e6480000e8480000ea480000ec480000ee480000f0480000f2480000f4480000f6480000f8480000fa480000fc480000fe480000004900000249000004490000
+>>>>>>> 87688d7ed863c1b97590438c7ed64fe95f95fc28
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -919,28 +957,3 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &23
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12059, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEditor:UnityEditor.Experimental.TerrainAPI:PaintTextureTool
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Failed to load
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 320
-    height: 550
-  m_ViewDataDictionary: {fileID: 0}
