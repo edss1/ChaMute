@@ -1,27 +1,32 @@
 ﻿#include <stdio.h>
 
-void Output(char* _str, int _age); //함수 전방선언에 대해 정리
-int Sum(int a, int b);
+
+int number1;
+int number2;
+
+
+int Sum(int a, int b); //함수 전방선언
+
 
 int main(void)
 {
+	
+	printf_s("덧셈을 시작합니다.\n덧셈할 숫자를 입력해주세요");
+	printf_s("");
+	scanf_s(number1);
 
+		
 	//if문 정리
 	//scanf_s 정리
 
 
 
-	Output((char*)"Hello World!!", Sum(1, 2));
+	
 
 
 	return 0;
 }
 
-void Output(char* _str, int _age)// 함수 매개변수에 대해 정리
-{
-	//void 반환형 : return을 사용해도 상관은 없지만 값이 없어야한다.
-	printf_s("%s %d", _str, _age);
-}
 
 
 int Sum(int a, int b)
