@@ -11,6 +11,7 @@ public class PlayerController : BaseController
 
     public override void Init()
     {
+        WorldObjectType = Define.WorldObject.Player;
         _stat = gameObject.GetComponent<PlayerStat>();
         Managers.Input.MouseAction -= OnMouseEvent;
         Managers.Input.MouseAction += OnMouseEvent;
@@ -65,13 +66,6 @@ public class PlayerController : BaseController
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 15 * Time.deltaTime);
             
         }
-
-
-        //애니메이션 처리
-        //현재 게임 상태에 대한 정보를 넘겨준다
-
-
-
     }
 
     void OnHitEvent()

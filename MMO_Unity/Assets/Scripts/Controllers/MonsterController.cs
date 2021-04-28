@@ -16,6 +16,8 @@ public class MonsterController : BaseController
 
     public override void Init()
     {
+
+        WorldObjectType = Define.WorldObject.Monster;
         _stat = gameObject.GetComponent<Stat>();
 
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
@@ -25,9 +27,10 @@ public class MonsterController : BaseController
     protected override void UpdateIdle()
     {
         //TODO : 매니저가 생기면 옮기자
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = Managers.Game.GetPlayer();
         if(player == null)
             return;
+
 
         float distance = (player.transform.position - transform.position).magnitude;
         if(distance <= _scanRange)
@@ -50,6 +53,7 @@ public class MonsterController : BaseController
                 NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
                 nma.SetDestination(transform.position);
                 State = Define.State.Skill;
+
                 return;
             }
         }
@@ -57,18 +61,23 @@ public class MonsterController : BaseController
         Vector3 dir = _destPos - transform.position;
         if (dir.magnitude < 0.1f)
         {
+            NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
             State = Define.State.Idle;
         }
 
         else
         {
-            
             NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
             nma.SetDestination(_destPos);
             nma.speed = _stat.MoveSpeed;
-            
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 1000 * Time.deltaTime);
 
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 1000 * Time.deltaTime);
+            
+            //가속도
+            nma.acceleration = 1000;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 15 * Time.deltaTime);
+
+            
         }
     }
 
@@ -78,8 +87,9 @@ public class MonsterController : BaseController
         {
             Vector3 dir = _lockTarget.transform.position - transform.position;
             Quaternion quat = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, quat, _stat.MoveSpeed * Time.deltaTime);
         }
+
     }
 
     void OnHitEvent()
@@ -92,7 +102,7 @@ public class MonsterController : BaseController
 
             if(targetStat.Hp <=0)
             {
-                GameObject.Destroy(targetStat.gameObject);
+                Managers.Game.Despawn(targetStat.gameObject);
             }
 
             if(targetStat.Hp > 0)
