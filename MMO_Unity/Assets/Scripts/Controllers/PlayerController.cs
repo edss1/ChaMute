@@ -44,6 +44,7 @@ public class PlayerController : BaseController
         }
 
         Vector3 dir = _destPos - transform.position;
+        dir.y = 0;
         if (dir.magnitude < 0.1f)
         {
             State = Define.State.Idle;
@@ -73,11 +74,7 @@ public class PlayerController : BaseController
         if (_lockTarget != null)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
-            PlayerStat myStat = gameObject.GetComponent<PlayerStat>();
-
-            int damage = Mathf.Max(myStat.Attack - targetStat.Defence, 0);
-            Debug.Log(damage);
-            targetStat.Hp -= damage;
+            targetStat.OnAttacked(_stat);
         }
 
         if (_stopSkill)

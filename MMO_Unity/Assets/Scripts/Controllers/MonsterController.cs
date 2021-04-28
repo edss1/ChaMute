@@ -97,13 +97,7 @@ public class MonsterController : BaseController
         if(_lockTarget != null)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
-            int damage = Mathf.Max(_stat.Attack - targetStat.Defence, 0);
-            targetStat.Hp -= damage;
-
-            if(targetStat.Hp <=0)
-            {
-                Managers.Game.Despawn(targetStat.gameObject);
-            }
+            targetStat.OnAttacked(_stat);
 
             if(targetStat.Hp > 0)
             {
