@@ -45,6 +45,9 @@ public class Define
     {
         Click,
         Drag,
+        EndDrag,
+        PointerDown,
+        PointerUp
     }
 
     public enum MouseEvent

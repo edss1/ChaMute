@@ -22,6 +22,7 @@ public class InputManager
         if (Input.anyKey && KeyAction != null)
             KeyAction.Invoke();
 
+        //마우스를 클릭했을때(터치이벤트)
         if (MouseAction != null)
         {
             if (Input.GetMouseButton(0))
