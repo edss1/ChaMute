@@ -4,8 +4,8 @@
 스크립트 설명 : 공용 스테이터스 스크립트
 스크립트 사용법 : 
                  
-수정일자(1차) :                                       
-수정내용(1차) :                                   
+수정일자(1차) : 2021-04-30                                      
+수정내용(1차) : ScanRange(인식범위)추가                                  
                                   
 */
 
@@ -35,7 +35,11 @@ public class Status : MonoBehaviour
     protected int attack;
     [SerializeField]
     protected int mAttack;
-    
+
+    //사거리
+    [SerializeField]
+    protected int atkRange;
+
     //공격속도
     [SerializeField]
     protected int atkSpd;
@@ -45,6 +49,9 @@ public class Status : MonoBehaviour
     protected int hit;
     [SerializeField]
     protected int flee;
+
+    [SerializeField]
+    protected int scanRange;
     
     //크리티컬
     [SerializeField]
@@ -74,9 +81,11 @@ public class Status : MonoBehaviour
     public int MaxMana { get { return maxMana; } set { maxMana = value; } }
     public int Attack { get { return attack; } set { attack = value; } }
     public int MAttack { get { return mAttack; } set { mAttack = value; } }
+    public int AtkRange { get { return atkRange; } set { atkRange = value; } }
     public int AtkSpd { get { return atkSpd; } set { atkSpd = value; } }
     public int Hit { get { return hit; } set { hit = value; } }
     public int Flee { get { return flee; } set { flee = value; } }
+    public int ScanRange { get { return scanRange; } set { scanRange = value; } }
     public int Def { get { return def; } set { def = value; } }
     public int MDef { get { return mDef; } set { mDef = value; } }
     public int Reduction { get { return reduction; } set { reduction = value; } }

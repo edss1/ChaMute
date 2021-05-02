@@ -5,9 +5,20 @@ using UnityEngine;
 public class Define
 {
 
-
-    enum State
+    public enum WorldObject
     {
+        Unknown,
+        Player,
+        Monster,
+    }
 
+    public enum State
+    {
+        Idle,
+        Move,
+        Patrol,
+        Attack,
+        Skill,
+        Die
     }
 }

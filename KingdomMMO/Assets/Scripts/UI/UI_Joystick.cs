@@ -26,6 +26,7 @@ public class UI_Joystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private float leverRange;
 
     public Vector2 inputDir;
+    [SerializeField]
     public bool isInput = false; 
 
 

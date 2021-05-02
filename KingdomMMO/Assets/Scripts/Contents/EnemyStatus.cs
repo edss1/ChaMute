@@ -15,15 +15,21 @@ using UnityEngine;
 
 public class EnemyStatus : Status
 {
-    // Start is called before the first frame update
+    [Header("몬스터 사망시 보상")]
+    [SerializeField]
+    private int rewardGold;
+    [SerializeField]
+    private int rewardExp;
+
+    public int RewardGold { get { return rewardGold; } set { rewardGold = value; } }
+    public int RewardExp { get { return rewardExp; } set { rewardExp = value; } }
+
+
     void Start()
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        scanRange = 10;
+        moveSpeed = 10.0f;
+        atkRange = 2;
     }
 }

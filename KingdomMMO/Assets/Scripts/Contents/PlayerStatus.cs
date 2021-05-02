@@ -86,7 +86,23 @@ public class PlayerStatus : Status
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 2.0f;
+        level = 1;
+
+        Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
+        Data.Stat stat = dict[1];
+
+        SetStat(level);
+        moveSpeed = 10.0f;
+    }
+
+    public void SetStat(int _level)
+    {
+        Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
+        Data.Stat stat = dict[_level];
+
+        hp = stat.maxHp;
+        maxHp = stat.maxHp;
+        attack = stat.attack;
     }
 
     // Update is called once per frame
