@@ -20,35 +20,35 @@ public abstract class BaseController : MonoBehaviour
     protected Vector3 destPos;
 
     [SerializeField]
-    protected Define.State _state = Define.State.Idle;
+    protected Define.State state = Define.State.Idle;
 
     [SerializeField]
-    protected GameObject _lockTarget;
+    protected GameObject lockTarget;
 
     public Define.WorldObject WorldObjectType { get; protected set; } = Define.WorldObject.Unknown;
 
 
     public virtual Define.State State
     {
-        get { return _state; }
+        get { return state; }
         set
         {
-            _state = value;
-           // Animator anim = GetComponentInChildren<Animator>();
-           // switch (_state)
-           // {
-           //     case Define.State.Die:
-           //         break;
-           //     case Define.State.Idle:
-           //         anim.CrossFade("WAIT", 0.1f);
-           //         break;
-           //     case Define.State.Move:
-           //         anim.CrossFade("MOVE", 0.1f);
-           //         break;
-           //     case Define.State.Attack:
-           //         anim.CrossFade("ATTACK", 0.1f, -1, 0);
-           //         break;
-           // }
+           state = value;
+            //Animator anim = GetComponentInChildren<Animator>();
+            //switch (state)
+            //{
+            //    case Define.State.Die:
+            //        break;
+            //    case Define.State.Idle:
+            //        anim.CrossFade("WAIT", 0.1f);
+            //        break;
+            //    case Define.State.Move:
+            //        anim.CrossFade("MOVE", 0.1f);
+            //        break;
+            //    case Define.State.Attack:
+            //        anim.CrossFade("ATTACK", 0.1f, -1, 0);
+            //        break;
+            //}
         }
     }
 
@@ -72,6 +72,9 @@ public abstract class BaseController : MonoBehaviour
             case Define.State.Move:
                 UpdateMove();
                 break;
+            case Define.State.Return:
+                UpdateReturn();
+                break;
             case Define.State.Skill:
                 UpdateSkill();
                 break;
@@ -89,6 +92,7 @@ public abstract class BaseController : MonoBehaviour
     protected virtual void UpdateDie() { }
     protected virtual void UpdateIdle() { }
     protected virtual void UpdateMove() { }
+    protected virtual void UpdateReturn() { }
     protected virtual void UpdateSkill() { }
     protected virtual void UpdatePatrol() { }
     protected virtual void UpdateAttack() { }

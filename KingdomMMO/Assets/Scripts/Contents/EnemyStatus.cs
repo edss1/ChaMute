@@ -29,7 +29,7 @@ public class EnemyStatus : Status
     {
         
         scanRange = 10;
-        moveSpeed = 10.0f;
+        moveSpeed = 6.0f;
         atkRange = 2;
     }
 }

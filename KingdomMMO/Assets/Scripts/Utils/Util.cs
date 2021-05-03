@@ -15,9 +15,6 @@ using UnityEngine;
 
 public class Util : MonoBehaviour
 {
-    /// <summary>
-    /// GetComponent를 했을때 component가 없으면 Add를 해준다.
-    /// </summary>
     public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component //Component 추가
     {
         T component = go.GetComponent<T>();
@@ -25,5 +22,6 @@ public class Util : MonoBehaviour
             component = go.AddComponent<T>();
 
         return component;
+
     }
 }

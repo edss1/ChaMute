@@ -21,7 +21,7 @@ public class PlayerController : BaseController
     public override void Init()
     {
         joystick = FindObjectOfType<UI_Joystick>();
-        stat = Util.GetOrAddComponent<PlayerStatus>(gameObject);
+        stat = gameObject.GetOrAddComponent<PlayerStatus>();
 
     }
 
@@ -54,6 +54,13 @@ public class PlayerController : BaseController
 
         }
     }
+
+    protected override void UpdateAttack()
+    {
+        
+
+    }
+
     protected override void UpdateSkill()
     {
         //TODO : Emeny가 죽었으면 타겟 재설정, 타겟이 없다면 Idle로 변경

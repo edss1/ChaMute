@@ -18,6 +18,7 @@ public class Define
         Move,
         Patrol,
         Attack,
+        Return,
         Skill,
         Die
     }
