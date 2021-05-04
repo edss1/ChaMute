@@ -56,7 +56,6 @@ public class EnemyController : BaseController
 
     protected override void UpdatePatrol()
     {
-
         //패트롤 도중 몬스터 사거리안에 이동하면 플레이어 추적
         float distance = (player.transform.position - transform.position).magnitude;
         if (distance <= stat.ScanRange)
@@ -118,6 +117,8 @@ public class EnemyController : BaseController
        }
     }
 
+
+    //TODO : 본인의 포지션에서 일정거리 이상 멀어졌을때 돌아가는것으로 수정요함
     protected override void UpdateReturn()
     {
         NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
@@ -139,6 +140,11 @@ public class EnemyController : BaseController
         Vector3 dir = lockTarget.transform.position - transform.position;
         Quaternion quat = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Lerp(transform.rotation, quat, stat.MoveSpeed * Time.deltaTime);
+
+        if((transform.position - player.transform.position).magnitude > stat.AtkRange)
+        {
+            State = Define.State.Move;
+        }
     }
 
 

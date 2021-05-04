@@ -34,21 +34,27 @@ public abstract class BaseController : MonoBehaviour
         set
         {
            state = value;
-            //Animator anim = GetComponentInChildren<Animator>();
-            //switch (state)
-            //{
-            //    case Define.State.Die:
-            //        break;
-            //    case Define.State.Idle:
-            //        anim.CrossFade("WAIT", 0.1f);
-            //        break;
-            //    case Define.State.Move:
-            //        anim.CrossFade("MOVE", 0.1f);
-            //        break;
-            //    case Define.State.Attack:
-            //        anim.CrossFade("ATTACK", 0.1f, -1, 0);
-            //        break;
-            //}
+            Animator anim = GetComponentInChildren<Animator>();
+            switch (state)
+            {
+                case Define.State.Die:
+                    break;
+                case Define.State.Idle:
+                    anim.CrossFade("WAIT", 0.1f);
+                    break;
+                case Define.State.Move:
+                    anim.CrossFade("MOVE", 0.1f);
+                    break;
+                case Define.State.Patrol:
+                    anim.CrossFade("MOVE", 0.1f);
+                    break;
+                case Define.State.Return:
+                    anim.CrossFade("MOVE", 0.1f);
+                    break;
+                case Define.State.Attack:
+                    anim.CrossFade("ATTACK", 0.1f, -1, 0);
+                    break;
+            }
         }
     }
 

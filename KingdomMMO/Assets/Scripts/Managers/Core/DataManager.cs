@@ -1,4 +1,15 @@
-﻿using System;
+﻿//DataManager 스크립트
+/*
+ * 작성일자 : 2021-04-29                                 
+스크립트 설명 : Data를 관리하는 매니저
+스크립트 사용법 :
+                 
+수정일자(1차) :
+수정내용(1차) :
+                                  
+*/
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,5 +37,6 @@ public class DataManager
     {
         TextAsset textAsset = Resources.Load<TextAsset>($"Data/{path}");
         return  JsonUtility.FromJson<Loader>(textAsset.text);
+
     }
 }

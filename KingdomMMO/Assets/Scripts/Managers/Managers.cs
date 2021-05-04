@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿//Managers 스크립트
+/*
+ * 작성일자 : 2021-04-30                                 
+스크립트 설명 : 각종 Manager를 관리하는 매니저
+스크립트 사용법 :
+                 
+수정일자(1차) : 2021-05-04
+수정내용(1차) : ObjectManager 추가
+                                  
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
