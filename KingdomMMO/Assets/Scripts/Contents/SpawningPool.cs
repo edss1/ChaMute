@@ -11,6 +11,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawningPool : MonoBehaviour
 {
@@ -30,17 +31,29 @@ public class SpawningPool : MonoBehaviour
     //스폰할 범위를 나타내는 원
     [SerializeField]
     private GameObject spawnRange;
-    
 
-    private List<GameObject> spawnList;
+    //현재 몬스터 갯수
+    [SerializeField]
+    int monsterCount = 0;
+    int reserveCount = 0;
+
+    //최대 몬스터 갯수
+    [SerializeField]
+    int keepMonsterCount = 0;
+
+    public void AddMonsterCount(int value) { monsterCount += value; }
+    public void SetKeepMonsterCount(int count) { keepMonsterCount = count; }
 
 
     private void Awake()
     {
-        spawnList = new List<GameObject>();
+        
     }
     void Start()
     {
+        Managers.Game.OnSpawnEvent -= AddMonsterCount;
+        Managers.Game.OnSpawnEvent += AddMonsterCount;
+
         enemySpawnTime = 5.0f;
         spawnRangeScale = 20.0f;
 
@@ -55,6 +68,34 @@ public class SpawningPool : MonoBehaviour
     
     void Update()
     {
-        
+        while (reserveCount + monsterCount < keepMonsterCount)
+        {
+            StartCoroutine("ReserveSpawn");
+        }
+    }
+
+    IEnumerator ReserveSpawn()
+    {
+        reserveCount++;
+
+        yield return new WaitForSeconds(Random.Range(0, enemySpawnTime));
+        GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Unit/Enemy");
+        NavMeshAgent nma = obj.GetOrAddComponent<NavMeshAgent>();
+        nma.radius = 0.2f;
+        Vector3 randPos;
+
+        while (true)
+        {
+            Vector3 randDir = Random.insideUnitSphere * Random.Range(0, spawnRangeScale);
+            randDir.y = 0;
+            randPos = transform.position + randDir;
+
+            NavMeshPath path = new NavMeshPath();
+            if (nma.CalculatePath(randPos, path))
+                break;
+        }
+
+        obj.transform.position = randPos;
+        reserveCount--;
     }
 }
