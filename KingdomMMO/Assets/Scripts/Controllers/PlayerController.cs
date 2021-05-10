@@ -168,7 +168,8 @@ public class PlayerController : BaseController
                 Vector3 dir = lockTarget.transform.position - transform.position;
                 Quaternion quat = Quaternion.LookRotation(dir);
                 transform.rotation = Quaternion.Lerp(transform.rotation, quat, stat.MoveSpeed * Time.deltaTime);
-
+                
+                //TODO
                 if (Vector3.Distance(lockTarget.transform.position, transform.position) > stat.AtkRange )
                 {
                     State = Define.State.Move;

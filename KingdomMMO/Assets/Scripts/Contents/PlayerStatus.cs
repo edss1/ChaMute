@@ -119,7 +119,7 @@ public class PlayerStatus : Status
         SetStat(level);
         moveSpeed = 10.0f;
         scanRange = 10;
-        atkRange = 2;
+        atkRange = 3;
     }
 
     public void SetStat(int _level)
