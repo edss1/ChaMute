@@ -58,9 +58,9 @@ public class SpawningPool : MonoBehaviour
         spawnRangeScale = 20.0f;
 
         //원 지정
-        spawnRangeScaleVec = new Vector3(spawnRangeScale, spawnRangeScale, spawnRangeScale);
-        spawnRange = this.transform.Find("SpawnRange").gameObject;
-        spawnRange.transform.localScale = spawnRangeScaleVec;
+        //spawnRangeScaleVec = new Vector3(spawnRangeScale, spawnRangeScale, spawnRangeScale);
+        //spawnRange = this.transform.Find("SpawnRange").gameObject;
+        //spawnRange.transform.localScale = spawnRangeScaleVec;
 
         
     }

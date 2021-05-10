@@ -13815,9 +13815,10 @@ GameObject:
   - component: {fileID: 419716}
   - component: {fileID: 9553400}
   - component: {fileID: 5323601053520830819}
+  - component: {fileID: 5656837703970992910}
   m_Layer: 0
-  m_Name: TT_HeavySwordman
-  m_TagString: Untagged
+  m_Name: Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13934,6 +13935,20 @@ MonoBehaviour:
   lockTarget: {fileID: 0}
   randomVec: {x: 0, y: 0, z: 0}
   patrolTime: 0
+--- !u!64 &5656837703970992910
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &182750
 GameObject:
   m_ObjectHideFlags: 0
