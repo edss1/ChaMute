@@ -14,7 +14,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Vector3 lookOffset = new Vector3(0, 8, -10);
+    public Vector3 lookOffset = new Vector3(0, 15, -10);
     public Transform player;
 
     void Start()

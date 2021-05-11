@@ -6,7 +6,9 @@
                  
 수정일자(1차) : 2021-05-03
 수정내용(1차) : NavMeshAgent (플레이어 추적) 추가
-                                  
+    
+수정일자(2차) : 05-11
+수정내용(2차) : Return State일때 tag 해제
 */
 
 using System.Collections;
@@ -121,6 +123,7 @@ public class EnemyController : BaseController
     //TODO : 본인의 포지션에서 일정거리 이상 멀어졌을때 돌아가는것으로 수정요함
     protected override void UpdateReturn()
     {
+        this.gameObject.tag = "Untagged";
         NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
         nma.SetDestination(returnPos);
         nma.speed = stat.MoveSpeed / 3;
@@ -130,6 +133,7 @@ public class EnemyController : BaseController
 
         if (dir.magnitude < 0.1f)
         {
+            this.gameObject.tag = "Enemy";
             State = Define.State.Idle;
         }
     }

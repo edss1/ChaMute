@@ -4,8 +4,8 @@
 스크립트 설명 : 플레이어 제어하는 스크립트
 스크립트 사용법 : 
                  
-수정일자(1차) : 
-수정내용(1차) : 
+수정일자(1차) : 05-11
+수정내용(1차) : enemy를 배열로 받아와서 가까운 적 찾기
                                   
 */
 
@@ -76,11 +76,6 @@ public class PlayerController : BaseController
             State = Define.State.Move;
             return;
         }
-
-
-        //TODO : Emeny가 인식거리안에 들어왔을때, 타겟의 위치를 몬스터로 정해서 이동
-        //TODO : Emeny가 인식거리안에 없을때는 일정시간당 거리를 패트롤함
-
     }
     protected override void UpdateMove()
     {
@@ -88,6 +83,7 @@ public class PlayerController : BaseController
         if (joystick.isInput == true)
         {
             lockTarget = null;
+            nearEnemy = null;
             Destroy(this.GetComponent<NavMeshAgent>());
             MoveByJoystick();
         }
@@ -116,7 +112,7 @@ public class PlayerController : BaseController
             {
                 enemy = GameObject.FindGameObjectsWithTag("Enemy");
                 float nearDist = Mathf.Infinity;
-
+              
                 for (int i = 0; i < enemy.Length; i++)
                 {
                     float _dist = Vector3.Distance(transform.position, enemy[i].transform.position);
@@ -126,8 +122,8 @@ public class PlayerController : BaseController
                         nearEnemy = enemy[i];
                     }
                 }
-
-                lockTarget = nearEnemy;
+                if ((nearEnemy != null) && (Vector3.Distance(nearEnemy.transform.position, this.transform.position) < stat.ScanRange))
+                    lockTarget = nearEnemy;
             }
 
             //TODO destPos 받아오기
