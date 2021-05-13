@@ -626,6 +626,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5492b632a7206459710da2424910b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: []
+  slotX: 3
+  slotY: 5
+  slots: []
+  skin: {fileID: 11400000, guid: 8c790188ea93448419f24d12aa902d87, type: 2}
 --- !u!4 &584890500
 Transform:
   m_ObjectHideFlags: 0
@@ -1073,6 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d6839a83686a3499adf9cf42896551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
 --- !u!1 &1168038877
 GameObject:
   m_ObjectHideFlags: 0

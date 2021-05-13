@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+
 public class Item
 {
     public enum ItemType            // 아이템의 속성 설정에 대한 갯수
@@ -102,6 +104,12 @@ public class Item
     //[Header("추가옵션")]
     //[Header("추가옵션")]
     //[Header("추가옵션")]
+
+
+    public Item()
+    {
+
+    }
 
     public Item(string name, int id, string desc, int power, int speed, int defense, int evasion, ItemType type)
     // 아이템의 필요한 속성을 모두 위에 적어줍니다.(다른곳에서 받아올 예정)
