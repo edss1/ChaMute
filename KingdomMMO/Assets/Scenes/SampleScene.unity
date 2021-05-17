@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
-  slotX: 5
+  slotX: 4
   slotY: 4
   slots: []
   skin: {fileID: 11400000, guid: 8c790188ea93448419f24d12aa902d87, type: 2}
