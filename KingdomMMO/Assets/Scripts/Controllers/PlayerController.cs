@@ -6,6 +6,9 @@
                  
 수정일자(1차) : 05-11
 수정내용(1차) : enemy를 배열로 받아와서 가까운 적 찾기
+
+수정일자(2차) : 05-18
+수정내용(2차) : Idle일 경우, destPos 수정 및 rotation 수정
                                   
 */
 
@@ -33,6 +36,7 @@ public class PlayerController : BaseController
 
     protected override void UpdateIdle()
     {
+
         //타겟이 없을경우 타겟 설정 후 이동하기
         if (lockTarget == null)
         {
@@ -56,6 +60,8 @@ public class PlayerController : BaseController
                 lockTarget = nearEnemy;
                 State = Define.State.Move;
             }
+
+
         }
 
         //타겟이 있을경우
@@ -77,6 +83,8 @@ public class PlayerController : BaseController
             return;
         }
     }
+
+
     protected override void UpdateMove()
     {
         Vector3 dir = destPos - transform.position;
@@ -112,7 +120,7 @@ public class PlayerController : BaseController
             {
                 enemy = GameObject.FindGameObjectsWithTag("Enemy");
                 float nearDist = Mathf.Infinity;
-              
+
                 for (int i = 0; i < enemy.Length; i++)
                 {
                     float _dist = Vector3.Distance(transform.position, enemy[i].transform.position);
@@ -124,14 +132,21 @@ public class PlayerController : BaseController
                 }
                 if ((nearEnemy != null) && (Vector3.Distance(nearEnemy.transform.position, this.transform.position) < stat.ScanRange))
                     lockTarget = nearEnemy;
+
+                else
+                {
+                    destPos = transform.position;
+
+                }
             }
 
             //TODO destPos 받아오기
-           
+
             if (dir.magnitude < 0.1f)
             {
                 NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
                 State = Define.State.Idle;
+
             }
 
             else
@@ -142,7 +157,10 @@ public class PlayerController : BaseController
 
                 //가속도
                 nma.acceleration = 1000;
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 100 * Time.deltaTime);
+                if (lockTarget != null)
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 100 * Time.deltaTime);
+                else
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-dir), 100 * Time.deltaTime);
             }
         }
     }
@@ -164,15 +182,15 @@ public class PlayerController : BaseController
                 Vector3 dir = lockTarget.transform.position - transform.position;
                 Quaternion quat = Quaternion.LookRotation(dir);
                 transform.rotation = Quaternion.Lerp(transform.rotation, quat, stat.MoveSpeed * Time.deltaTime);
-                
+
                 //TODO
-                if (Vector3.Distance(lockTarget.transform.position, transform.position) > stat.AtkRange )
+                if (Vector3.Distance(lockTarget.transform.position, transform.position) > stat.AtkRange)
                 {
                     State = Define.State.Move;
                 }
             }
         }
-        
+
     }
 
     protected override void UpdateSkill()

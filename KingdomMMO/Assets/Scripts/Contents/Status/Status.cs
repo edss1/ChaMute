@@ -15,6 +15,8 @@ using UnityEngine;
 
 public class Status : MonoBehaviour
 {
+    
+    
     [Header("레벨")]
     [SerializeField]
     protected int level;
@@ -95,7 +97,8 @@ public class Status : MonoBehaviour
     
     void Start()
     {
-        
+    
+
     }
 
 

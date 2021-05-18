@@ -24,6 +24,9 @@ public abstract class BaseScene : MonoBehaviour
 
         if (obj == null)
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Screen.SetResolution(536, 1200, true);
     }
 
     public abstract void Clear();
