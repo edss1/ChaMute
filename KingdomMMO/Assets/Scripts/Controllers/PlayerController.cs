@@ -26,10 +26,15 @@ public class PlayerController : BaseController
     [SerializeField]
     GameObject nearEnemy;
 
+    BoxCollider boxCollider;
+
+    GameObject wall;
+
     public override void Init()
     {
         joystick = FindObjectOfType<UI_Joystick>();
         stat = gameObject.GetOrAddComponent<PlayerStatus>();
+        boxCollider = GetComponent<BoxCollider>();
 
 
     }
@@ -93,9 +98,10 @@ public class PlayerController : BaseController
             lockTarget = null;
             nearEnemy = null;
             Destroy(this.GetComponent<NavMeshAgent>());
+            //destPos = transform.position
             MoveByJoystick();
         }
-
+        
 
         //TODO : Emeny가 플레이어와의 거리가 사거리보다 짧다면 Skill로 바뀜
         //TODO : Emeny가 플레이어와의 거리가 사거리보다 멀면 Idle로 바뀜
@@ -242,11 +248,17 @@ public class PlayerController : BaseController
         Quaternion quat = Quaternion.LookRotation(quatDir);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, quat, 10 * Time.deltaTime);
+
+        
     }
 
-
-    void findTarget()
+    private void OnCollisionEnter(Collision collision)
     {
-        Collider[] col = Physics.OverlapSphere(transform.position, 10.0f);
+        if(collision.gameObject.tag == "Block")
+        {
+            transform.position = 
+        }
+
     }
+
 }

@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - GameScene
     - Inventory
     - ItemDatabase
+    - MainScene
     - PlayerController
     - PlayerStatus
     - UI_Joystick
@@ -27,53 +28,11 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/MainScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 11272}
-    - Class: 114
-      Script: {instanceID: 11474}
-    - Class: 114
-      Script: {instanceID: 11866}
-    - Class: 114
-      Script: {instanceID: 12754}
-    - Class: 114
-      Script: {instanceID: 13118}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Game.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -119,33 +78,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11230}
     - Class: 114
-      Script: {instanceID: 11272}
+      Script: {instanceID: 11250}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 11338}
     - Class: 114
-      Script: {instanceID: 11474}
+      Script: {instanceID: 11412}
     - Class: 114
-      Script: {instanceID: 11644}
+      Script: {instanceID: 11454}
     - Class: 114
-      Script: {instanceID: 11866}
+      Script: {instanceID: 11624}
     - Class: 114
-      Script: {instanceID: 11958}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12062}
+      Script: {instanceID: 11938}
     - Class: 114
-      Script: {instanceID: 12202}
+      Script: {instanceID: 12042}
     - Class: 114
-      Script: {instanceID: 12264}
+      Script: {instanceID: 12182}
     - Class: 114
-      Script: {instanceID: 12426}
+      Script: {instanceID: 12404}
     - Class: 114
-      Script: {instanceID: 12538}
+      Script: {instanceID: 12516}
     - Class: 114
-      Script: {instanceID: 12754}
+      Script: {instanceID: 12732}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 13096}
     - Class: 114
-      Script: {instanceID: 13170}
+      Script: {instanceID: 13148}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -174,13 +133,66 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 238
       Script: {instanceID: 0}
+    Assets/Scenes/Main.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11230}
+    - Class: 114
+      Script: {instanceID: 11250}
+    - Class: 114
+      Script: {instanceID: 11412}
+    - Class: 114
+      Script: {instanceID: 11454}
+    - Class: 114
+      Script: {instanceID: 11846}
+    - Class: 114
+      Script: {instanceID: 12028}
+    - Class: 114
+      Script: {instanceID: 12466}
+    - Class: 114
+      Script: {instanceID: 12732}
+    - Class: 114
+      Script: {instanceID: 13096}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: aeb62f729c52c814dec86c47dcac1471
+      Hash: 5f1752ed2092162f016c19510c28a8b9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
-    className: Text
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -235,6 +247,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: aeb62f729c52c814dec86c47dcac1471
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
   - hash:
       serializedVersion: 2
       Hash: 499fd23433e68e265d153aa6b95d0047
@@ -457,12 +475,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
-  - hash:
-      serializedVersion: 2
-      Hash: 5f1752ed2092162f016c19510c28a8b9
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Button
   - hash:
       serializedVersion: 2
       Hash: f84d945e5e1ca985698660fc26e9657f
@@ -699,6 +711,6 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  - Assets/Scenes/MainScene.unity
+  - Assets/Scenes/Game.unity
+  - Assets/Scenes/Main.unity
   playerPath: C:/Users/SGA/Desktop/kindom.apk
