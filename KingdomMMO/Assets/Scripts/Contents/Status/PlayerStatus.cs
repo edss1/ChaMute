@@ -6,7 +6,9 @@
                  
 수정일자(1차) : 2021-05-07
 수정내용(1차) : 획득률 증가 헤더 및 세부 변수 추가, 공격력을 원거리공격력, 근거리공격력으로 세분화
-                                  
+                    
+수정일자(2차) : 05-25
+수정내용(2차) : 경험치 획득부분 수정
 */
 
 using System.Collections;
@@ -97,7 +99,34 @@ public class PlayerStatus : Status
     public int Weight { get { return weight; } set { weight = value; } }
     public int MaxWeight { get { return maxWeight; } set { maxWeight = value; } }
     public int StatusPoint { get { return statusPoint; } set { statusPoint = value; } }
-    public int Exp { get { return exp; } set { exp = value; } }
+   
+    public int Exp
+    {
+        get { return exp; }
+        set
+        {
+            exp = value;
+
+            int level = Level;
+            while (true)
+            {
+                Data.Stat stat;
+                if (Managers.Data.StatDict.TryGetValue(level + 1, out stat) == false)
+                    break;
+                if (exp < stat.totalExp)
+                    break;
+                level++;
+            }
+
+            if (level != Level)
+            {
+                Debug.Log("Level UP!");
+                Level = level;
+                SetStat(Level);
+            }
+        }
+    }
+  
     public int MaxExp { get { return maxExp; } set { maxExp = value; } }
     public int Gold { get { return gold; } set { gold = value; } }
     public int Diamond { get { return diamond; } set { diamond = value; } }
@@ -120,6 +149,10 @@ public class PlayerStatus : Status
         moveSpeed = 10.0f;
         scanRange = 10;
         atkRange = 3;
+        maxHp = 200;
+        hp = 200;
+        attack = 20;
+        level = 1;
     }
 
     public void SetStat(int _level)
