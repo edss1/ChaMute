@@ -27,8 +27,7 @@ public class PlayerController : BaseController
     GameObject nearEnemy;
 
     BoxCollider boxCollider;
-
-    GameObject wall;
+    LayerMask layerMask;
 
     public override void Init()
     {
@@ -98,15 +97,10 @@ public class PlayerController : BaseController
             lockTarget = null;
             nearEnemy = null;
             Destroy(this.GetComponent<NavMeshAgent>());
-            //destPos = transform.position
             MoveByJoystick();
         }
         
 
-        //TODO : Emeny가 플레이어와의 거리가 사거리보다 짧다면 Skill로 바뀜
-        //TODO : Emeny가 플레이어와의 거리가 사거리보다 멀면 Idle로 바뀜
-        //현재는 조이스틱을 놓았을 경우, Idle로 돌아감
-        //State = Define.State.Idle;
         else
         {
             if (lockTarget != null)
@@ -145,8 +139,6 @@ public class PlayerController : BaseController
 
                 }
             }
-
-            //TODO destPos 받아오기
 
             if (dir.magnitude < 0.1f)
             {
@@ -223,42 +215,29 @@ public class PlayerController : BaseController
 
     }
 
-
-
-
-
-
     /// <summary>
     /// 조이스틱을 이용해 이동
     /// </summary>
     private void MoveByJoystick()
     {
+        
         //이동
         Vector3 dir = joystick.inputDir;
 
         Vector3 upMovement = Vector3.forward * stat.MoveSpeed * Time.deltaTime * dir.normalized.y;
         Vector3 rightMovement = Vector3.right * stat.MoveSpeed * Time.deltaTime * dir.normalized.x;
-
-        transform.position += upMovement;
-        transform.position += rightMovement;
-
-
+        
         //회전
         Vector3 quatDir = new Vector3(dir.x, 0, dir.y);
         Quaternion quat = Quaternion.LookRotation(quatDir);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, quat, 10 * Time.deltaTime);
 
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Block")
+        Debug.DrawRay(transform.position, quatDir.normalized, Color.green);
+        if (!Physics.Raycast(transform.position + Vector3.up * 0.5f, quatDir, 1.5f, LayerMask.GetMask("Block")))
         {
-            transform.position = 
+            transform.position += upMovement;
+            transform.position += rightMovement;
         }
-
     }
-
 }

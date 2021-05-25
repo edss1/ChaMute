@@ -58,6 +58,7 @@ public class PlayerController : BaseController
             Debug.DrawRay(transform.position, dir.normalized, Color.green);
             if (Physics.Raycast(transform.position + Vector3.up * 0.5f, dir, 1.0f, LayerMask.GetMask("Block")))
             {
+                Debug.Log("kkkk");
                 if (Input.GetMouseButton(0) == false)
                     State = Define.State.Idle;
                 return;
