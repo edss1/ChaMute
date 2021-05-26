@@ -95,6 +95,8 @@ public class Status : MonoBehaviour
     public int Critical { get { return critical; } set { critical = value; } }
     public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
     
+    
+
     void Start()
     {
     
@@ -102,27 +104,29 @@ public class Status : MonoBehaviour
     }
 
 
-    //public virtual void OnAttacked(Status attacker)
-    //{
-    //    int damage = Mathf.Max(attacker.Attack - Defence, 0);
-    //    Hp -= damage;
-    //    if (Hp <= 0)
-    //    {
-    //        Hp = 0;
-    //        OnDead(attacker);
-    //    }
-    //
-    //
-    //}
-
-    //protected virtual void OnDead(Status attacker)
-    //{
-    //    PlayerStatus playerStatus = attacker as PlayerStatus;
-    //    if (playerStat != null)
-    //    {
-    //        playerStat.Exp += 15;
-    //    }
-    //
-    //    Managers.Game.Despawn(gameObject);
-    //}
+    public virtual void OnAttacked(Status attacker)
+    {
+        int damage = Mathf.Max(attacker.Attack - Def, 0);
+        Hp -= damage;
+        if (Hp <= 0)
+        {
+            Hp = 0;
+            OnDead(attacker);
+        }
+    
+    
+    }
+    
+    protected virtual void OnDead(Status attacker)
+    {
+        PlayerStatus playerStatus = attacker as PlayerStatus;
+        
+        if (playerStatus != null)
+        {
+            EnemyStatus targetStat = gameObject.GetComponent<EnemyStatus>();
+            playerStatus.Exp += targetStat.RewardExp;
+        }
+    
+        Managers.Game.Despawn(gameObject);
+    }
 }

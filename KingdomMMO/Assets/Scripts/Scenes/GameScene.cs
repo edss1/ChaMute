@@ -24,4 +24,11 @@ public class GameScene : BaseScene
     {
 
     }
+
+    public void LoadMainScene()
+    {
+        Managers.Data.Save();
+        Managers.Scene.LoadScene(Define.Scene.Main);
+        
+    }
 }

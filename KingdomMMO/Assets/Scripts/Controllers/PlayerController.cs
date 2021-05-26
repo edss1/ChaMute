@@ -9,7 +9,9 @@
 
 수정일자(2차) : 05-18
 수정내용(2차) : Idle일 경우, destPos 수정 및 rotation 수정
-                                  
+         
+수정일자(3차) : 05-25
+수정내용(3차) : 벽뚫기 안되도록 수정
 */
 
 using System.Collections;
@@ -26,16 +28,17 @@ public class PlayerController : BaseController
     [SerializeField]
     GameObject nearEnemy;
 
+    bool stopAttacked = false;
+
     BoxCollider boxCollider;
     LayerMask layerMask;
+
 
     public override void Init()
     {
         joystick = FindObjectOfType<UI_Joystick>();
         stat = gameObject.GetOrAddComponent<PlayerStatus>();
         boxCollider = GetComponent<BoxCollider>();
-
-
     }
 
     protected override void UpdateIdle()
@@ -187,6 +190,9 @@ public class PlayerController : BaseController
                     State = Define.State.Move;
                 }
             }
+
+            else
+                State = Define.State.Idle;
         }
 
     }
@@ -238,6 +244,28 @@ public class PlayerController : BaseController
         {
             transform.position += upMovement;
             transform.position += rightMovement;
+        }
+    }
+
+    /// <summary>
+    /// 공격
+    /// </summary>
+    
+    void OnHitEvent()
+    {
+        if (lockTarget != null)
+        {
+            EnemyStatus targetStat = lockTarget.GetComponent<EnemyStatus>();
+            targetStat.OnAttacked(stat);
+        }
+
+        if (stopAttacked)
+        {
+            State = Define.State.Idle;
+        }
+        else
+        {
+            State = Define.State.Attack;
         }
     }
 }

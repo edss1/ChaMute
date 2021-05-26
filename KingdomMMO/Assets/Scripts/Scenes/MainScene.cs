@@ -24,6 +24,6 @@ public class MainScene : BaseScene
     public void LoadGameScene()
     {
         Managers.Scene.LoadScene(Define.Scene.Game);
-
+        Managers.Data.Load();
     }
 }

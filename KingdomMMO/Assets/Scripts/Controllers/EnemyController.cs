@@ -149,6 +149,8 @@ public class EnemyController : BaseController
         {
             State = Define.State.Move;
         }
+
+       
     }
 
 
@@ -164,4 +166,29 @@ public class EnemyController : BaseController
 
     }
 
+    void OnHitEvent()
+    {
+        if (lockTarget != null)
+        {
+            PlayerStatus targetStat = lockTarget.GetComponent<PlayerStatus>();
+            targetStat.OnAttacked(stat);
+
+            if (targetStat.Hp > 0)
+            {
+                float distance = (lockTarget.transform.position - transform.position).magnitude;
+                if (distance <= stat.AtkRange)
+                    State = Define.State.Attack;
+                else
+                    State = Define.State.Move;
+            }
+            else
+            {
+                State = Define.State.Idle;
+            }
+        }
+        else
+        {
+            State = Define.State.Idle;
+        }
+    }
 }

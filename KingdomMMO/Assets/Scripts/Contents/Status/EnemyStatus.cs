@@ -27,9 +27,14 @@ public class EnemyStatus : Status
 
     void Start()
     {
-        
-        scanRange = 10;
         moveSpeed = 6.0f;
-        atkRange = 2;
+        scanRange = 10;
+        atkRange = 3;
+        maxHp = 100;
+        hp = 100;
+        attack = 4;
+
+        rewardExp = 10;
+
     }
 }
