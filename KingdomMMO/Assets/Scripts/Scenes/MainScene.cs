@@ -13,7 +13,8 @@ public class MainScene : BaseScene
 
         SceneType = Define.Scene.Main;
 
-        
+        Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
+
     }
 
     public override void Clear()
@@ -24,6 +25,5 @@ public class MainScene : BaseScene
     public void LoadGameScene()
     {
         Managers.Scene.LoadScene(Define.Scene.Game);
-        Managers.Data.Load();
     }
 }

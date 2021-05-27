@@ -37,7 +37,7 @@ public class Managers : MonoBehaviour
     //public static SoundManager Sound { get { return Instance._sound; } }
     //public static UIManager UI { get { return Instance._ui; } }
 
-    void Start()
+    void Awake()
     {
         Init();
 
@@ -65,10 +65,11 @@ public class Managers : MonoBehaviour
                 go.AddComponent<Managers>();
             }
 
+            s_instance = go.GetComponent<Managers>();
+
             //@Managers Object를 절대로 파괴되지 않게 설정 (Hierarchy 창에서 생성됨)
             DontDestroyOnLoad(go);
 
-            s_instance = go.GetComponent<Managers>();
 
             s_instance._data.Init();
             s_instance._pool.Init();

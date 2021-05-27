@@ -23,20 +23,7 @@ public interface ILoader<Key,Value>
 
 public class DataManager
 {
-    public string GameDataFileName = "PlayerData.json";
-    public Data.Stat _status;
-    public Data.Stat status
-    {
-        get
-        {
-            if(_status == null)
-            {
-                Load();
-                Save();
-            }
-            return _status;
-        }
-    }
+  
 
     //데이터를 늘린다면 이줄이랑
     public Dictionary<int, Data.Stat> StatDict { get; private set; } = new Dictionary<int, Data.Stat>();
@@ -53,43 +40,43 @@ public class DataManager
         return  JsonUtility.FromJson<Loader>(textAsset.text);
     }
 
-    public void Load()
-    {
-        string filePath = Application.persistentDataPath + GameDataFileName;
-
-        if(File.Exists(filePath))
-        {
-            Debug.Log("불러오기 완료");
-            string FromJsonData = File.ReadAllText(filePath);
-            _status = JsonUtility.FromJson<Data.Stat>(FromJsonData);
-        }
-
-        else
-        {
-            Debug.Log("새로운 파일 생성");
-            _status = new Data.Stat();
-        }
-    }
-
-    public void Save()
-
-    {
-
-       string ToJsonData = JsonUtility.ToJson(status);
-
-        string filePath = Application.persistentDataPath + GameDataFileName;
-
-        File.WriteAllText(filePath, ToJsonData);
-
-        Debug.Log("저장 완료");
-
-    }
-
-    private void OnApplicationQuit()
-
-    {
-
-        Save();
-
-    }
+    //public void Load()
+    //{
+    //    string filePath = Application.persistentDataPath + GameDataFileName;
+    //
+    //    if(File.Exists(filePath))
+    //    {
+    //        Debug.Log("불러오기 완료");
+    //        string FromJsonData = File.ReadAllText(filePath);
+    //        _status = JsonUtility.FromJson<Data.Stat>(FromJsonData);
+    //    }
+    //
+    //    else
+    //    {
+    //        Debug.Log("새로운 파일 생성");
+    //        _status = new Data.Stat();
+    //    }
+    //}
+    //
+    //public void Save()
+    //
+    //{
+    //
+    //   string ToJsonData = JsonUtility.ToJson(status);
+    //
+    //    string filePath = Application.persistentDataPath + GameDataFileName;
+    //
+    //    File.WriteAllText(filePath, ToJsonData);
+    //
+    //    Debug.Log("저장 완료");
+    //
+    //}
+    //
+    //private void OnApplicationQuit()
+    //
+    //{
+    //
+    //    Save();
+    //
+    //}
 }
