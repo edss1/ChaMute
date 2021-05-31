@@ -40,43 +40,4 @@ public class DataManager
         return  JsonUtility.FromJson<Loader>(textAsset.text);
     }
 
-    //public void Load()
-    //{
-    //    string filePath = Application.persistentDataPath + GameDataFileName;
-    //
-    //    if(File.Exists(filePath))
-    //    {
-    //        Debug.Log("불러오기 완료");
-    //        string FromJsonData = File.ReadAllText(filePath);
-    //        _status = JsonUtility.FromJson<Data.Stat>(FromJsonData);
-    //    }
-    //
-    //    else
-    //    {
-    //        Debug.Log("새로운 파일 생성");
-    //        _status = new Data.Stat();
-    //    }
-    //}
-    //
-    //public void Save()
-    //
-    //{
-    //
-    //   string ToJsonData = JsonUtility.ToJson(status);
-    //
-    //    string filePath = Application.persistentDataPath + GameDataFileName;
-    //
-    //    File.WriteAllText(filePath, ToJsonData);
-    //
-    //    Debug.Log("저장 완료");
-    //
-    //}
-    //
-    //private void OnApplicationQuit()
-    //
-    //{
-    //
-    //    Save();
-    //
-    //}
 }

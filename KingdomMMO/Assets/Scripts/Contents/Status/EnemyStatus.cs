@@ -32,9 +32,13 @@ public class EnemyStatus : Status
         atkRange = 3;
         maxHp = 100;
         hp = 100;
-        attack = 4;
+        attack = 10;
 
+        def = 0;
+        flee = 10;
+        hit = 60;
         rewardExp = 10;
+        critical = 50;
 
     }
 }

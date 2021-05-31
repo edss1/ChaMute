@@ -12,6 +12,10 @@
          
 수정일자(3차) : 05-25
 수정내용(3차) : 벽뚫기 안되도록 수정
+
+수정일자(3차) : 05-31
+수정내용(3차) : 공격속도를 애니메이션으로 적용시키기
+
 */
 
 using System.Collections;
@@ -33,6 +37,7 @@ public class PlayerController : BaseController
     BoxCollider boxCollider;
     LayerMask layerMask;
 
+    float atkTime;
 
     public override void Init()
     {
@@ -165,29 +170,45 @@ public class PlayerController : BaseController
             }
         }
     }
-
-
+    
+    
 
     protected override void UpdateAttack()
     {
+        //공격속도를 애니메이션으로 적용
+        anim.SetFloat("AtkSpd",(stat.AtkSpd));
+        atkTime += Time.deltaTime;
+
         if (joystick.isInput == true)
         {
             lockTarget = null;
             State = Define.State.Move;
         }
 
+
         else
         {
+            
             if (lockTarget != null)
             {
-                Vector3 dir = lockTarget.transform.position - transform.position;
-                Quaternion quat = Quaternion.LookRotation(dir);
-                transform.rotation = Quaternion.Lerp(transform.rotation, quat, stat.MoveSpeed * Time.deltaTime);
-
-                //TODO
-                if (Vector3.Distance(lockTarget.transform.position, transform.position) > stat.AtkRange)
+                if (atkTime < (1 / stat.AtkSpd)*0.8)
                 {
-                    State = Define.State.Move;
+
+                    Vector3 dir = lockTarget.transform.position - transform.position;
+                    Quaternion quat = Quaternion.LookRotation(dir);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, quat, stat.MoveSpeed * Time.deltaTime);
+
+                    //TODO
+                    if (Vector3.Distance(lockTarget.transform.position, transform.position) > stat.AtkRange)
+                    {
+                        State = Define.State.Move;
+                    }
+                }
+
+                else
+                {
+                    OnHitEvent();
+                    atkTime = 0;
                 }
             }
 

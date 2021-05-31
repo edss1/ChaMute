@@ -27,6 +27,7 @@ public abstract class BaseController : MonoBehaviour
 
     public Define.WorldObject WorldObjectType { get; protected set; } = Define.WorldObject.Unknown;
 
+    protected Animator anim;
 
     public virtual Define.State State
     {
@@ -34,7 +35,7 @@ public abstract class BaseController : MonoBehaviour
         set
         {
            state = value;
-            Animator anim = GetComponentInChildren<Animator>();
+            anim = GetComponentInChildren<Animator>();
             switch (state)
             {
                 case Define.State.Die:

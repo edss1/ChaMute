@@ -2,7 +2,7 @@
 /*
  * 작성일자 : 2021-04-29                                 
 스크립트 설명 : 플레이어 전용 스테이터스 스크립트
-스크립트 사용법 : 
+스크립트 사용법 : GetComponent로 불러와서 사용함
                  
 수정일자(1차) : 2021-05-07
 수정내용(1차) : 획득률 증가 헤더 및 세부 변수 추가, 공격력을 원거리공격력, 근거리공격력으로 세분화
@@ -17,23 +17,7 @@ using UnityEngine;
 
 public class PlayerStatus : Status
 {
-    //투자해야하는 status
-    [Header("플레이어 스테이터스")]
-    [SerializeField]
-    private int strength;
-    [SerializeField]
-    private int dexterity;
-    [SerializeField]
-    private int agility;
-    [SerializeField]
-    private int vitality;
-    [SerializeField]
-    private int intelligence;
-    [SerializeField]
-    private int energe;
-    [SerializeField]
-    private int lucky;
-
+   
     //근거리, 원거리 공격력
     [Header("플레이어 스테이터스")]
     [SerializeField]
@@ -85,13 +69,7 @@ public class PlayerStatus : Status
     [SerializeField]
     private float gainingEquipmentAndRarityMeterial;
 
-    public int Str { get { return strength; } set { strength = value; } }
-    public int Dex { get { return dexterity; } set { dexterity = value; } }
-    public int Agi { get { return agility; } set { agility = value; } }
-    public int Vit { get { return vitality; } set { vitality = value; } }
-    public int Int { get { return intelligence; } set { intelligence = value; } }
-    public int Eng { get { return energe; } set { energe = value; } }
-    public int Luk { get { return lucky; } set { lucky = value; } }
+
     public int SwordAtk { get { return swordAtk; } set { swordAtk = value; } }
     public int RangeAtk { get { return rangeAtk; } set { rangeAtk = value; } }
     public int HpRegen { get { return hpRegen; } set { hpRegen = value; } }
@@ -149,10 +127,17 @@ public class PlayerStatus : Status
         moveSpeed = 10.0f;
         scanRange = 10;
         atkRange = 3;
+        atkSpd = 1.0f;
         //maxHp = 200;
         //hp = 200;
         //attack = 20;
         //level = 1;
+
+        def = 500;
+        Vit = 1;
+        reduction = 1;
+        hit = 60;
+        flee = 10;
     }
 
     public void SetStat(int _level)
