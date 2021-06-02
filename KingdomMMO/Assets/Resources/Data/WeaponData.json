@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "itemName": "1",
+      "itemID": "200",
+      "itemInfo": "20",
+      "totalExp": "0"
+    },
+    {
+      "level": "2",
+      "maxHp": "250",
+      "attack": "25",
+      "totalExp": "20"
+    },
+    {
+      "level": "3",
+      "maxHp": "300",
+      "attack": "30",
+      "totalExp": "40"
+    },
+    {
+      "level": "4",
+      "maxHp": "350",
+      "attack": "40",
+      "totalExp": "60"
+    }
+  ]
+}

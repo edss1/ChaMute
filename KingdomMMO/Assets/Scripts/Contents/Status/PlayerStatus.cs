@@ -143,6 +143,7 @@ public class PlayerStatus : Status
     public void SetStat(int _level)
     {
         Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
+
         Data.Stat stat = dict[_level];
 
         hp = stat.maxHp;

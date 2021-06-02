@@ -27,11 +27,18 @@ public class DataManager
 
     //데이터를 늘린다면 이줄이랑
     public Dictionary<int, Data.Stat> StatDict { get; private set; } = new Dictionary<int, Data.Stat>();
+    public Dictionary<int, Data.Weapon> WeaponDict { get; private set; } = new Dictionary<int, Data.Weapon>();
+   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
+   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
+   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
+   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
+   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
 
     public void Init()
     {
         //이것 추가
         StatDict = LoadJson<Data.StatData, int, Data.Stat>("StatData").MakeDict();
+        WeaponDict = LoadJson<Data.WeaponData, int, Data.Weapon>("WeaponData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key,Value>

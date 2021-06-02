@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemDatabase : MonoBehaviour
 {
-    public List<Item> items = new List<Item>();
+    public List<Item1> items = new List<Item1>();
     // List라는 기능을 이용해 아이템의 데이터베이스를 구축합니다.
     /*
      * 리스트란, 데이터를 간결하게 구성할 수 있는 기능 중 하나로써,
@@ -19,7 +19,7 @@ public class ItemDatabase : MonoBehaviour
 
     void Start()
     {
-        items.Add(new Item("5_0", "Iron Sword", 1001, "This sword is normal style sword", 10, 1, 0, 0, Item.ItemType.Weapon));
+        items.Add(new Item1("5_0", "Iron Sword", 1001, "This sword is normal style sword", 10, 1, 0, 0, Item1.ItemType.Weapon));
         // 위와 같이 원하는 아이템을 모두 추가해줍니다.(수업 중 예시니까 조금만 만들거임 ' ㅅ'
        //items.Add(new Item("8_0", "Iron Spear", 1011, "This spear is normal style spear", 12, 2, 0, 0, Item.ItemType.Weapon));
        //
