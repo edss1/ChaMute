@@ -153,7 +153,7 @@ namespace Data
     {
         [Header("아이템 공통옵션")]
         public string   name;         //  이름
-        public string   grade;          //등급
+        public int   grade;          //등급
         public int      id;              //  고유번호
         public string   info;          //  설명
         public Texture2D Icon;      //  아이콘(2D)
