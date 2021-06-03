@@ -176,6 +176,7 @@ public class Status : MonoBehaviour
         {
             EnemyStatus targetStat = gameObject.GetComponent<EnemyStatus>();
             playerStatus.Exp += targetStat.RewardExp;
+            
         }
 
         Managers.Game.Despawn(gameObject);

@@ -1,28 +1,28 @@
 {
-  "items": [
+  "weapons": [
     {
-      "itemName": "1",
-      "itemID": "200",
-      "itemInfo": "20",
-      "totalExp": "0"
+      "name": "Dagger",
+      "grade": "1",
+      "id": "11001",
+      "info": "가볍고, 휴대하기가 편한 짧은 검.",
+      "reinforce": "0",
+      "weight": "30",
+      "attack": "14",
+      "mAttack": "0",
+      "atkSpeed": "1.0",
+      "atkRange": "2.0"
     },
     {
-      "level": "2",
-      "maxHp": "250",
-      "attack": "25",
-      "totalExp": "20"
-    },
-    {
-      "level": "3",
-      "maxHp": "300",
-      "attack": "30",
-      "totalExp": "40"
-    },
-    {
-      "level": "4",
-      "maxHp": "350",
-      "attack": "40",
-      "totalExp": "60"
+      "name": "시미터",
+      "grade": "1",
+      "id": "11002",
+      "info": "날이 완만하게 휘어져 내려치기에 적합한 곡도.",
+      "reinforce": "0",
+      "weight": "60",
+      "attack": "20",
+      "mAttack": "0",
+      "atkSpeed": "1.2",
+      "atkRange": "3.0"
     }
   ]
 }

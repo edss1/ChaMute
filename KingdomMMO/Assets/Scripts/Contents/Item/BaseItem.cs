@@ -15,7 +15,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseItem : MonoBehaviour
+public class Item
 {
     [Header("아이템 공통옵션")]
     public string itemName;         //  이름
@@ -78,20 +78,7 @@ public class BaseItem : MonoBehaviour
     public int itemGainRareMaterial;    // 레어자원 획득 부적
     public int itemGainCommonMaterial;  // 일반자원 획득 부적
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ItemAdd(int itemId, Define.ItemType type)
+    public Item(int itemId, Define.ItemType type)
     {
 
         switch (type)
@@ -103,7 +90,7 @@ public class BaseItem : MonoBehaviour
 
                     itemName = weapon.name;
                     itemGrage = weapon.grade;
-                    itemIcon = itemIcon = Resources.Load<Texture2D>($"Materials/Images/{itemId}");
+                    itemIcon = Resources.Load<Texture2D>($"Materials/Images/{itemId}");
                     itemInfo = weapon.info;
                     itemIcon = weapon.Icon;
                     itemReinforce = weapon.reinforce;
@@ -136,4 +123,46 @@ public class BaseItem : MonoBehaviour
         }
 
     }
+
+    public Item()
+    {
+        itemID = -1;
+    }
+}
+
+public class BaseItem : MonoBehaviour
+{
+
+
+    List<Item> database = new List<Item>();
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        AddItem();
+
+        Debug.Log(FetchItemById(0).itemName);
+
+
+
+
+    }
+
+    public Item FetchItemById(int id)
+    {
+        for (int i = 0; i < database.Count; i++)
+        {
+            if (database[i].itemID == id)
+                return database[i];
+        }
+        return null;
+    }
+
+
+    void AddItem()
+    {
+        database.Add(new Item(11001, Define.ItemType.Weapon));
+    }
+
+
 }
