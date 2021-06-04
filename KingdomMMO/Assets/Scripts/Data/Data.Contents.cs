@@ -156,7 +156,6 @@ namespace Data
         public int   grade;          //등급
         public int      id;              //  고유번호
         public string   info;          //  설명
-        public Texture2D Icon;      //  아이콘(2D)
         public int      reinforce;       //  강화
         public int      weight;          //  아이템의 무게
 
