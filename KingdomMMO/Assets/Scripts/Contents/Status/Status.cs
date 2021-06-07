@@ -164,6 +164,12 @@ public class Status : MonoBehaviour
         //난수가 [명중률 - 회피율]보다 클경우(명중하지 않았을 경우)
         else
         {
+            //TODO : MISS 띄우기
+            PlayerStatus playerStatus = gameObject.GetComponent<PlayerStatus>();
+            GameObject missObject = Managers.Resource.Instantiate("UI/MissText");
+            missObject.transform.position = playerStatus.transform.position;
+
+            
             Debug.Log("Miss");
         }
     }
