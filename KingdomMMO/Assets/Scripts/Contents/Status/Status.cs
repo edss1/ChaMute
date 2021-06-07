@@ -94,6 +94,10 @@ public class Status : MonoBehaviour
     [SerializeField]
     protected int lucky;
 
+    GameObject missText;
+    GameObject criticalText;
+
+
     public int Level { get { return level; } set { level = value; } }
     public int Hp { get { return hp; } set { hp = value; } }
     public int MaxHp { get { return maxHp; } set { maxHp = value; } }
@@ -124,10 +128,9 @@ public class Status : MonoBehaviour
 
     void Start()
     {
-
+        
 
     }
-
 
 
     public virtual void OnAttacked(Status attacker)
@@ -144,6 +147,7 @@ public class Status : MonoBehaviour
             if (criticalRand <= attacker.Critical * 100)
             {
                 damage = (int)Mathf.Max(attacker.Attack * (1000 - Def) / 1000 * 1.8f - (Vit / 10) - Reduction, 0);
+                criticalText = Managers.Resource.Instantiate("UI/CriticalText", gameObject.transform);
                 Debug.Log("Critical!");
             }
             //난수가 크리티컬보다 클경우 (크리티컬이 안터졌을 경우) 데미지 계산
@@ -165,12 +169,7 @@ public class Status : MonoBehaviour
         else
         {
             //TODO : MISS 띄우기
-            PlayerStatus playerStatus = gameObject.GetComponent<PlayerStatus>();
-            GameObject missObject = Managers.Resource.Instantiate("UI/MissText");
-            missObject.transform.position = playerStatus.transform.position;
-
-            
-            Debug.Log("Miss");
+            missText = Managers.Resource.Instantiate("UI/MissText",gameObject.transform); 
         }
     }
 
