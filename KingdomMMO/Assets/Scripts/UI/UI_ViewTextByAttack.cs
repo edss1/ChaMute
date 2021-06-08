@@ -1,4 +1,17 @@
-﻿using System.Collections;
+﻿//UI_ViewTextByAttack 스크립트
+/*
+ * 작성일자 : 2021-06-08
+스크립트 설명 : 텍스트를 Object에 출력하는 스크립트
+스크립트 사용법 : 
+                 
+수정일자(1차) : 
+수정내용(1차) : 
+  
+수정일자(2차) : 
+수정내용(2차) : 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

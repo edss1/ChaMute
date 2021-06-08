@@ -69,6 +69,7 @@ public class EnemyController : BaseController
 
         NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
         nma.SetDestination(randomVec);
+
         patrolTime = 0;
         
         if( (transform.position-randomVec).magnitude<0.1f)
@@ -150,7 +151,6 @@ public class EnemyController : BaseController
             State = Define.State.Move;
         }
 
-       
     }
 
 
