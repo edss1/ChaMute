@@ -9,6 +9,7 @@
     
 수정일자(2차) : 05-11
 수정내용(2차) : Return State일때 tag 해제
+
 */
 
 using System.Collections;
@@ -27,6 +28,10 @@ public class EnemyController : BaseController
     private Vector3 randomVec;
     [SerializeField]
     private float patrolTime = 0.0f;
+
+    
+
+    float patrolCheckTime = 0.0f;
 
     public override void Init()
     {
@@ -53,6 +58,7 @@ public class EnemyController : BaseController
             State = Define.State.Patrol;
         }
 
+       
 
     }
 
@@ -71,9 +77,25 @@ public class EnemyController : BaseController
         nma.SetDestination(randomVec);
 
         patrolTime = 0;
-        
-        if( (transform.position-randomVec).magnitude<0.1f)
+
+        patrolCheckTime += Time.deltaTime;
+        Vector3 vec = this.transform.position;
+
+        /*
+        if (patrolCheckTime > 0.5f)
+        {
+            if (vec == transform.position)
+            {
+                State = Define.State.Idle;
+                patrolCheckTime = 0;
+                patrolTime = 0;
+            }
+        }
+        */
+
+        if ( (transform.position-randomVec).magnitude<0.1f)
         State = Define.State.Idle;
+
 
     }
 
@@ -191,4 +213,5 @@ public class EnemyController : BaseController
             State = Define.State.Idle;
         }
     }
+
 }
