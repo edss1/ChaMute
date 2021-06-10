@@ -1,0 +1,52 @@
+{
+  "accessories": [
+    {
+      "name"            : "Silver Ring",
+      "grade"           : "1",
+      "id"              : "31001",
+      "info"            : "은반지.",
+      "reinforce"       : "0",
+      "weight"          : "1",
+      "Str"             : "1",
+      "Dex"             : "0",
+      "Agi"             : "0",
+      "Vit"             : "0",
+      "Int"             : "0",
+      "Eng"             : "0",
+      "Luk"             : "0",
+      "def"             : "0",
+      "mDef"            : "0", 
+      "atk"             : "0",
+      "mAtk"            : "0",
+      "maxHp"           : "0",
+      "maxMana"         : "0"
+
+
+
+    },
+    {
+      "name"            : "Gold Ring",
+      "grade"           : "1",
+      "id"              : "31002",
+      "info"            : "금반지",
+      "reinforce"       : "0",
+      "weight"          : "1",
+      "Str"             : "0",
+      "Dex"             : "0",
+      "Agi"             : "0",
+      "Vit"             : "0",
+      "Int"             : "1",
+      "Eng"             : "0",
+      "Luk"             : "0",
+      "def"             : "0",
+      "mDef"            : "0", 
+      "atk"             : "0",
+      "mAtk"            : "0",
+      "maxHp"           : "0",
+      "maxMana"         : "0"
+
+
+
+    }
+  ]
+}
