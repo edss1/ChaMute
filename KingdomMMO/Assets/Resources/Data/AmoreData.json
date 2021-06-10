@@ -1,0 +1,42 @@
+{
+  "amores": [
+    {
+      "name"            : "Ladder Amore",
+      "grade"           : "1",
+      "id"              : "21001",
+      "info"            : "°¡º­¿î °¡Á×°©¿Ê.",
+      "reinforce"       : "0",
+      "weight"          : "30",
+      "def"             : "5",
+      "mDef"            : "0",
+      "material"        : "2",
+      "maxHp"           : "0",
+      "maxMana"         : "0",
+      "hpRegen"         : "0",
+      "mpRegen"         : "0",
+      "maxWeight"       : "0",
+      "flee"            : "0" 
+
+    },
+    {
+      "name"            : "Magic Lobe",
+      "grade"           : "1",
+      "id"              : "21002",
+      "info"            : "±âÃÊÀûÀÎ ¸¶¹ý»çÀÇ ·Îºê",
+      "reinforce"       : "0",
+      "weight"          : "10",
+      "def"             : "3",
+      "mDef"            : "5",
+      "maxHp"           : "0",
+      "maxMana"         : "0",
+      "material"        : "1",
+      "hpRegen"         : "0",
+      "mpRegen"         : "0",
+      "maxWeight"       : "0",
+      "flee"            : "0"
+
+
+
+    }
+  ]
+}

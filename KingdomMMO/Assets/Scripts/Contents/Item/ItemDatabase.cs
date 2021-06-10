@@ -7,7 +7,7 @@
 수정일자(1차) : 06-03
 수정내용(1차) : Item Class와 ItemData Class구분, Item을 List화 해서 AccessItemById함수를 이용해 itemID로 itemdata 접근
   
-수정일자(2차) : 
+수정일자(2차) : 06-10
 수정내용(2차) : 
 */
 
@@ -24,7 +24,7 @@ public class Item
     public string itemInfo;          //  설명
     public Sprite itemIcon;      //  아이콘(2D)
     public int itemReinforce;       //  강화
-    public int itemWeight;          //  아이템의 무게
+    public float itemWeight;          //  아이템의 무게
 
     [Header("무기 주 옵션")]
     public int itemAttack;          //  공격력
@@ -39,6 +39,7 @@ public class Item
     [Header("방어구 옵션")]
     public int itemDef;             //  방어력
     public int itemMDef;            //  마법방어력
+    public string itemMaterial;     //  방어구재질
 
     [Header("방어구 추가(보너스) 옵션")]
     public int itemMaxHp;           // 추가체력
@@ -78,6 +79,9 @@ public class Item
     public int itemGainRareMaterial;    // 레어자원 획득 부적
     public int itemGainCommonMaterial;  // 일반자원 획득 부적
 
+    public int itemSellingPrice;        //판매가격
+    public int itemBuyPrice;            //구매가격
+
     public Item(int _itemID, Define.ItemType type)
     {
 
@@ -85,6 +89,7 @@ public class Item
         {
             case Define.ItemType.Weapon:
                 {
+                    //공통옵션
                     Dictionary<int, Data.Weapon> dict = Managers.Data.WeaponDict;
                     Data.Weapon weapon = dict[_itemID];
 
@@ -117,23 +122,184 @@ public class Item
                     itemReinforce = weapon.reinforce;
                     itemWeight = weapon.weight;
 
+                    //무기옵션
                     itemAttack = weapon.attack;
                     itemMAttack = weapon.mAttack;
                     itemAtkSpeed = weapon.atkSpeed;
                     itemAtkRange = weapon.atkRange;
+                    itemHit = weapon.itemHit;
+                    itemCritical = weapon.itemCritical;
+
                 }
                 break;
+
             case Define.ItemType.Amore:
+                {
+                    //공통옵션
+                    Dictionary<int, Data.Amore> dict = Managers.Data.AmoreDict;
+                    Data.Amore amore = dict[_itemID];
+
+                    itemID = _itemID;
+                    itemName = amore.name;
+                    switch (amore.grade)
+                    {
+                        case 1:
+                            itemGrade = "common";
+                            break;
+                        case 2:
+                            itemGrade = "uncommon";
+                            break;
+                        case 3:
+                            itemGrade = "rare";
+                            break;
+                        case 4:
+                            itemGrade = "unique";
+                            break;
+                        case 5:
+                            itemGrade = "legendary";
+                            break;
+                        default:
+                            itemGrade = "Error";
+                            break;
+                    }
+                    itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
+                    itemInfo = amore.info;
+                    itemReinforce = amore.reinforce;
+                    itemWeight = amore.weight;
+
+                    //방어구 옵션
+                    itemDef = amore.def;
+                    itemMDef = amore.mDef;
+
+                    switch (amore.material)
+                    {
+                        case 1:
+                            itemMaterial = "천";
+                            break;
+                        case 2:
+                            itemMaterial = "가죽";
+                            break;
+                        case 3:
+                            itemMaterial = "판금";
+                            break;
+                    }
+
+                    itemMaxHp = amore.maxHp;
+                    itemMaxMana = amore.maxMana;
+                    itemHpRegen = amore.hpRegen;
+                    itemMpRegen = amore.mpRegen;
+                    itemMaxWeight = amore.maxWeight;
+                    itemFlee = amore.flee;
+                }
                 break;
+
             case Define.ItemType.Accessory:
+                {
+                    //공통옵션
+                    Dictionary<int, Data.Accessory> dict = Managers.Data.AccessoryDict;
+                    Data.Accessory accessory = dict[_itemID];
+
+                    itemID = _itemID;
+                    itemName = accessory.name;
+                    switch (accessory.grade)
+                    {
+                        case 1:
+                            itemGrade = "common";
+                            break;
+                        case 2:
+                            itemGrade = "uncommon";
+                            break;
+                        case 3:
+                            itemGrade = "rare";
+                            break;
+                        case 4:
+                            itemGrade = "unique";
+                            break;
+                        case 5:
+                            itemGrade = "legendary";
+                            break;
+                        default:
+                            itemGrade = "Error";
+                            break;
+                    }
+                    itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
+                    itemInfo = accessory.info;
+                    itemReinforce = accessory.reinforce;
+                    itemWeight = accessory.weight;
+
+                    itemStr = accessory.Str;
+                    itemDex = accessory.Dex;
+                    itemAgi = accessory.Agi;
+                    itemVit = accessory.Vit;
+                    itemInt = accessory.Int;
+                    itemEng = accessory.Eng;
+                    itemLuk = accessory.Luk;
+                    itemAccessoryDef = accessory.def;
+                    itemAccessoryMDef = accessory.mDef;
+                    itemAccessoryAtk = accessory.atk;
+                    itemAccessoryMAtk = accessory.mAtk;
+                    itemAccessoryMaxHp = accessory.maxHp;
+                    itemAccessoryMaxMana = accessory.maxMana;
+                }
                 break;
             case Define.ItemType.Material:
+                {
+                    //공통옵션
+                    Dictionary<int, Data.Material> dict = Managers.Data.MaterialDict;
+                    Data.Material material = dict[_itemID];
+
+                    itemID = _itemID;
+                    itemName = material.name;
+                    switch (material.grade)
+                    {
+                        case 1:
+                            itemGrade = "common";
+                            break;
+                        case 2:
+                            itemGrade = "uncommon";
+                            break;
+                        case 3:
+                            itemGrade = "rare";
+                            break;
+                        case 4:
+                            itemGrade = "unique";
+                            break;
+                        case 5:
+                            itemGrade = "legendary";
+                            break;
+                        default:
+                            itemGrade = "Error";
+                            break;
+                    }
+                    itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
+                    itemInfo = material.info;
+                    itemWeight = material.weight;
+                    itemSellingPrice = material.sellingPrice;
+                }
                 break;
             case Define.ItemType.Useable:
+                {
+                    //공통옵션
+                    Dictionary<int, Data.Useable> dict = Managers.Data.UseableDict;
+                    Data.Useable useable = dict[_itemID];
+
+                    itemID = _itemID;
+                    itemName = useable.name;
+                    itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
+                    itemInfo = useable.info;
+                    itemWeight = useable.weight;
+                    itemSellingPrice = useable.sellingPrice;
+
+                    itemBuyPrice = useable.buyPrice;
+                    itemPotionHp = useable.potionHp;
+                    itemPotionManaRegen = useable.potionManaRegen;
+                    itemPotionMoveSpeed = useable.potionMoveSpeed;
+                    itemPotionAtkSpeed = useable.potionAtkSpeed;
+                    itemPotionAtk = useable.potionAtk;
+                    itemPotionMAtk = useable.potionMAtk;
+                }
                 break;
             case Define.ItemType.Blueprint:
-                break;
-            case Define.ItemType.Goods:
                 break;
             case Define.ItemType.Charm:
                 break;
@@ -177,7 +343,11 @@ public class ItemDatabase : MonoBehaviour
     //database List에 Item 추가 (itemId, Item타입)
     void AddItemToList()
     {
-            database.Add(new Item(11001, Define.ItemType.Weapon));
-            database.Add(new Item(11002, Define.ItemType.Weapon));
+        database.Add(new Item(11001, Define.ItemType.Weapon));
+        database.Add(new Item(11002, Define.ItemType.Weapon));
+        database.Add(new Item(21001, Define.ItemType.Amore));
+        database.Add(new Item(31001, Define.ItemType.Accessory));
+        database.Add(new Item(41001, Define.ItemType.Material));
+        database.Add(new Item(51001, Define.ItemType.Useable));
     }
 }

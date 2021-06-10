@@ -28,17 +28,20 @@ public class DataManager
     //데이터를 늘린다면 이줄이랑
     public Dictionary<int, Data.Stat> StatDict { get; private set; } = new Dictionary<int, Data.Stat>();
     public Dictionary<int, Data.Weapon> WeaponDict { get; private set; } = new Dictionary<int, Data.Weapon>();
-   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
-   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
-   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
-   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
-   //public Dictionary<int, Data.Item> ItemDict { get; private set; } = new Dictionary<int, Data.Item>();
-
+    public Dictionary<int, Data.Amore> AmoreDict { get; private set; } = new Dictionary<int, Data.Amore>();
+    public Dictionary<int, Data.Accessory> AccessoryDict { get; private set; } = new Dictionary<int, Data.Accessory>();
+    public Dictionary<int, Data.Material> MaterialDict { get; private set; } = new Dictionary<int, Data.Material>();
+    public Dictionary<int, Data.Useable> UseableDict { get; private set; } = new Dictionary<int, Data.Useable>();
+   
     public void Init()
     {
         //이것 추가
         StatDict = LoadJson<Data.StatData, int, Data.Stat>("StatData").MakeDict();
         WeaponDict = LoadJson<Data.WeaponData, int, Data.Weapon>("WeaponData").MakeDict();
+        AmoreDict = LoadJson<Data.AmoreData, int, Data.Amore>("AmoreData").MakeDict();
+        AccessoryDict = LoadJson<Data.AccessoryData, int, Data.Accessory>("AccessoryData").MakeDict();
+        MaterialDict = LoadJson<Data.MaterialData, int, Data.Material>("MaterialData").MakeDict();
+        UseableDict = LoadJson<Data.UseableData, int, Data.Useable>("UseableData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key,Value>

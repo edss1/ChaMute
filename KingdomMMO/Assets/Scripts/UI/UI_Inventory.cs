@@ -1,4 +1,15 @@
-﻿using System.Collections;
+﻿//UI_Inventory 스크립트
+/*
+ * 작성일자 : 2021-06-02
+스크립트 설명 : 인벤토리 스크립트
+스크립트 사용법 : 
+                 
+수정일자(1차) : 
+수정내용(1차) : 
+
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,8 +46,13 @@ public class UI_Inventory : MonoBehaviour
             slots[i].transform.SetParent(slotPanel.transform);
         }
 
+        //****(중요)****AddItem 사용시, ItemDatabase.cs의 AddItemToList에서 database 추가해야 작동함
         AddItem(11001);
         AddItem(11002);
+        AddItem(21001);
+        AddItem(31001);
+        AddItem(41001);
+        AddItem(51001);
     }
 
     public void AddItem(int id)

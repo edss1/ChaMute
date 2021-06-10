@@ -1,0 +1,40 @@
+{
+  "useables": [
+    {
+      "name": "Red Potion",
+      "id": "51001",
+      "info": "체력을 회복하는 빨간색 포션이다",
+      "weight": "0.1",
+      "sellingPrice": "10",
+      "itemBuyPrice": "50",
+
+      "itemPotionHp": "30",
+      "itemPotionManaRegen": "0",
+      "itemPotionMoveSpeed": "0",
+      "itemPotionAtkSpeed": "0",
+      "itemPotionAtk": "0",
+      "itemPotionMAtk": "0"
+
+
+
+
+
+    },
+    {
+      "name": "Blue Potion",
+      "id": "51002",
+      "info": "마나 회복속도를 빠르게 해주는 파란색 포션이다",
+      "weight": "0.1",
+      "sellingPrice": "20",
+      "itemBuyPrice": "100",
+
+      "itemPotionHp": "0",
+      "itemPotionManaRegen": "5",
+      "itemPotionMoveSpeed": "0",
+      "itemPotionAtkSpeed": "0",
+      "itemPotionAtk": "0",
+      "itemPotionMAtk": "0"
+
+    }
+  ]
+}
