@@ -1,0 +1,26 @@
+{
+  "blueprints": [
+    {
+      "name"            : "UncommonBlueprint",
+      "grade"           : "1",
+      "id"              : "61001",
+      "info"            : "종이",
+      "weight"          : "0.1",
+      "sellingPrice"    : "5"
+
+
+
+    },
+    {
+      "name"            : "CommonBlueprint",
+      "grade"           : "2",
+      "id"              : "62001",
+      "info"            : "종이",
+      "weight"          : "0.1",
+      "sellingPrice"    : "10"
+
+
+
+    }
+  ]
+}

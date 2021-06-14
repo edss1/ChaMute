@@ -19,6 +19,8 @@ public class UI_Inventory : MonoBehaviour
 {
     GameObject inventoryPanel;
     GameObject slotPanel;
+    [SerializeField]
+    GameObject itemData;
     ItemDatabase database;
 
     [SerializeField]
@@ -33,10 +35,11 @@ public class UI_Inventory : MonoBehaviour
 
     private void Start()
     {
-        database = GetComponent<ItemDatabase>();
+        
+        database = itemData.GetComponent<ItemDatabase>();
 
-        slotAmount = 20;
-        inventoryPanel = GameObject.Find("Inventory Panel");
+        slotAmount = 30;
+        inventoryPanel = GameObject.Find("InventoryPanel");
         slotPanel = inventoryPanel.transform.Find("Slot Panel").gameObject;
 
         for (int i = 0; i < slotAmount; i++)
@@ -53,6 +56,9 @@ public class UI_Inventory : MonoBehaviour
         AddItem(31001);
         AddItem(41001);
         AddItem(51001);
+        AddItem(61001);
+        AddItem(62001);
+        AddItem(71001);
     }
 
     public void AddItem(int id)

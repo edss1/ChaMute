@@ -1,0 +1,27 @@
+{
+  "charms": [
+    {
+      "name"               : "ExpCharm",
+      "id"                 : "71001",
+      "info"               : "경험치를 증가시켜주는 부적",
+      "weight"             : "0",
+      "gainExp"            : "1.0",
+      "gainGold"           : "0.0",
+      "gainRareMaterial"   : "0.0",
+      "gainCommonMaterial" : "0.0"
+
+
+
+    },
+    {
+      "name"               : "GoldCharm",
+      "id"                 : "71002",
+      "info"               : "골드 획득량을 증가시켜주는 부적",
+      "weight"             : "0",
+      "gainExp"            : "0.0",
+      "gainGold"           : "1.0",
+      "gainRareMaterial"   : "0.0",
+      "gainCommonMaterial" : "0.0"
+    }
+  ]
+}

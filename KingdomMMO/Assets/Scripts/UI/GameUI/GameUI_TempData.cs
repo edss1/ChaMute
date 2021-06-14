@@ -36,7 +36,6 @@ public class GameUI_TempData : MonoBehaviour
         tempDataExitButton.onClick.AddListener(ExitButton);
     }
 
-    //일시정지 활성화
     void PopupButton()
     {
         tempDataImage.gameObject.SetActive(true);

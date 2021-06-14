@@ -32,6 +32,8 @@ public class DataManager
     public Dictionary<int, Data.Accessory> AccessoryDict { get; private set; } = new Dictionary<int, Data.Accessory>();
     public Dictionary<int, Data.Material> MaterialDict { get; private set; } = new Dictionary<int, Data.Material>();
     public Dictionary<int, Data.Useable> UseableDict { get; private set; } = new Dictionary<int, Data.Useable>();
+    public Dictionary<int, Data.Blueprint> BlueprintDict { get; private set; } = new Dictionary<int, Data.Blueprint>();
+    public Dictionary<int, Data.Charm> CharmDict { get; private set; } = new Dictionary<int, Data.Charm>();
    
     public void Init()
     {
@@ -42,6 +44,8 @@ public class DataManager
         AccessoryDict = LoadJson<Data.AccessoryData, int, Data.Accessory>("AccessoryData").MakeDict();
         MaterialDict = LoadJson<Data.MaterialData, int, Data.Material>("MaterialData").MakeDict();
         UseableDict = LoadJson<Data.UseableData, int, Data.Useable>("UseableData").MakeDict();
+        BlueprintDict = LoadJson<Data.BlueprintData, int, Data.Blueprint>("BlueprintData").MakeDict();
+        CharmDict = LoadJson<Data.CharmData, int, Data.Charm>("CharmData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key,Value>

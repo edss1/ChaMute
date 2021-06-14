@@ -74,62 +74,61 @@ public class Item
     public int itemPotionMAtk;      // 마법공격력 포션
 
     [Header("부적 옵션")]
-    public int itemGainExp;             // 경험치 획득 부적
-    public int itemGainGold;            // 골드 획득 부적
-    public int itemGainRareMaterial;    // 레어자원 획득 부적
-    public int itemGainCommonMaterial;  // 일반자원 획득 부적
+    public float itemGainExp;             // 경험치 획득 부적
+    public float itemGainGold;            // 골드 획득 부적
+    public float itemGainRareMaterial;    // 레어자원 획득 부적
+    public float itemGainCommonMaterial;  // 일반자원 획득 부적
 
     public int itemSellingPrice;        //판매가격
     public int itemBuyPrice;            //구매가격
 
     public Item(int _itemID, Define.ItemType type)
     {
-
         switch (type)
         {
             case Define.ItemType.Weapon:
                 {
                     //공통옵션
                     Dictionary<int, Data.Weapon> dict = Managers.Data.WeaponDict;
-                    Data.Weapon weapon = dict[_itemID];
 
-                    itemID = _itemID;
-                    itemName = weapon.name;
-                    switch (weapon.grade)
-                    {
-                        case 1:
-                            itemGrade = "common";
-                            break;
-                        case 2:
-                            itemGrade = "uncommon";
-                            break;
-                        case 3:
-                            itemGrade = "rare";
-                            break;
-                        case 4:
-                            itemGrade = "unique";
-                            break;
-                        case 5:
-                            itemGrade = "legendary";
-                            break;
-                        default:
-                            itemGrade = "Error";
-                            break;
-                    }
-                    itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
+                        Data.Weapon weapon = dict[_itemID];
 
-                    itemInfo = weapon.info;
-                    itemReinforce = weapon.reinforce;
-                    itemWeight = weapon.weight;
+                        itemID = _itemID;
+                        itemName = weapon.name;
+                        switch (weapon.grade)
+                        {
+                            case 1:
+                                itemGrade = "common";
+                                break;
+                            case 2:
+                                itemGrade = "uncommon";
+                                break;
+                            case 3:
+                                itemGrade = "rare";
+                                break;
+                            case 4:
+                                itemGrade = "unique";
+                                break;
+                            case 5:
+                                itemGrade = "legendary";
+                                break;
+                            default:
+                                itemGrade = "Error";
+                                break;
+                        }
+                        itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
 
-                    //무기옵션
-                    itemAttack = weapon.attack;
-                    itemMAttack = weapon.mAttack;
-                    itemAtkSpeed = weapon.atkSpeed;
-                    itemAtkRange = weapon.atkRange;
-                    itemHit = weapon.itemHit;
-                    itemCritical = weapon.itemCritical;
+                        itemInfo = weapon.info;
+                        itemReinforce = weapon.reinforce;
+                        itemWeight = weapon.weight;
 
+                        //무기옵션
+                        itemAttack = weapon.attack;
+                        itemMAttack = weapon.mAttack;
+                        itemAtkSpeed = weapon.atkSpeed;
+                        itemAtkRange = weapon.atkRange;
+                        itemHit = weapon.itemHit;
+                        itemCritical = weapon.itemCritical;
                 }
                 break;
 
@@ -300,8 +299,58 @@ public class Item
                 }
                 break;
             case Define.ItemType.Blueprint:
+                {
+                    Dictionary<int, Data.Blueprint> dict = Managers.Data.BlueprintDict;
+                    Data.Blueprint blueprint = dict[_itemID];
+
+                    itemID = _itemID;
+                    itemName = blueprint.name;
+                    switch (blueprint.grade)
+                    {
+                        case 1:
+                            itemGrade = "common";
+                            break;
+                        case 2:
+                            itemGrade = "uncommon";
+                            break;
+                        case 3:
+                            itemGrade = "rare";
+                            break;
+                        case 4:
+                            itemGrade = "unique";
+                            break;
+                        case 5:
+                            itemGrade = "legendary";
+                            break;
+                        default:
+                            itemGrade = "Error";
+                            break;
+                    }
+                    itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
+                    itemInfo = blueprint.info;
+                    itemWeight = blueprint.weight;
+                    itemSellingPrice = blueprint.sellingPrice;
+
+                }
                 break;
             case Define.ItemType.Charm:
+                {
+                    //공통옵션
+                    Dictionary<int, Data.Charm> dict = Managers.Data.CharmDict;
+                    Data.Charm charm = dict[_itemID];
+
+                    itemID = _itemID;
+                    itemName = charm.name;
+                    itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
+                    itemInfo = charm.info;
+                    itemWeight = charm.weight;
+
+                    itemGainExp             = charm.gainExp;
+                    itemGainGold            = charm.gainGold;
+                    itemGainCommonMaterial  = charm.gainCommonMaterial;
+                    itemGainRareMaterial    = charm.gainRareMaterial;
+                        
+                }
                 break;
             case Define.ItemType.QuestItem:
                 break;
@@ -343,11 +392,15 @@ public class ItemDatabase : MonoBehaviour
     //database List에 Item 추가 (itemId, Item타입)
     void AddItemToList()
     {
+        
         database.Add(new Item(11001, Define.ItemType.Weapon));
         database.Add(new Item(11002, Define.ItemType.Weapon));
         database.Add(new Item(21001, Define.ItemType.Amore));
         database.Add(new Item(31001, Define.ItemType.Accessory));
         database.Add(new Item(41001, Define.ItemType.Material));
         database.Add(new Item(51001, Define.ItemType.Useable));
+        database.Add(new Item(61001, Define.ItemType.Blueprint));
+        database.Add(new Item(62001, Define.ItemType.Blueprint));
+        database.Add(new Item(71001, Define.ItemType.Charm));
     }
 }

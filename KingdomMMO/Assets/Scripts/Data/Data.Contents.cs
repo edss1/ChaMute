@@ -85,14 +85,6 @@ namespace Data
         public int      itemReinforce;       //  강화
         public int      itemWeight;          //  아이템의 무게
 
-        [Header("소모품 옵션")]
-        public int itemPotionHp;        // 체력포션
-        public int itemPotionManaRegen; // 마나리젠포션
-        public int itemPotionMoveSpeed; // 이동속도 포션
-        public int itemPotionAtkSpeed;  // 공격속도 포션
-        public int itemPotionAtk;       // 공격력 포션
-        public int itemPotionMAtk;      // 마법공격력 포션
-
         [Header("부적 옵션")]
         public int itemGainExp;             // 경험치 획득 부적
         public int itemGainGold;            // 골드 획득 부적
@@ -309,6 +301,73 @@ namespace Data
             Dictionary<int, Useable> dict = new Dictionary<int, Useable>();
             foreach (Useable useable in useables)
                 dict.Add(useable.id, useable);
+            return dict;
+        }
+    }
+
+
+    #endregion
+
+    #region Blueprint
+
+    [Serializable]
+    public class Blueprint
+    {
+        [Header("아이템 공통옵션")]
+        public string name;         //  이름
+        public int grade;          //등급
+        public int id;              //  고유번호
+        public string info;          //  설명
+        public float weight;          //  아이템의 무게
+        public int sellingPrice;    // 판매가격
+
+    }
+
+    [Serializable]
+    public class BlueprintData : ILoader<int, Blueprint>
+    {
+        public List<Blueprint> blueprints = new List<Blueprint>();
+
+        public Dictionary<int, Blueprint> MakeDict()
+        {
+            Dictionary<int, Blueprint> dict = new Dictionary<int, Blueprint>();
+            foreach (Blueprint blueprint in blueprints)
+                dict.Add(blueprint.id, blueprint);
+            return dict;
+        }
+    }
+
+    #endregion
+
+    #region Charm
+
+    [Serializable]
+    public class Charm
+    {
+        [Header("아이템 공통옵션")]
+        public string name;         //  이름
+        public int id;              //  고유번호
+        public string info;          //  설명
+        public float weight;          //  아이템의 무게
+
+        [Header("부적 옵션")]
+        public float gainExp;             // 경험치 획득 부적
+        public float gainGold;            // 골드 획득 부적
+        public float gainRareMaterial;    // 레어자원 획득 부적
+        public float gainCommonMaterial;  // 일반자원 획득 부적
+
+    }
+
+    [Serializable]
+    public class CharmData : ILoader<int, Charm>
+    {
+        public List<Charm> charms = new List<Charm>();
+
+        public Dictionary<int, Charm> MakeDict()
+        {
+            Dictionary<int, Charm> dict = new Dictionary<int, Charm>();
+            foreach (Charm charm in charms)
+                dict.Add(charm.id, charm);
             return dict;
         }
     }
