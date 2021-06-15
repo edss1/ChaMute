@@ -82,6 +82,8 @@ public class Item
     public int itemSellingPrice;        //판매가격
     public int itemBuyPrice;            //구매가격
 
+    public Define.ItemType itemType;
+
     public Item(int _itemID, Define.ItemType type)
     {
         switch (type)
@@ -93,6 +95,7 @@ public class Item
 
                         Data.Weapon weapon = dict[_itemID];
 
+                    itemType = Define.ItemType.Weapon;
                         itemID = _itemID;
                         itemName = weapon.name;
                         switch (weapon.grade)
@@ -138,6 +141,7 @@ public class Item
                     Dictionary<int, Data.Amore> dict = Managers.Data.AmoreDict;
                     Data.Amore amore = dict[_itemID];
 
+                    itemType = Define.ItemType.Amore;
                     itemID = _itemID;
                     itemName = amore.name;
                     switch (amore.grade)
@@ -198,6 +202,7 @@ public class Item
                     Dictionary<int, Data.Accessory> dict = Managers.Data.AccessoryDict;
                     Data.Accessory accessory = dict[_itemID];
 
+                    itemType = Define.ItemType.Accessory;
                     itemID = _itemID;
                     itemName = accessory.name;
                     switch (accessory.grade)
@@ -247,6 +252,7 @@ public class Item
                     Dictionary<int, Data.Material> dict = Managers.Data.MaterialDict;
                     Data.Material material = dict[_itemID];
 
+                    itemType = Define.ItemType.Material;
                     itemID = _itemID;
                     itemName = material.name;
                     switch (material.grade)
@@ -282,6 +288,7 @@ public class Item
                     Dictionary<int, Data.Useable> dict = Managers.Data.UseableDict;
                     Data.Useable useable = dict[_itemID];
 
+                    itemType = Define.ItemType.Useable;
                     itemID = _itemID;
                     itemName = useable.name;
                     itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
@@ -303,6 +310,7 @@ public class Item
                     Dictionary<int, Data.Blueprint> dict = Managers.Data.BlueprintDict;
                     Data.Blueprint blueprint = dict[_itemID];
 
+                    itemType = Define.ItemType.Blueprint;
                     itemID = _itemID;
                     itemName = blueprint.name;
                     switch (blueprint.grade)
@@ -339,6 +347,7 @@ public class Item
                     Dictionary<int, Data.Charm> dict = Managers.Data.CharmDict;
                     Data.Charm charm = dict[_itemID];
 
+                    itemType = Define.ItemType.Charm;
                     itemID = _itemID;
                     itemName = charm.name;
                     itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
