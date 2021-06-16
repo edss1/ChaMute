@@ -130,8 +130,9 @@ namespace Data
         public float    atkRange;      //  공격 사거리
 
         [Header("무기 추가(보너스) 옵션")]
-        public int itemHit;             //  추가 명중률
-        public int itemCritical;        //  추가 크리티컬
+        public int hit;             //  추가 명중률
+        public int critical;        //  추가 크리티컬
+        public int criticalDmg;     //  추가 크리티컬 데미지
 
     }
 

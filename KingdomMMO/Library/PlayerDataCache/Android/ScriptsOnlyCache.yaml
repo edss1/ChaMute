@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - GameUI_TempData
     - ItemDatabase
     - MainScene
+    - MainUI_Inventory
     - PlayerController
     - PlayerStatus
     - UI_HpBar
@@ -75,33 +76,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11236}
     - Class: 114
-      Script: {instanceID: 11346}
+      Script: {instanceID: 11342}
     - Class: 114
-      Script: {instanceID: 11424}
+      Script: {instanceID: 11420}
+    - Class: 114
+      Script: {instanceID: 11630}
     - Class: 114
       Script: {instanceID: 11634}
     - Class: 114
-      Script: {instanceID: 11638}
+      Script: {instanceID: 11858}
     - Class: 114
-      Script: {instanceID: 11862}
+      Script: {instanceID: 11888}
     - Class: 114
-      Script: {instanceID: 11892}
+      Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 11956}
+      Script: {instanceID: 12192}
     - Class: 114
       Script: {instanceID: 12196}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 12268}
     - Class: 114
-      Script: {instanceID: 12272}
+      Script: {instanceID: 12702}
     - Class: 114
-      Script: {instanceID: 12704}
+      Script: {instanceID: 12754}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 13120}
     - Class: 114
-      Script: {instanceID: 13122}
-    - Class: 114
-      Script: {instanceID: 13174}
+      Script: {instanceID: 13172}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -172,39 +173,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11236}
     - Class: 114
-      Script: {instanceID: 11346}
+      Script: {instanceID: 11342}
     - Class: 114
-      Script: {instanceID: 11374}
+      Script: {instanceID: 11370}
     - Class: 114
-      Script: {instanceID: 11424}
+      Script: {instanceID: 11420}
     - Class: 114
-      Script: {instanceID: 11516}
+      Script: {instanceID: 11512}
     - Class: 114
-      Script: {instanceID: 11634}
+      Script: {instanceID: 11630}
     - Class: 114
-      Script: {instanceID: 11696}
+      Script: {instanceID: 11692}
     - Class: 114
-      Script: {instanceID: 11862}
+      Script: {instanceID: 11858}
     - Class: 114
-      Script: {instanceID: 11892}
+      Script: {instanceID: 11888}
     - Class: 114
-      Script: {instanceID: 11956}
+      Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 12046}
+      Script: {instanceID: 12042}
     - Class: 114
-      Script: {instanceID: 12196}
+      Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12424}
+      Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 12488}
+      Script: {instanceID: 12422}
     - Class: 114
-      Script: {instanceID: 12574}
+      Script: {instanceID: 12486}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12572}
     - Class: 114
-      Script: {instanceID: 13122}
+      Script: {instanceID: 12754}
     - Class: 114
-      Script: {instanceID: 13174}
+      Script: {instanceID: 13120}
+    - Class: 114
+      Script: {instanceID: 13172}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -570,6 +573,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 389179a99a933f46039e62d03b091c83
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainUI_Inventory
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -636,7 +645,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: c8be56f82bd708e79c2edaf357ad5244
+      Hash: d9cf225850c4829eb1267412b2e44dea
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_Inventory

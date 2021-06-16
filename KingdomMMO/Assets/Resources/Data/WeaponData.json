@@ -11,9 +11,9 @@
       "mAttack"         : "0",
       "atkSpeed"        : "1.0",
       "atkRange"        : "2.0",
-      "itemHit"         : "0",
-      "itemCritical"    : "0"
-
+      "hit"             : "0",
+      "critical"        : "0",
+      "criticalDmg"     : "0"
     },
     {
       "name"            : "╫ц╧лем",
@@ -26,8 +26,11 @@
       "mAttack"         : "0",
       "atkSpeed"        : "1.2",
       "atkRange"        : "3.0",
-      "itemHit"         : "0",
-      "itemCritical"    : "0"
+      "hit"             : "0",
+      "critical"        : "0",
+      "criticalDmg"     : "0"
+
+
     }
   ]
 }
