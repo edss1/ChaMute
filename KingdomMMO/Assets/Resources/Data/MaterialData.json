@@ -1,10 +1,10 @@
-{
+Ôªø{
   "materials": [
     {
       "name"            : "Silver",
       "grade"           : "1",
       "id"              : "41001",
-      "info"            : "¿∫.",
+      "info"            : "ÏùÄ.",
       "weight"          : "0.1",
       "sellingPrice"    : "10"
 
@@ -15,7 +15,7 @@
       "name"            : "Gold",
       "grade"           : "1",
       "id"              : "41002",
-      "info"            : "±›",
+      "info"            : "Í∏à",
       "weight"          : "0.1",
       "sellingPrice"    : "15"
 

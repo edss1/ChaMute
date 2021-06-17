@@ -297,8 +297,8 @@ public class Item
                     itemInfo = useable.info;
                     itemWeight = useable.weight;
                     itemSellingPrice = useable.sellingPrice;
-
                     itemBuyPrice = useable.buyPrice;
+
                     itemPotionHp = useable.potionHp;
                     itemPotionManaRegen = useable.potionManaRegen;
                     itemPotionMoveSpeed = useable.potionMoveSpeed;

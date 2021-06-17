@@ -1,10 +1,10 @@
-{
+Ôªø{
   "accessories": [
     {
       "name"            : "Silver Ring",
       "grade"           : "1",
       "id"              : "31001",
-      "info"            : "¿∫π›¡ˆ.",
+      "info"            : "ÏùÄÎ∞òÏßÄ.",
       "reinforce"       : "0",
       "weight"          : "1",
       "Str"             : "1",
@@ -19,7 +19,7 @@
       "atk"             : "0",
       "mAtk"            : "0",
       "maxHp"           : "0",
-      "maxMana"         : "0"
+      "maxMana"         : "5"
 
 
 
@@ -28,7 +28,7 @@
       "name"            : "Gold Ring",
       "grade"           : "1",
       "id"              : "31002",
-      "info"            : "±›π›¡ˆ",
+      "info"            : "Í∏àÎ∞òÏßÄ",
       "reinforce"       : "0",
       "weight"          : "1",
       "Str"             : "0",
