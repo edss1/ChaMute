@@ -18,61 +18,61 @@ using UnityEngine;
 public class Item
 {
     [Header("아이템 공통옵션")]
-    public string itemName;         //  이름
-    public string itemGrade;        //  등급
-    public int itemID;              //  고유번호
-    public string itemInfo;          //  설명
-    public Sprite itemIcon;      //  아이콘(2D)
-    public int itemReinforce;       //  강화
-    public float itemWeight;          //  아이템의 무게
+    public string itemName;                 //  이름
+    public string itemGrade;                //  등급
+    public int itemID;                      //  고유번호
+    public string itemInfo;                  //  설명
+    public Sprite itemIcon;                 //  아이콘(2D)
+    public int itemReinforce;               //  강화
+    public float itemWeight;                  //  아이템의 무게
 
     [Header("무기 주 옵션")]
-    public int itemAttack;          //  공격력
-    public int itemMAttack;         //  마법공격력 
-    public float itemAtkSpeed;      //  공격속도
-    public float itemAtkRange;      //  공격 사거리
+    public int itemAttack;                  //  공격력
+    public int itemMAttack;                 //  마법공격력 
+    public float itemAtkSpeed;              //  공격속도
+    public float itemAtkRange;              //  공격 사거리
 
-    [Header("무기 추가(보너스) 옵션")]
-    public int itemHit;             //  추가 명중률
-    public int itemCritical;        //  추가 크리티컬
-    public int itemCriticalDamage;  //  추가 크리티컬 데미지
+    [Header("무기 추가(보너스) 옵션")]   
+    public int itemHit;                     //  추가 명중률
+    public int itemCritical;                //  추가 크리티컬
+    public int itemCriticalDamage;          //  추가 크리티컬 데미지
 
     [Header("방어구 옵션")]
-    public int itemDef;             //  방어력
-    public int itemMDef;            //  마법방어력
-    public string itemMaterial = "";     //  방어구재질
+    public int itemDef;                     //  방어력
+    public int itemMDef;                    //  마법방어력
+    public string itemMaterial = "";        //  방어구재질
 
     [Header("방어구 추가(보너스) 옵션")]
-    public int itemMaxHp;           // 추가체력
-    public int itemMaxMana;         // 추가마나
-    public int itemHpRegen;         // 추가 체력회복력    
-    public int itemMpRegen;         // 추가 마나회복력
-    public int itemMaxWeight;       // 추가 소지량
-    public int itemFlee;            // 추가 회피력
+    public int itemMaxHp;                   // 추가체력
+    public int itemMaxMana;                 // 추가마나
+    public int itemHpRegen;                 // 추가 체력회복력    
+    public int itemMpRegen;                 // 추가 마나회복력
+    public int itemMaxWeight;               // 추가 소지량
+    public int itemFlee;                    // 추가 회피력
 
 
     [Header("악세서리 옵션")]
-    public int itemStr;             // 추가 힘
-    public int itemDex;             // 추가 덱스
-    public int itemAgi;             // 추가 어질
-    public int itemVit;             // 추가 바탈
-    public int itemInt;             // 추가 인트
-    public int itemEng;             // 추가 에너지
-    public int itemLuk;             // 추가 럭
-    public int itemAccessoryDef;    // 추가 악세방어
-    public int itemAccessoryMDef;   // 추가 악세마방
-    public int itemAccessoryAtk;    // 추가 공격력
-    public int itemAccessoryMAtk;   // 추가 마법공격력
-    public int itemAccessoryMaxHp;  // 추가 체력
-    public int itemAccessoryMaxMana;// 추가 마나
+    public int itemStr;                     // 추가 힘
+    public int itemDex;                     // 추가 덱스
+    public int itemAgi;                     // 추가 어질
+    public int itemVit;                     // 추가 바탈
+    public int itemInt;                     // 추가 인트
+    public int itemEng;                     // 추가 에너지
+    public int itemLuk;                     // 추가 럭
+    public int itemAccessoryDef;            // 추가 악세방어
+    public int itemAccessoryMDef;           // 추가 악세마방
+    public int itemAccessoryAtk;            // 추가 공격력
+    public int itemAccessoryMAtk;           // 추가 마법공격력
+    public int itemAccessoryMaxHp;          // 추가 체력
+    public int itemAccessoryMaxMana;        // 추가 마나
 
     [Header("소모품 옵션")]
-    public int itemPotionHp;        // 체력포션
-    public int itemPotionManaRegen; // 마나리젠포션
-    public int itemPotionMoveSpeed; // 이동속도 포션
-    public int itemPotionAtkSpeed;  // 공격속도 포션
-    public int itemPotionAtk;       // 공격력 포션
-    public int itemPotionMAtk;      // 마법공격력 포션
+    public int itemPotionHp;                // 체력포션
+    public int itemPotionManaRegen;         // 마나리젠포션
+    public int itemPotionMoveSpeed;         // 이동속도 포션
+    public int itemPotionAtkSpeed;          // 공격속도 포션
+    public int itemPotionAtk;               // 공격력 포션
+    public int itemPotionMAtk;              // 마법공격력 포션
 
     [Header("부적 옵션")]
     public float itemGainExp;             // 경험치 획득 부적
@@ -80,8 +80,8 @@ public class Item
     public float itemGainRareMaterial;    // 레어자원 획득 부적
     public float itemGainCommonMaterial;  // 일반자원 획득 부적
 
-    public int itemSellingPrice;        //판매가격
-    public int itemBuyPrice;            //구매가격
+    public int itemSellingPrice;                //판매가격
+    public int itemBuyPrice;                    //구매가격
 
     public Define.ItemType itemType;
 
@@ -307,6 +307,7 @@ public class Item
                     itemPotionMAtk = useable.potionMAtk;
                 }
                 break;
+
             case Define.ItemType.Blueprint:
                 {
                     Dictionary<int, Data.Blueprint> dict = Managers.Data.BlueprintDict;
@@ -343,6 +344,7 @@ public class Item
 
                 }
                 break;
+
             case Define.ItemType.Charm:
                 {
                     //공통옵션
@@ -364,6 +366,15 @@ public class Item
                 }
                 break;
             case Define.ItemType.QuestItem:
+                break;
+
+            case Define.ItemType.None:
+                {
+                    itemType = Define.ItemType.None;
+                    itemID = _itemID;
+                    itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
+                    itemName = "";
+                }
                 break;
             default:
                 break;
@@ -413,5 +424,6 @@ public class ItemDatabase : MonoBehaviour
         database.Add(new Item(61001, Define.ItemType.Blueprint));
         database.Add(new Item(62001, Define.ItemType.Blueprint));
         database.Add(new Item(71001, Define.ItemType.Charm));
+        database.Add(new Item(99999, Define.ItemType.None));
     }
 }

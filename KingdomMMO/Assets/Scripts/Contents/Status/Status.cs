@@ -147,7 +147,7 @@ public class Status : MonoBehaviour
             if (criticalRand <= attacker.Critical * 100)
             {
                 damage = (int)Mathf.Max(attacker.Attack * (1000 - Def) / 1000 * 1.8f - (Vit / 10) - Reduction, 0);
-                criticalText = Managers.Resource.Instantiate("UI/CriticalText", gameObject.transform);
+                criticalText = Managers.Resource.Instantiate("UI/GameUI/CriticalText", gameObject.transform);
                 Debug.Log("Critical!");
             }
             //난수가 크리티컬보다 클경우 (크리티컬이 안터졌을 경우) 데미지 계산
@@ -169,7 +169,7 @@ public class Status : MonoBehaviour
         else
         {
             //TODO : MISS 띄우기
-            missText = Managers.Resource.Instantiate("UI/MissText",gameObject.transform); 
+            missText = Managers.Resource.Instantiate("UI/GameUI/MissText", gameObject.transform); 
         }
     }
 

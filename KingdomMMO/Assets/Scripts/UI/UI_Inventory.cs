@@ -84,6 +84,12 @@ public class UI_Inventory : MonoBehaviour
 
     int slotAmount;
 
+    [SerializeField]
+    int clickedID;
+    [SerializeField]
+    int slotNumber;
+
+
     public List<Item> items = new List<Item>();
     public List<Button> slots = new List<Button>();
 
@@ -123,6 +129,7 @@ public class UI_Inventory : MonoBehaviour
         AddItem(61001);
         AddItem(62001);
         AddItem(71001);
+        RemoveItem(2);
     }
 
     void Update()
@@ -133,9 +140,13 @@ public class UI_Inventory : MonoBehaviour
             //슬롯에 아이템이 있을때
             if (items[i].itemID != -1)
             {
+                
                 //클릭한 슬롯이 슬롯의 인덱스를 확인한다.
                 if (EventSystem.current.currentSelectedGameObject == slots[i].gameObject)
                 {
+                    clickedID = items[i].itemID;
+                    slotNumber = i;
+
                     //옵션 공란으로 초기화
                     itemStandardOneText.text = "";
                     itemStandardTwoText.text = "";
@@ -246,6 +257,7 @@ public class UI_Inventory : MonoBehaviour
 
                                 //버튼 활성화
                                 equipButton.gameObject.SetActive(true);
+                                equipButton.onClick.AddListener(EquipWeapon);
                                 reinforceButton.gameObject.SetActive(true);
 
                             }
@@ -280,6 +292,7 @@ public class UI_Inventory : MonoBehaviour
 
                                 //버튼 활성화
                                 equipButton.gameObject.SetActive(true);
+                                equipButton.onClick.AddListener(EquipAmore);
                                 reinforceButton.gameObject.SetActive(true);
 
                             }
@@ -331,6 +344,7 @@ public class UI_Inventory : MonoBehaviour
 
                                 //버튼 활성화
                                 equipButton.gameObject.SetActive(true);
+                                equipButton.onClick.AddListener(EquipAccessory);
                             }
                             break;
                         case Define.ItemType.Material:
@@ -365,6 +379,7 @@ public class UI_Inventory : MonoBehaviour
                                     optionTexts.Add(potionMAtkText);
 
                                 equipButton.gameObject.SetActive(true);
+                                equipButton.onClick.AddListener(EquipUseable);
                             }
                             break;
                         case Define.ItemType.Blueprint:
@@ -389,6 +404,7 @@ public class UI_Inventory : MonoBehaviour
                                 if (items[i].itemGainRareMaterial != 0) optionTexts.Add(gainRareMAterialText);
 
                                 equipButton.gameObject.SetActive(true);
+                                equipButton.onClick.AddListener(EquipCharm);
                                 reinforceButton.gameObject.SetActive(true);
 
                             }
@@ -439,12 +455,14 @@ public class UI_Inventory : MonoBehaviour
                             break;
                     }
 
-         
 
+                    
 
 
 
                 }
+
+                
 
             }
         }
@@ -453,7 +471,7 @@ public class UI_Inventory : MonoBehaviour
         ToolTipCloseButton.onClick.AddListener(TooltipClose);
     }
 
-
+    
     public void AddItem(int id)
     {
         Item itemToAdd = database.AccessItemById(id);
@@ -462,13 +480,28 @@ public class UI_Inventory : MonoBehaviour
             if (items[i].itemID == -1)
             {
                 items[i] = itemToAdd;
+
+
+                //TODO : 이미지
                 GameObject itemObj = Instantiate(inventoryItem);
                 itemObj.transform.SetParent(slots[i].transform);
                 itemObj.GetComponent<Image>().sprite = itemToAdd.itemIcon;
                 itemObj.transform.position = Vector2.zero;
                 itemObj.name = itemToAdd.itemName;
+
+                
                 break;
             }
+        }
+    }
+
+    public void RemoveItem(int slotNumber)
+    {
+        Item itemToRemove = database.AccessItemById(99999);
+        if (items[slotNumber].itemID != -1)
+        {
+            
+            
         }
     }
 
@@ -492,5 +525,31 @@ public class UI_Inventory : MonoBehaviour
         makingButton.gameObject.SetActive(false);
 
     }
+
+    void EquipWeapon()
+    {
+        
+    }
+
+    void EquipAmore()
+    {
+
+    }
+
+    void EquipAccessory()
+    {
+
+    }
+
+    void EquipCharm()
+    {
+
+    }
+    
+    void EquipUseable()
+    {
+
+    }
+
 
 }
