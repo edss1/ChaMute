@@ -247,7 +247,6 @@ public class UI_Inventory : MonoBehaviour
                                 //버튼 활성화
                                 equipButton.gameObject.SetActive(true);
                                 reinforceButton.gameObject.SetActive(true);
-                                piecesButton.gameObject.SetActive(true);
 
                             }
                             break;
@@ -282,7 +281,6 @@ public class UI_Inventory : MonoBehaviour
                                 //버튼 활성화
                                 equipButton.gameObject.SetActive(true);
                                 reinforceButton.gameObject.SetActive(true);
-                                piecesButton.gameObject.SetActive(true);
 
                             }
                             break;
@@ -333,8 +331,6 @@ public class UI_Inventory : MonoBehaviour
 
                                 //버튼 활성화
                                 equipButton.gameObject.SetActive(true);
-                                reinforceButton.gameObject.SetActive(true);
-                                piecesButton.gameObject.SetActive(true);
                             }
                             break;
                         case Define.ItemType.Material:
@@ -367,11 +363,15 @@ public class UI_Inventory : MonoBehaviour
                                     optionTexts.Add(potionAtkText);
                                 if (items[i].itemPotionMAtk != 0)
                                     optionTexts.Add(potionMAtkText);
+
+                                equipButton.gameObject.SetActive(true);
                             }
                             break;
                         case Define.ItemType.Blueprint:
                             {
                                 itemTypeText.text = "타입 : 설계도";
+
+                                makingButton.gameObject.SetActive(true);
                             }
                             break;
                         case Define.ItemType.Charm:
@@ -388,6 +388,8 @@ public class UI_Inventory : MonoBehaviour
                                 if(items[i].itemGainCommonMaterial != 0) optionTexts.Add(gainCommonMaterialText);
                                 if (items[i].itemGainRareMaterial != 0) optionTexts.Add(gainRareMAterialText);
 
+                                equipButton.gameObject.SetActive(true);
+                                reinforceButton.gameObject.SetActive(true);
 
                             }
                             break;
