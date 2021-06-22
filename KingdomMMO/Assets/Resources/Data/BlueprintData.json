@@ -6,8 +6,8 @@
       "id"              : "61001",
       "info"            : "종이",
       "weight"          : "0.1",
-      "sellingPrice"    : "5"
-
+      "sellingPrice"    : "5",
+"stackable": true
 
 
     },
@@ -17,8 +17,8 @@
       "id"              : "62001",
       "info"            : "종이",
       "weight"          : "0.1",
-      "sellingPrice"    : "10"
-
+      "sellingPrice"    : "10",
+"stackable": true
 
 
     }

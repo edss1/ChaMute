@@ -81,18 +81,6 @@ public class EnemyController : BaseController
         patrolCheckTime += Time.deltaTime;
         Vector3 vec = this.transform.position;
 
-        /*
-        if (patrolCheckTime > 0.5f)
-        {
-            if (vec == transform.position)
-            {
-                State = Define.State.Idle;
-                patrolCheckTime = 0;
-                patrolTime = 0;
-            }
-        }
-        */
-
         if ( (transform.position-randomVec).magnitude<0.1f)
         State = Define.State.Idle;
 

@@ -23,13 +23,11 @@ public class GameUI_TempData : MonoBehaviour
     [SerializeField]
     Image tempDataImage;
 
-    // Use this for initialization
     void Start()
     {
         tempDataImage.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         tempDataPopupButton.onClick.AddListener(PopupButton);

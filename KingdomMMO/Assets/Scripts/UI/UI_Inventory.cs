@@ -110,6 +110,8 @@ public class UI_Inventory : MonoBehaviour
             items.Add(new Item());
             slots.Add(Instantiate(inventorySlot));
             slots[i].transform.SetParent(slotPanel.transform);
+
+            slots[i].GetComponent<MainUI_Slot>().id = i;
         }
 
         equipButton.gameObject.SetActive(false);
@@ -127,9 +129,11 @@ public class UI_Inventory : MonoBehaviour
         AddItem(41001);
         AddItem(51001);
         AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
         AddItem(62001);
         AddItem(71001);
-        RemoveItem(2);
     }
 
     void Update()
@@ -475,42 +479,61 @@ public class UI_Inventory : MonoBehaviour
     public void AddItem(int id)
     {
         Item itemToAdd = database.AccessItemById(id);
-        for (int i = 0; i < items.Count; i++)
+        if (itemToAdd.itemStackable && CheckItemInInventory(itemToAdd))
         {
-            if (items[i].itemID == -1)
+            for (int i = 0; i < items.Count; i++)
             {
-                items[i] = itemToAdd;
+                if (items[i].itemID == id)
+                {
+                    ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
+                    data.amount++;
+                    data.transform.GetChild(0).GetComponent<Text>().text = data.amount.ToString();
+                    break;
+                }
+            }
+        }
+        else
+        {
 
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].itemID == -1)
+                {
 
-                //TODO : 이미지
-                GameObject itemObj = Instantiate(inventoryItem);
-                itemObj.transform.SetParent(slots[i].transform);
-                itemObj.GetComponent<Image>().sprite = itemToAdd.itemIcon;
-                itemObj.transform.position = Vector2.zero;
-                itemObj.name = itemToAdd.itemName;
+                    items[i] = itemToAdd;
 
-                
-                break;
+                    GameObject itemObj = Instantiate(inventoryItem);
+                    itemObj.GetComponent<ItemData>().item = itemToAdd;
+                    itemObj.GetComponent<ItemData>().slot = i;
+                    itemObj.transform.SetParent(slots[i].transform);
+                    itemObj.GetComponent<Image>().sprite = itemToAdd.itemIcon;
+                    itemObj.transform.position = Vector2.zero;
+                    itemObj.name = itemToAdd.itemName;
+                    ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
+                    data.amount = 1;
+
+                    break;
+                }
             }
         }
     }
 
-    public void RemoveItem(int slotNumber)
+    bool CheckItemInInventory(Item item)
     {
-        Item itemToRemove = database.AccessItemById(99999);
-        if (items[slotNumber].itemID != -1)
+        for (int i = 0; i < items.Count; i++)
         {
-            
-            
+            if (items[i].itemID == item.itemID) return true;
         }
+            return false;
     }
+
 
     void Tooltip()
     {
 
         ToolTipImage.gameObject.SetActive(true);
 
-        
+
 
     }
 

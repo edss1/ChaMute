@@ -121,6 +121,7 @@ namespace Data
         public string   info;          //  설명
         public int      reinforce;       //  강화
         public int      weight;          //  아이템의 무게
+        
 
 
         [Header("무기 주 옵션")]
@@ -253,6 +254,7 @@ namespace Data
         public string info;          //  설명
         public float weight;          //  아이템의 무게
         public int sellingPrice;    // 판매가격
+        public bool stackable;       // 중첩 가능
     }
 
     [Serializable]
@@ -282,6 +284,7 @@ namespace Data
         public float weight;          //  아이템의 무게
         public int sellingPrice;    // 판매가격
         public int buyPrice;        // 구매가격
+        public bool stackable;       // 중첩 가능
 
         [Header("소모품 옵션")]
         public int potionHp;        // 체력포션
@@ -321,6 +324,7 @@ namespace Data
         public string info;          //  설명
         public float weight;          //  아이템의 무게
         public int sellingPrice;    // 판매가격
+        public bool stackable;       // 중첩 가능
 
     }
 

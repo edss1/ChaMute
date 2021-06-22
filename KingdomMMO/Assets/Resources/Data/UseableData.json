@@ -7,6 +7,7 @@
       "weight": "0.1",
       "sellingPrice": "10",
       "itemBuyPrice": "50",
+      "stackable": true,
 
       "itemPotionHp": "30",
       "itemPotionManaRegen": "0",
@@ -27,6 +28,7 @@
       "weight": "0.1",
       "sellingPrice": "20",
       "itemBuyPrice": "100",
+      "stackable": true,
 
       "itemPotionHp": "0",
       "itemPotionManaRegen": "5",

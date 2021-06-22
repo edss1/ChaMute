@@ -6,19 +6,19 @@
       "id"              : "41001",
       "info"            : "은.",
       "weight"          : "0.1",
-      "sellingPrice"    : "10"
-
+      "sellingPrice"    : "10",
+        "stackable": true
 
 
     },
     {
-      "name"            : "Gold",
-      "grade"           : "1",
-      "id"              : "41002",
-      "info"            : "금",
-      "weight"          : "0.1",
-      "sellingPrice"    : "15"
-
+      "name": "Gold",
+      "grade": "1",
+      "id": "41002",
+      "info": "금",
+      "weight": "0.1",
+      "sellingPrice": "15",
+      "stackable": true
 
 
     }

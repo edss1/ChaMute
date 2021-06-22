@@ -25,6 +25,7 @@ public class Item
     public Sprite itemIcon;                 //  아이콘(2D)
     public int itemReinforce;               //  강화
     public float itemWeight;                  //  아이템의 무게
+    public bool itemStackable = false;       //중첩 가능or 불가능
 
     [Header("무기 주 옵션")]
     public int itemAttack;                  //  공격력
@@ -99,6 +100,7 @@ public class Item
                     itemType = Define.ItemType.Weapon;
                     itemID = _itemID;
                     itemName = weapon.name;
+                    
                     switch (weapon.grade)
                     {
                         case 1:
@@ -282,6 +284,7 @@ public class Item
                     itemInfo = material.info;
                     itemWeight = material.weight;
                     itemSellingPrice = material.sellingPrice;
+                    itemStackable = material.stackable;
                 }
                 break;
             case Define.ItemType.Useable:
@@ -305,6 +308,7 @@ public class Item
                     itemPotionAtkSpeed = useable.potionAtkSpeed;
                     itemPotionAtk = useable.potionAtk;
                     itemPotionMAtk = useable.potionMAtk;
+                    itemStackable = useable.stackable;
                 }
                 break;
 
@@ -341,6 +345,7 @@ public class Item
                     itemInfo = blueprint.info;
                     itemWeight = blueprint.weight;
                     itemSellingPrice = blueprint.sellingPrice;
+                    itemStackable = blueprint.stackable;
 
                 }
                 break;
