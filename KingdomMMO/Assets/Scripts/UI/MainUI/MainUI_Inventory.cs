@@ -27,6 +27,7 @@ public class MainUI_Inventory : MonoBehaviour
     void Start()
     {
         inventoryImage.gameObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -40,10 +41,12 @@ public class MainUI_Inventory : MonoBehaviour
     void PopupButton()
     {
         inventoryImage.gameObject.SetActive(true);
+
     }
 
     void ExitButton()
     {
+        
         inventoryImage.gameObject.SetActive(false);
 
     }
