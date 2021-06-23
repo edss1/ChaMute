@@ -135,18 +135,6 @@ public class UI_Inventory : MonoBehaviour
         POTIONTHREE,
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public List<Item> items = new List<Item>();
     public List<Button> slots = new List<Button>();
     public List<Button> equipSlots = new List<Button>();
@@ -277,8 +265,8 @@ public class UI_Inventory : MonoBehaviour
 
 
 
-                    if (slots[i].gameObject.transform.childCount != 0)
-                        slots[i].onClick.AddListener(EquipTooltip);
+                   // if (slots[i].gameObject.transform.childCount != 0)
+                   //     slots[i].onClick.AddListener(EquipTooltip);
 
                 }
             }
@@ -289,7 +277,11 @@ public class UI_Inventory : MonoBehaviour
 
     public void AddItem(int id)
     {
+      
         Item itemToAdd = database.AccessItemById(id);
+
+        //Debug.Log(CheckItemInInventory(itemToAdd).ToString());
+
         if (itemToAdd.itemStackable && CheckItemInInventory(itemToAdd))
         {
             for (int i = 0; i < items.Count; i++)
@@ -320,7 +312,7 @@ public class UI_Inventory : MonoBehaviour
 
                     itemObj.transform.SetParent(slots[i].transform);
                     itemObj.GetComponent<Image>().sprite = itemToAdd.itemIcon;
-                    itemObj.transform.position = Vector2.zero;
+                    itemObj.transform.position = slots[i].transform.position;
                     itemObj.name = itemToAdd.itemName;
                     ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
                     data.amount = 1;
@@ -335,10 +327,12 @@ public class UI_Inventory : MonoBehaviour
 
     bool CheckItemInInventory(Item item)
     {
+     
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].itemID == item.itemID) return true;
         }
+
         return false;
     }
 
@@ -354,6 +348,7 @@ public class UI_Inventory : MonoBehaviour
 
         ToolTipImage.gameObject.SetActive(true);
 
+        equipButton.onClick.RemoveAllListeners();
         //옵션 공란으로 초기화
         itemStandardOneText.text = "";
         itemStandardTwoText.text = "";
@@ -463,7 +458,7 @@ public class UI_Inventory : MonoBehaviour
 
                     //버튼 활성화
                     equipButton.gameObject.SetActive(true);
-                    equipButton.onClick.AddListener(EquipWeapon);
+                    equipButton.onClick.AddListener(() =>SlotToEquipItem(weaponBtn,Equip.WEAPON));
                     reinforceButton.gameObject.SetActive(true);
                     
                 }
@@ -498,7 +493,7 @@ public class UI_Inventory : MonoBehaviour
 
                     //버튼 활성화
                     equipButton.gameObject.SetActive(true);
-                    equipButton.onClick.AddListener(EquipAmore);
+                    equipButton.onClick.AddListener(() => SlotToEquipItem(amoreBtn, Equip.AMORE));
                     reinforceButton.gameObject.SetActive(true);
 
                 }
@@ -550,7 +545,7 @@ public class UI_Inventory : MonoBehaviour
 
                     //버튼 활성화
                     equipButton.gameObject.SetActive(true);
-                    equipButton.onClick.AddListener(EquipAccessory);
+                    equipButton.onClick.AddListener(() => SlotToEquipItem(accessoryOneBtn, Equip.ACCESSORYONE));
                 }
                 break;
             case Define.ItemType.Material:
@@ -585,7 +580,7 @@ public class UI_Inventory : MonoBehaviour
                         optionTexts.Add(potionMAtkText);
 
                     equipButton.gameObject.SetActive(true);
-                    equipButton.onClick.AddListener(EquipUseable);
+                    equipButton.onClick.AddListener(() => SlotToEquipItem(potionOneBtn, Equip.POTIONONE));
                 }
                 break;
             case Define.ItemType.Blueprint:
@@ -610,7 +605,7 @@ public class UI_Inventory : MonoBehaviour
                     if (items[slotNumber].itemGainRareMaterial != 0) optionTexts.Add(gainRareMAterialText);
 
                     equipButton.gameObject.SetActive(true);
-                    equipButton.onClick.AddListener(EquipCharm);
+                    equipButton.onClick.AddListener(() => SlotToEquipItem(expCharmBtn, Equip.EXPCHARM));
                     reinforceButton.gameObject.SetActive(true);
 
                 }
@@ -683,6 +678,7 @@ public class UI_Inventory : MonoBehaviour
         makingButton.gameObject.SetActive(false);
         unlockButton.gameObject.SetActive(false);
 
+        unlockButton.onClick.RemoveAllListeners();
 
         //옵션 공란으로 초기화
         itemStandardOneText.text = "";
@@ -793,7 +789,8 @@ public class UI_Inventory : MonoBehaviour
 
                     //버튼 활성화
                     unlockButton.gameObject.SetActive(true);
-                    unlockButton.onClick.AddListener(UnlockWeapon);
+                    
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.WEAPON));
 
                 }
                 break;
@@ -827,7 +824,7 @@ public class UI_Inventory : MonoBehaviour
 
                     //버튼 활성화
                     unlockButton.gameObject.SetActive(true);
-                    unlockButton.onClick.AddListener(UnlockAmore);
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.AMORE));
 
                 }
                 break;
@@ -878,7 +875,7 @@ public class UI_Inventory : MonoBehaviour
 
                     //버튼 활성화
                     unlockButton.gameObject.SetActive(true);
-                    unlockButton.onClick.AddListener(UnlockAccessory);
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.ACCESSORYONE));
                 }
                 break;
             case Define.ItemType.Material:
@@ -913,7 +910,7 @@ public class UI_Inventory : MonoBehaviour
                         optionTexts.Add(potionMAtkText);
 
                     unlockButton.gameObject.SetActive(true);
-                    unlockButton.onClick.AddListener(UnlockUseable);
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.POTIONONE));
                 }
                 break;
             case Define.ItemType.Blueprint:
@@ -938,7 +935,7 @@ public class UI_Inventory : MonoBehaviour
                     if (equipItems[slotNumber].itemGainRareMaterial != 0) optionTexts.Add(gainRareMAterialText);
 
                     unlockButton.gameObject.SetActive(true);
-                    unlockButton.onClick.AddListener(UnlockCharm);
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.EXPCHARM));
 
                 }
                 break;
@@ -989,10 +986,7 @@ public class UI_Inventory : MonoBehaviour
         }
 
 
-
-
-
-
+        
 
     }
 
@@ -1009,66 +1003,61 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    //무기 장착
-    void EquipWeapon()
+    
+    void SlotToEquipItem(Button btn, Equip type)
     {
         GameObject slotObj = slots[slotNumber].gameObject;
+
+
+
         //itemObj에 slot의 child를 저장
-        GameObject itemObj = slots[slotNumber].gameObject.transform.GetChild(0).gameObject;
+        //GameObject itemObj = slots[slotNumber].gameObject.transform.GetChild(0).gameObject;
 
         //무기에 아이템이 장착되어 있지 않을경우
-        if (weaponBtn.transform.childCount == 0)
+        if (btn.transform.childCount == 0)
         {
+            Destroy(slotObj);
 
             //인벤토리에 있는 아이템을 파괴
-            Destroy(slotObj);
             slots.Remove(slots[slotNumber]);
-            Destroy(slotObj);
+
 
             items.RemoveAt(slotNumber);
             items.Add(new Item());
 
             slots.Add(Instantiate(inventorySlot));
-            slots[slotAmount-1].transform.SetParent(slotPanel.transform);
+            slots[slotAmount - 1].transform.SetParent(slotPanel.transform);
 
-            //slots.Add(Instantiate(inventorySlot));
-            //slots[slotAmount-1].transform.SetParent(slotPanel.transform);
+            //장비창 아이템 딕셔너리의 무기슬롯에 배치된 빈 아이템 삭제
+            equipItems.Remove((int)type);
 
             //아이템을 생성
 
             GameObject equipItemObj = Instantiate(inventoryItem);
 
             //아이템을 무기슬롯 Child로 설정
-            equipItemObj.transform.SetParent(weaponBtn.transform);
+            equipItemObj.transform.SetParent(btn.transform);
 
             //아이템의 이미지를 장착한 아이템 이미지로 설정
             equipItemObj.GetComponent<Image>().sprite = clickedItem.itemIcon;
 
             //아이템의 위치를 무기슬롯 transform으로 배치
-            equipItemObj.transform.position = weaponBtn.transform.position;
+            equipItemObj.transform.position = btn.transform.position;
 
             //아이템의 이름을 장착한 아이템이름으로 변경
             equipItemObj.name = clickedItem.itemName;
 
-            //장비창 아이템 딕셔너리의 무기슬롯에 배치된 빈 아이템 삭제
-            equipItems.Remove((int)Equip.WEAPON);
+
 
             //장비창 아이템 딕셔너리에 클릭한 아이템 추가
-            equipItems.Add((int)Equip.WEAPON, clickedItem);
-
+            equipItems.Add((int)type, clickedItem);
 
             slots[slotNumber].onClick.RemoveListener(InventoryTooltip);
 
-            weaponBtn.onClick.AddListener(EquipTooltip);
+            btn.onClick.AddListener(EquipTooltip);
 
         }
         
-        //무기에 아이템이 장착되었을 경우
-        else if(weaponBtn.transform.childCount == 1)
-        {
-
-        }
-
         ToolTipImage.gameObject.SetActive(false);
         equipButton.onClick.RemoveAllListeners();
 
@@ -1076,36 +1065,22 @@ public class UI_Inventory : MonoBehaviour
         return;
     }
 
+    void UnlockEquipItem (Equip type)
+    {
+        GameObject itemObj = equipSlots[(int)type].gameObject.transform.GetChild(0).gameObject;
+
+        Debug.Log(equipItems[(int)type].itemID);
+        AddItem(equipItems[(int)type].itemID);
+        equipItems.Remove((int)type);
+        equipItems.Add((int)type,new Item());
+
+        Destroy(itemObj);
     
-    void UnlockWeapon ()
-    {
-
-    }
-
-    void EquipAmore()
-    {
-
+        unlockButton.gameObject.SetActive(false);
         ToolTipImage.gameObject.SetActive(false);
+
+        return;
     }
-    void UnlockAmore () { }
-
-    void EquipAccessory()
-    {
-
-    }
-    void UnlockAccessory () { }
-
-    void EquipCharm()
-    {
-
-    }
-    void UnlockCharm() { }
-
-    void EquipUseable()
-    {
-
-    }
-    void UnlockUseable () { }
 
   
 }
