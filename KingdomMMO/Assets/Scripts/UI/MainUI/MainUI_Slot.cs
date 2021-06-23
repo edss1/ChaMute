@@ -16,12 +16,12 @@ public class MainUI_Slot : MonoBehaviour, IDropHandler
 
         if(inv.items[id].itemID == -1)
         {
+            droppedItem.slot = id;
             inv.items[droppedItem.slot] = new Item();
             inv.items[id] = droppedItem.item;
-            droppedItem.slot = id;
         }
-
-        else
+       
+        else if(droppedItem.slot != id)
         {
             Transform item = transform.GetChild(0);
             item.GetComponent<ItemData>().slot = droppedItem.slot;

@@ -89,9 +89,46 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField]
     int slotNumber;
 
+    Item clickedItem;
+
+    int equipSlotAmount;
+    [Header("장비슬롯")]
+    [SerializeField] Button helmetBtn                   ;
+    [SerializeField] Button amoreBtn                   ;
+    [SerializeField] Button weaponBtn                  ;
+    [SerializeField] Button subWeaponBtn               ;
+    [SerializeField] Button cloakBtn                   ;
+    [SerializeField] Button shoesBtn                   ;
+    [SerializeField] Button accessoryOneBtn            ;
+    [SerializeField] Button accessoryTwoBtn            ;
+     
+     [Header("참 슬롯")]
+    [SerializeField] Button expCharmBtn                  ;
+    [SerializeField] Button goldCharmBtn                 ;
+    [SerializeField] Button rareMaterialCharmBtn         ;
+    [SerializeField] Button nomalMaterialCharmBtn        ;
+     
+     [Header("퀵슬롯")]
+    [SerializeField] Button potionOneBtn                 ;
+    [SerializeField] Button potionTwoBtn                 ;
+    [SerializeField] Button potionThreeBtn               ;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public List<Item> items = new List<Item>();
     public List<Button> slots = new List<Button>();
+    public List<Item> equipItems = new List<Item>();
 
     private void Start()
     {
@@ -101,6 +138,7 @@ public class UI_Inventory : MonoBehaviour
         database = itemData.GetComponent<ItemDatabase>();
 
         slotAmount = 30;
+        equipSlotAmount = 15;
         inventoryPanel = GameObject.Find("InventoryPanel");
         slotPanel = inventoryPanel.transform.Find("Slot Panel").gameObject;
 
@@ -113,6 +151,7 @@ public class UI_Inventory : MonoBehaviour
 
             slots[i].GetComponent<MainUI_Slot>().id = i;
         }
+
 
         equipButton.gameObject.SetActive(false);
         piecesButton.gameObject.SetActive(false);
@@ -148,8 +187,10 @@ public class UI_Inventory : MonoBehaviour
                 //클릭한 슬롯이 슬롯의 인덱스를 확인한다.
                 if (EventSystem.current.currentSelectedGameObject == slots[i].gameObject)
                 {
-                    clickedID = items[i].itemID;
+                    clickedItem = items[i];
                     slotNumber = i;
+
+                    Debug.Log(slotNumber);
 
                     //옵션 공란으로 초기화
                     itemStandardOneText.text = "";
@@ -163,6 +204,7 @@ public class UI_Inventory : MonoBehaviour
                     itemSixOptionText.text = "";
 
                     slots[i].onClick.AddListener(Tooltip);
+
                     toolTipItemImg.sprite = items[i].itemIcon;
                     string nameText = items[i].itemName;
                     string materialText = "";
@@ -503,8 +545,10 @@ public class UI_Inventory : MonoBehaviour
                     items[i] = itemToAdd;
 
                     GameObject itemObj = Instantiate(inventoryItem);
+                    
                     itemObj.GetComponent<ItemData>().item = itemToAdd;
                     itemObj.GetComponent<ItemData>().slot = i;
+                    
                     itemObj.transform.SetParent(slots[i].transform);
                     itemObj.GetComponent<Image>().sprite = itemToAdd.itemIcon;
                     itemObj.transform.position = Vector2.zero;
@@ -515,6 +559,8 @@ public class UI_Inventory : MonoBehaviour
                     break;
                 }
             }
+
+
         }
     }
 
@@ -551,12 +597,34 @@ public class UI_Inventory : MonoBehaviour
 
     void EquipWeapon()
     {
-        
+    
+        //clickedID = items[i].itemID;
+        //slotNumber = i;
+
+        //items[slotNumber].itemID = -1;
+        GameObject itemObj = slots[slotNumber].gameObject.transform.GetChild(0).gameObject;
+
+        Destroy(itemObj);
+        //itemObj = null;
+
+        if (weaponBtn.transform.childCount < 2   )
+        {
+            GameObject equipItemObj = Instantiate(inventoryItem);
+            equipItemObj.transform.SetParent(weaponBtn.transform);
+            equipItemObj.GetComponent<Image>().sprite = clickedItem.itemIcon;
+            equipItemObj.transform.position = weaponBtn.transform.position;
+            equipItemObj.name = clickedItem.itemName;
+        }
+
+        Debug.Log(weaponBtn.transform.childCount);
+        ToolTipImage.gameObject.SetActive(false);
+        return;
     }
 
     void EquipAmore()
     {
-
+        
+        
     }
 
     void EquipAccessory()
@@ -574,5 +642,8 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
+    void EquipItem(Item newItem, Define.ItemType type)
+    {
 
+    }
 }
