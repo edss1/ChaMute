@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class MainUI_Status : MonoBehaviour
 {
+    Ui_Status status;
+    [SerializeField]
+    GameObject statusObj;
+
     [SerializeField]
     Button statusPanelPopupButton;
     [SerializeField]
@@ -17,7 +21,7 @@ public class MainUI_Status : MonoBehaviour
     void Start()
     {
         statusImage.gameObject.SetActive(false);
-
+        status = statusObj.GetComponent<Ui_Status>();
     }
 
     // Update is called once per frame
@@ -37,7 +41,12 @@ public class MainUI_Status : MonoBehaviour
     void ExitButton()
     {
 
+        status.strPointText.text = status.strPoint.ToString();
+        status.strTemp = status.strPoint;
+
         statusImage.gameObject.SetActive(false);
         statusPanelExitButton.onClick.RemoveAllListeners();
+        
+
     }
 }

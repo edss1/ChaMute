@@ -218,6 +218,14 @@ public class UI_Inventory : MonoBehaviour
         AddItem(61001);
         AddItem(61001);
         AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
+        AddItem(61001);
         AddItem(62001);
         AddItem(71001);
         AddItem(61001);
