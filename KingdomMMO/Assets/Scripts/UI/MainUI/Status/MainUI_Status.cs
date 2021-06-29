@@ -43,6 +43,29 @@ public class MainUI_Status : MonoBehaviour
 
         status.strPointText.text = status.strPoint.ToString();
         status.strTemp = status.strPoint;
+        status.dexPointText.text = status.dexPoint.ToString();
+        status.dexTemp = status.dexPoint;
+        status.agiPointText.text = status.agiPoint.ToString();
+        status.agiTemp = status.agiPoint;
+        status.vitPointText.text = status.vitPoint.ToString();
+        status.vitTemp = status.vitPoint;
+        status.intPointText.text = status.intPoint.ToString();
+        status.intTemp = status.intPoint;
+        status.engPointText.text = status.engPoint.ToString();
+        status.engTemp = status.engPoint;
+        status.lukPointText.text = status.lukPoint.ToString();
+        status.lukTemp = status.lukPoint;
+
+        status.statusPointText.text = status.statusPoint.ToString();
+        status.statusPointTemp = status.statusPoint;
+
+
+
+
+
+
+
+
 
         statusImage.gameObject.SetActive(false);
         statusPanelExitButton.onClick.RemoveAllListeners();
