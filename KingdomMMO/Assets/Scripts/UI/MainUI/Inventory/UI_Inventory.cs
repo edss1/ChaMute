@@ -159,8 +159,6 @@ public class UI_Inventory : MonoBehaviour
             items.Add(new Item());
             slots.Add(Instantiate(inventorySlot));
             slots[i].transform.SetParent(slotPanel.transform);
-
-            slots[i].GetComponent<MainUI_Slot>().id = i;
         }
 
 
@@ -238,7 +236,7 @@ public class UI_Inventory : MonoBehaviour
         {
 
             //슬롯에 아이템이 있을때
-            if (items[i].itemID != -1)
+            if (items[i].ItemID != -1)
             {
 
                 //클릭한 슬롯이 슬롯의 인덱스를 확인한다.
@@ -248,7 +246,7 @@ public class UI_Inventory : MonoBehaviour
                     slotNumber = i;
 
                     Debug.Log(slotNumber);
-                    Debug.Log(items[i].itemID);
+                    Debug.Log(items[i].ItemID);
 
                     
                     
@@ -264,7 +262,7 @@ public class UI_Inventory : MonoBehaviour
         for (int i = 0; i < equipSlots.Count; i++)
         {
             //슬롯에 아이템이 있을때
-            if (equipItems[i].itemID != -1)
+            if (equipItems[i].ItemID != -1)
             {
 
                 //클릭한 슬롯이 슬롯의 인덱스를 확인한다.
@@ -274,7 +272,7 @@ public class UI_Inventory : MonoBehaviour
                     slotNumber = i;
 
 
-                    Debug.Log(equipItems[i].itemID);
+                    Debug.Log(equipItems[i].ItemID);
                     // if (slots[i].gameObject.transform.childCount != 0)
                     //     slots[i].onClick.AddListener(EquipTooltip);
 
@@ -293,11 +291,11 @@ public class UI_Inventory : MonoBehaviour
 
         //Debug.Log(CheckItemInInventory(itemToAdd).ToString());
 
-        if (itemToAdd.itemStackable && CheckItemInInventory(itemToAdd))
+        if (itemToAdd.ItemStackable && CheckItemInInventory(itemToAdd))
         {
             for (int i = 0; i < items.Count; i++)
             {
-                if (items[i].itemID == id)
+                if (items[i].ItemID == id)
                 {
                     ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
                     data.amount++;
@@ -311,7 +309,7 @@ public class UI_Inventory : MonoBehaviour
 
             for (int i = 0; i < items.Count; i++)
             {
-                if (items[i].itemID == -1)
+                if (items[i].ItemID == -1)
                 {
 
                     items[i] = itemToAdd;
@@ -322,9 +320,9 @@ public class UI_Inventory : MonoBehaviour
                     itemObj.GetComponent<ItemData>().slot = i;
 
                     itemObj.transform.SetParent(slots[i].transform);
-                    itemObj.GetComponent<Image>().sprite = itemToAdd.itemIcon;
+                    itemObj.GetComponent<Image>().sprite = itemToAdd.ItemIcon;
                     itemObj.transform.position = slots[i].transform.position;
-                    itemObj.name = itemToAdd.itemName;
+                    itemObj.name = itemToAdd.ItemName;
                     ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
                     data.amount = 1;
 
@@ -341,7 +339,7 @@ public class UI_Inventory : MonoBehaviour
      
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].itemID == item.itemID) return true;
+            if (items[i].ItemID == item.ItemID) return true;
         }
 
         return false;
@@ -375,18 +373,18 @@ public class UI_Inventory : MonoBehaviour
         itemFiveOptionText.text = "";
         itemSixOptionText.text = "";
 
-        toolTipItemImg.sprite = items[slotNumber].itemIcon;
-        string nameText = items[slotNumber].itemName;
+        toolTipItemImg.sprite = items[slotNumber].ItemIcon;
+        string nameText = items[slotNumber].ItemName;
         string materialText = "";
-        if (items[slotNumber].itemMaterial != "")
-            materialText = "재질 : " + items[slotNumber].itemMaterial;
-        string weightText = "무게 : " + items[slotNumber].itemWeight.ToString();
+        if (items[slotNumber].ItemMaterial != "")
+            materialText = "재질 : " + items[slotNumber].ItemMaterial;
+        string weightText = "무게 : " + items[slotNumber].ItemWeight.ToString();
 
-        itemInfoText.text = items[slotNumber].itemInfo;
+        itemInfoText.text = items[slotNumber].ItemInfo;
 
         string gradeText;
         //아이템 등급
-        switch (items[slotNumber].itemGrade)
+        switch (items[slotNumber].ItemGrade)
         {
             case "common":
                 gradeText = "등급 : 일반";
@@ -450,29 +448,29 @@ public class UI_Inventory : MonoBehaviour
                     itemTypeText.text = "타입 : 무기";
 
 
-                    string attackText = "공격력 : " + items[slotNumber].itemAttack.ToString();
-                    string mAttackText = "마법 공격력 : " + items[slotNumber].itemMAttack.ToString();
-                    string atkSpeedText = "공격 속도 : " + items[slotNumber].itemAtkSpeed.ToString();
-                    string hitText = "명중 +" + items[slotNumber].itemHit.ToString();
-                    string criticalText = "크리티컬 +" + items[slotNumber].itemCritical.ToString() + "%";
-                    string criticalDmgText = "크리티컬 데미지 +" + items[slotNumber].itemCriticalDamage.ToString() + "%";
+                    string attackText = "공격력 : " + items[slotNumber].ItemAttack.ToString();
+                    string mAttackText = "마법 공격력 : " + items[slotNumber].ItemMAttack.ToString();
+                    string atkSpeedText = "공격 속도 : " + items[slotNumber].ItemAtkSpeed.ToString();
+                    string hitText = "명중 +" + items[slotNumber].ItemHit.ToString();
+                    string criticalText = "크리티컬 +" + items[slotNumber].ItemCritical.ToString() + "%";
+                    string criticalDmgText = "크리티컬 데미지 +" + items[slotNumber].ItemCriticalDamage.ToString() + "%";
 
-                    if (items[slotNumber].itemAttack != 0)
+                    if (items[slotNumber].ItemAttack != 0)
                         optionTexts.Add(attackText);
-                    if (items[slotNumber].itemMAttack != 0)
+                    if (items[slotNumber].ItemMAttack != 0)
                         optionTexts.Add(mAttackText);
-                    if (items[slotNumber].itemAtkSpeed != 0)
+                    if (items[slotNumber].ItemAtkSpeed != 0)
                         optionTexts.Add(atkSpeedText);
-                    if (items[slotNumber].itemHit != 0)
+                    if (items[slotNumber].ItemHit != 0)
                         optionTexts.Add(hitText);
-                    if (items[slotNumber].itemCritical != 0)
+                    if (items[slotNumber].ItemCritical != 0)
                         optionTexts.Add(criticalText);
-                    if (items[slotNumber].itemCriticalDamage != 0)
+                    if (items[slotNumber].ItemCriticalDamage != 0)
                         optionTexts.Add(criticalDmgText);
 
 
                     //버튼 활성화
-                    if(equipItems[(int)Equip.WEAPON].itemID == -1)
+                    if(equipItems[(int)Equip.WEAPON].ItemID == -1)
                     {
                     equipButton.gameObject.SetActive(true);
                     equipButton.onClick.AddListener(() =>SlotToEquipItem(weaponBtn,Equip.WEAPON));
@@ -491,28 +489,28 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + items[slotNumber].itemDef.ToString();
-                    string mDefText = "마법 방어력 : " + items[slotNumber].itemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
 
-                    string maxHpText = "최대 체력 +" + items[slotNumber].itemMaxHp.ToString();
-                    string maxManaText = "최대 마나 +" + items[slotNumber].itemMaxMana.ToString();
-                    string hpRegenText = "체력 재생 +" + items[slotNumber].itemHpRegen.ToString();
-                    string mpRegenText = "마나 재생 +" + items[slotNumber].itemMpRegen.ToString();
-                    string maxWeightText = " 무게 보너스 +" + items[slotNumber].itemMaxWeight.ToString();
-                    string fleeText = "회피 +" + items[slotNumber].itemFlee.ToString();
+                    string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + items[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + items[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + items[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + items[slotNumber].ItemFlee.ToString();
 
 
-                    if (items[slotNumber].itemMaxHp != 0)
+                    if (items[slotNumber].ItemMaxHp != 0)
                         optionTexts.Add(maxHpText);
-                    if (items[slotNumber].itemMaxMana != 0)
+                    if (items[slotNumber].ItemMaxMana != 0)
                         optionTexts.Add(maxManaText);
-                    if (items[slotNumber].itemHpRegen != 0)
+                    if (items[slotNumber].ItemHpRegen != 0)
                         optionTexts.Add(hpRegenText);
-                    if (items[slotNumber].itemMpRegen != 0)
+                    if (items[slotNumber].ItemMpRegen != 0)
                         optionTexts.Add(mpRegenText);
-                    if (items[slotNumber].itemMaxWeight != 0)
+                    if (items[slotNumber].ItemMaxWeight != 0)
                         optionTexts.Add(maxWeightText);
-                    if (items[slotNumber].itemFlee != 0)
+                    if (items[slotNumber].ItemFlee != 0)
                         optionTexts.Add(fleeText);
 
                     //버튼 활성화
@@ -526,45 +524,45 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 악세서리";
 
-                    string strText = "STR +" + items[slotNumber].itemStr;
-                    string dexText = "DEX +" + items[slotNumber].itemDex;
-                    string agiText = "AGI +" + items[slotNumber].itemAgi;
-                    string vitText = "VIT +" + items[slotNumber].itemVit;
-                    string intText = "INT +" + items[slotNumber].itemInt;
-                    string engText = "ENG +" + items[slotNumber].itemEng;
-                    string lukText = "LUK +" + items[slotNumber].itemLuk;
-                    string accDefText = "방어력 +" + items[slotNumber].itemAccessoryDef;
-                    string accMdefText = "마법 방어력 +" + items[slotNumber].itemAccessoryMDef;
-                    string accAtkText = "공격력 +" + items[slotNumber].itemAccessoryAtk;
-                    string accMatkText = "마법 공격력 +" + items[slotNumber].itemAccessoryMAtk;
-                    string accMaxHp = "최대 체력 +" + items[slotNumber].itemAccessoryMaxHp;
-                    string accMaxMana = "최대 마나 +" + items[slotNumber].itemAccessoryMaxMana;
+                    string strText = "STR +" + items[slotNumber].ItemStr;
+                    string dexText = "DEX +" + items[slotNumber].ItemDex;
+                    string agiText = "AGI +" + items[slotNumber].ItemAgi;
+                    string vitText = "VIT +" + items[slotNumber].ItemVit;
+                    string intText = "INT +" + items[slotNumber].ItemInt;
+                    string engText = "ENG +" + items[slotNumber].ItemEng;
+                    string lukText = "LUK +" + items[slotNumber].ItemLuk;
+                    string accDefText = "방어력 +" + items[slotNumber].ItemAccessoryDef;
+                    string accMdefText = "마법 방어력 +" + items[slotNumber].ItemAccessoryMDef;
+                    string accAtkText = "공격력 +" + items[slotNumber].ItemAccessoryAtk;
+                    string accMatkText = "마법 공격력 +" + items[slotNumber].ItemAccessoryMAtk;
+                    string accMaxHp = "최대 체력 +" + items[slotNumber].ItemAccessoryMaxHp;
+                    string accMaxMana = "최대 마나 +" + items[slotNumber].ItemAccessoryMaxMana;
 
-                    if (items[slotNumber].itemStr != 0)
+                    if (items[slotNumber].ItemStr != 0)
                         optionTexts.Add(strText);
-                    if (items[slotNumber].itemDex != 0)
+                    if (items[slotNumber].ItemDex != 0)
                         optionTexts.Add(dexText);
-                    if (items[slotNumber].itemAgi != 0)
+                    if (items[slotNumber].ItemAgi != 0)
                         optionTexts.Add(agiText);
-                    if (items[slotNumber].itemVit != 0)
+                    if (items[slotNumber].ItemVit != 0)
                         optionTexts.Add(vitText);
-                    if (items[slotNumber].itemInt != 0)
+                    if (items[slotNumber].ItemInt != 0)
                         optionTexts.Add(intText);
-                    if (items[slotNumber].itemEng != 0)
+                    if (items[slotNumber].ItemEng != 0)
                         optionTexts.Add(engText);
-                    if (items[slotNumber].itemLuk != 0)
+                    if (items[slotNumber].ItemLuk != 0)
                         optionTexts.Add(lukText);
-                    if (items[slotNumber].itemAccessoryDef != 0)
+                    if (items[slotNumber].ItemAccessoryDef != 0)
                         optionTexts.Add(accDefText);
-                    if (items[slotNumber].itemAccessoryMDef != 0)
+                    if (items[slotNumber].ItemAccessoryMDef != 0)
                         optionTexts.Add(accMdefText);
-                    if (items[slotNumber].itemAccessoryAtk != 0)
+                    if (items[slotNumber].ItemAccessoryAtk != 0)
                         optionTexts.Add(accAtkText);
-                    if (items[slotNumber].itemAccessoryMAtk != 0)
+                    if (items[slotNumber].ItemAccessoryMAtk != 0)
                         optionTexts.Add(accMatkText);
-                    if (items[slotNumber].itemAccessoryMaxHp != 0)
+                    if (items[slotNumber].ItemAccessoryMaxHp != 0)
                         optionTexts.Add(accMaxHp);
-                    if (items[slotNumber].itemAccessoryMaxMana != 0)
+                    if (items[slotNumber].ItemAccessoryMaxMana != 0)
                         optionTexts.Add(accMaxMana);
 
                     //버튼 활성화
@@ -583,24 +581,24 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 소모품";
 
-                    string potionHpText = "체력 " + items[slotNumber].itemPotionHp.ToString() + "증가";
-                    string potionManaRegenText = "마나 재생량 " + items[slotNumber].itemPotionManaRegen.ToString() + "증가";
-                    string potionMoveSpeedText = "이동속도 " + items[slotNumber].itemPotionMoveSpeed.ToString() + "증가";
-                    string potionAtkSpeedText = "공격속도 " + items[slotNumber].itemPotionAtkSpeed.ToString() + "증가";
-                    string potionAtkText = "공격력 " + items[slotNumber].itemPotionAtk.ToString() + "증가";
-                    string potionMAtkText = "마법 공격력 " + items[slotNumber].itemPotionMAtk.ToString() + "증가";
+                    string potionHpText = "체력 " + items[slotNumber].ItemPotionHp.ToString() + "증가";
+                    string potionManaRegenText = "마나 재생량 " + items[slotNumber].ItemPotionManaRegen.ToString() + "증가";
+                    string potionMoveSpeedText = "이동속도 " + items[slotNumber].ItemPotionMoveSpeed.ToString() + "증가";
+                    string potionAtkSpeedText = "공격속도 " + items[slotNumber].ItemPotionAtkSpeed.ToString() + "증가";
+                    string potionAtkText = "공격력 " + items[slotNumber].ItemPotionAtk.ToString() + "증가";
+                    string potionMAtkText = "마법 공격력 " + items[slotNumber].ItemPotionMAtk.ToString() + "증가";
 
-                    if (items[slotNumber].itemPotionHp != 0)
+                    if (items[slotNumber].ItemPotionHp != 0)
                         optionTexts.Add(potionHpText);
-                    if (items[slotNumber].itemPotionManaRegen != 0)
+                    if (items[slotNumber].ItemPotionManaRegen != 0)
                         optionTexts.Add(potionManaRegenText);
-                    if (items[slotNumber].itemPotionMoveSpeed != 0)
+                    if (items[slotNumber].ItemPotionMoveSpeed != 0)
                         optionTexts.Add(potionMoveSpeedText);
-                    if (items[slotNumber].itemPotionAtkSpeed != 0)
+                    if (items[slotNumber].ItemPotionAtkSpeed != 0)
                         optionTexts.Add(potionAtkSpeedText);
-                    if (items[slotNumber].itemPotionAtk != 0)
+                    if (items[slotNumber].ItemPotionAtk != 0)
                         optionTexts.Add(potionAtkText);
-                    if (items[slotNumber].itemPotionMAtk != 0)
+                    if (items[slotNumber].ItemPotionMAtk != 0)
                         optionTexts.Add(potionMAtkText);
 
                     equipButton.gameObject.SetActive(true);
@@ -618,15 +616,15 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 부적";
 
-                    string gainExpText = "경험치 획득량 : " + items[slotNumber].itemGainExp.ToString() + "%";
-                    string gainGoldText = "골드 획득량 : " + items[slotNumber].itemGainGold.ToString() + "%";
-                    string gainCommonMaterialText = "일반재료 획득량 : " + items[slotNumber].itemGainCommonMaterial.ToString() + "%";
-                    string gainRareMAterialText = "레어재료 획득량 : " + items[slotNumber].itemGainRareMaterial.ToString() + "%";
+                    string gainExpText = "경험치 획득량 : " + items[slotNumber].ItemGainExp.ToString() + "%";
+                    string gainGoldText = "골드 획득량 : " + items[slotNumber].ItemGainGold.ToString() + "%";
+                    string gainCommonMaterialText = "일반재료 획득량 : " + items[slotNumber].ItemGainCommonMaterial.ToString() + "%";
+                    string gainRareMAterialText = "레어재료 획득량 : " + items[slotNumber].ItemGainRareMaterial.ToString() + "%";
 
-                    if (items[slotNumber].itemGainExp != 0) optionTexts.Add(gainExpText);
-                    if (items[slotNumber].itemGainGold != 0) optionTexts.Add(gainGoldText);
-                    if (items[slotNumber].itemGainCommonMaterial != 0) optionTexts.Add(gainCommonMaterialText);
-                    if (items[slotNumber].itemGainRareMaterial != 0) optionTexts.Add(gainRareMAterialText);
+                    if (items[slotNumber].ItemGainExp != 0) optionTexts.Add(gainExpText);
+                    if (items[slotNumber].ItemGainGold != 0) optionTexts.Add(gainGoldText);
+                    if (items[slotNumber].ItemGainCommonMaterial != 0) optionTexts.Add(gainCommonMaterialText);
+                    if (items[slotNumber].ItemGainRareMaterial != 0) optionTexts.Add(gainRareMAterialText);
 
                     equipButton.gameObject.SetActive(true);
                     equipButton.onClick.AddListener(() => SlotToEquipItem(expCharmBtn, Equip.EXPCHARM));
@@ -717,18 +715,18 @@ public class UI_Inventory : MonoBehaviour
         itemFiveOptionText.text = "";
         itemSixOptionText.text = "";
 
-        toolTipItemImg.sprite = equipItems[slotNumber].itemIcon;
-        string nameText = equipItems[slotNumber].itemName;
+        toolTipItemImg.sprite = equipItems[slotNumber].ItemIcon;
+        string nameText = equipItems[slotNumber].ItemName;
         string materialText = "";
-        if (equipItems[slotNumber].itemMaterial != "")
-            materialText = "재질 : " + equipItems[slotNumber].itemMaterial;
-        string weightText = "무게 : " + equipItems[slotNumber].itemWeight.ToString();
+        if (equipItems[slotNumber].ItemMaterial != "")
+            materialText = "재질 : " + equipItems[slotNumber].ItemMaterial;
+        string weightText = "무게 : " + equipItems[slotNumber].ItemWeight.ToString();
 
-        itemInfoText.text = equipItems[slotNumber].itemInfo;
+        itemInfoText.text = equipItems[slotNumber].ItemInfo;
 
         string gradeText;
         //아이템 등급
-        switch (equipItems[slotNumber].itemGrade)
+        switch (equipItems[slotNumber].ItemGrade)
         {
             case "common":
                 gradeText = "등급 : 일반";
@@ -792,24 +790,24 @@ public class UI_Inventory : MonoBehaviour
                     itemTypeText.text = "타입 : 무기";
 
 
-                    string attackText = "공격력 : " + equipItems[slotNumber].itemAttack.ToString();
-                    string mAttackText = "마법 공격력 : " + equipItems[slotNumber].itemMAttack.ToString();
-                    string atkSpeedText = "공격 속도 : " + equipItems[slotNumber].itemAtkSpeed.ToString();
-                    string hitText = "명중 +" + equipItems[slotNumber].itemHit.ToString();
-                    string criticalText = "크리티컬 +" + equipItems[slotNumber].itemCritical.ToString() + "%";
-                    string criticalDmgText = "크리티컬 데미지 +" + equipItems[slotNumber].itemCriticalDamage.ToString() + "%";
+                    string attackText = "공격력 : " + equipItems[slotNumber].ItemAttack.ToString();
+                    string mAttackText = "마법 공격력 : " + equipItems[slotNumber].ItemMAttack.ToString();
+                    string atkSpeedText = "공격 속도 : " + equipItems[slotNumber].ItemAtkSpeed.ToString();
+                    string hitText = "명중 +" + equipItems[slotNumber].ItemHit.ToString();
+                    string criticalText = "크리티컬 +" + equipItems[slotNumber].ItemCritical.ToString() + "%";
+                    string criticalDmgText = "크리티컬 데미지 +" + equipItems[slotNumber].ItemCriticalDamage.ToString() + "%";
 
-                    if (equipItems[slotNumber].itemAttack != 0)
+                    if (equipItems[slotNumber].ItemAttack != 0)
                         optionTexts.Add(attackText);
-                    if (equipItems[slotNumber].itemMAttack != 0)
+                    if (equipItems[slotNumber].ItemMAttack != 0)
                         optionTexts.Add(mAttackText);
-                    if (equipItems[slotNumber].itemAtkSpeed != 0)
+                    if (equipItems[slotNumber].ItemAtkSpeed != 0)
                         optionTexts.Add(atkSpeedText);
-                    if (equipItems[slotNumber].itemHit != 0)
+                    if (equipItems[slotNumber].ItemHit != 0)
                         optionTexts.Add(hitText);
-                    if (equipItems[slotNumber].itemCritical != 0)
+                    if (equipItems[slotNumber].ItemCritical != 0)
                         optionTexts.Add(criticalText);
-                    if (equipItems[slotNumber].itemCriticalDamage != 0)
+                    if (equipItems[slotNumber].ItemCriticalDamage != 0)
                         optionTexts.Add(criticalDmgText);
 
 
@@ -824,28 +822,28 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].itemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].itemMDef.ToString();
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
 
-                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].itemMaxHp.ToString();
-                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].itemMaxMana.ToString();
-                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].itemHpRegen.ToString();
-                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].itemMpRegen.ToString();
-                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].itemMaxWeight.ToString();
-                    string fleeText = "회피 +" + equipItems[slotNumber].itemFlee.ToString();
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
 
 
-                    if (equipItems[slotNumber].itemMaxHp != 0)
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
                         optionTexts.Add(maxHpText);
-                    if (equipItems[slotNumber].itemMaxMana != 0)
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
                         optionTexts.Add(maxManaText);
-                    if (equipItems[slotNumber].itemHpRegen != 0)
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
                         optionTexts.Add(hpRegenText);
-                    if (equipItems[slotNumber].itemMpRegen != 0)
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
                         optionTexts.Add(mpRegenText);
-                    if (equipItems[slotNumber].itemMaxWeight != 0)
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
                         optionTexts.Add(maxWeightText);
-                    if (equipItems[slotNumber].itemFlee != 0)
+                    if (equipItems[slotNumber].ItemFlee != 0)
                         optionTexts.Add(fleeText);
 
                     //버튼 활성화
@@ -858,45 +856,45 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 악세서리";
 
-                    string strText = "STR +" + equipItems[slotNumber].itemStr;
-                    string dexText = "DEX +" + equipItems[slotNumber].itemDex;
-                    string agiText = "AGI +" + equipItems[slotNumber].itemAgi;
-                    string vitText = "VIT +" + equipItems[slotNumber].itemVit;
-                    string intText = "INT +" + equipItems[slotNumber].itemInt;
-                    string engText = "ENG +" + equipItems[slotNumber].itemEng;
-                    string lukText = "LUK +" + equipItems[slotNumber].itemLuk;
-                    string accDefText = "방어력 +" + equipItems[slotNumber].itemAccessoryDef;
-                    string accMdefText = "마법 방어력 +" + equipItems[slotNumber].itemAccessoryMDef;
-                    string accAtkText = "공격력 +" + equipItems[slotNumber].itemAccessoryAtk;
-                    string accMatkText = "마법 공격력 +" + equipItems[slotNumber].itemAccessoryMAtk;
-                    string accMaxHp = "최대 체력 +" + equipItems[slotNumber].itemAccessoryMaxHp;
-                    string accMaxMana = "최대 마나 +" + equipItems[slotNumber].itemAccessoryMaxMana;
+                    string strText = "STR +" + equipItems[slotNumber].ItemStr;
+                    string dexText = "DEX +" + equipItems[slotNumber].ItemDex;
+                    string agiText = "AGI +" + equipItems[slotNumber].ItemAgi;
+                    string vitText = "VIT +" + equipItems[slotNumber].ItemVit;
+                    string intText = "INT +" + equipItems[slotNumber].ItemInt;
+                    string engText = "ENG +" + equipItems[slotNumber].ItemEng;
+                    string lukText = "LUK +" + equipItems[slotNumber].ItemLuk;
+                    string accDefText = "방어력 +" + equipItems[slotNumber].ItemAccessoryDef;
+                    string accMdefText = "마법 방어력 +" + equipItems[slotNumber].ItemAccessoryMDef;
+                    string accAtkText = "공격력 +" + equipItems[slotNumber].ItemAccessoryAtk;
+                    string accMatkText = "마법 공격력 +" + equipItems[slotNumber].ItemAccessoryMAtk;
+                    string accMaxHp = "최대 체력 +" + equipItems[slotNumber].ItemAccessoryMaxHp;
+                    string accMaxMana = "최대 마나 +" + equipItems[slotNumber].ItemAccessoryMaxMana;
 
-                    if (equipItems[slotNumber].itemStr != 0)
+                    if (equipItems[slotNumber].ItemStr != 0)
                         optionTexts.Add(strText);
-                    if (equipItems[slotNumber].itemDex != 0)
+                    if (equipItems[slotNumber].ItemDex != 0)
                         optionTexts.Add(dexText);
-                    if (equipItems[slotNumber].itemAgi != 0)
+                    if (equipItems[slotNumber].ItemAgi != 0)
                         optionTexts.Add(agiText);
-                    if (equipItems[slotNumber].itemVit != 0)
+                    if (equipItems[slotNumber].ItemVit != 0)
                         optionTexts.Add(vitText);
-                    if (equipItems[slotNumber].itemInt != 0)
+                    if (equipItems[slotNumber].ItemInt != 0)
                         optionTexts.Add(intText);
-                    if (equipItems[slotNumber].itemEng != 0)
+                    if (equipItems[slotNumber].ItemEng != 0)
                         optionTexts.Add(engText);
-                    if (equipItems[slotNumber].itemLuk != 0)
+                    if (equipItems[slotNumber].ItemLuk != 0)
                         optionTexts.Add(lukText);
-                    if (equipItems[slotNumber].itemAccessoryDef != 0)
+                    if (equipItems[slotNumber].ItemAccessoryDef != 0)
                         optionTexts.Add(accDefText);
-                    if (equipItems[slotNumber].itemAccessoryMDef != 0)
+                    if (equipItems[slotNumber].ItemAccessoryMDef != 0)
                         optionTexts.Add(accMdefText);
-                    if (equipItems[slotNumber].itemAccessoryAtk != 0)
+                    if (equipItems[slotNumber].ItemAccessoryAtk != 0)
                         optionTexts.Add(accAtkText);
-                    if (equipItems[slotNumber].itemAccessoryMAtk != 0)
+                    if (equipItems[slotNumber].ItemAccessoryMAtk != 0)
                         optionTexts.Add(accMatkText);
-                    if (equipItems[slotNumber].itemAccessoryMaxHp != 0)
+                    if (equipItems[slotNumber].ItemAccessoryMaxHp != 0)
                         optionTexts.Add(accMaxHp);
-                    if (equipItems[slotNumber].itemAccessoryMaxMana != 0)
+                    if (equipItems[slotNumber].ItemAccessoryMaxMana != 0)
                         optionTexts.Add(accMaxMana);
 
                     //버튼 활성화
@@ -915,24 +913,24 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 소모품";
 
-                    string potionHpText = "체력 " + equipItems[slotNumber].itemPotionHp.ToString() + "증가";
-                    string potionManaRegenText = "마나 재생량 " + equipItems[slotNumber].itemPotionManaRegen.ToString() + "증가";
-                    string potionMoveSpeedText = "이동속도 " + equipItems[slotNumber].itemPotionMoveSpeed.ToString() + "증가";
-                    string potionAtkSpeedText = "공격속도 " + equipItems[slotNumber].itemPotionAtkSpeed.ToString() + "증가";
-                    string potionAtkText = "공격력 " + equipItems[slotNumber].itemPotionAtk.ToString() + "증가";
-                    string potionMAtkText = "마법 공격력 " + equipItems[slotNumber].itemPotionMAtk.ToString() + "증가";
+                    string potionHpText = "체력 " + equipItems[slotNumber].ItemPotionHp.ToString() + "증가";
+                    string potionManaRegenText = "마나 재생량 " + equipItems[slotNumber].ItemPotionManaRegen.ToString() + "증가";
+                    string potionMoveSpeedText = "이동속도 " + equipItems[slotNumber].ItemPotionMoveSpeed.ToString() + "증가";
+                    string potionAtkSpeedText = "공격속도 " + equipItems[slotNumber].ItemPotionAtkSpeed.ToString() + "증가";
+                    string potionAtkText = "공격력 " + equipItems[slotNumber].ItemPotionAtk.ToString() + "증가";
+                    string potionMAtkText = "마법 공격력 " + equipItems[slotNumber].ItemPotionMAtk.ToString() + "증가";
 
-                    if (equipItems[slotNumber].itemPotionHp != 0)
+                    if (equipItems[slotNumber].ItemPotionHp != 0)
                         optionTexts.Add(potionHpText);
-                    if (equipItems[slotNumber].itemPotionManaRegen != 0)
+                    if (equipItems[slotNumber].ItemPotionManaRegen != 0)
                         optionTexts.Add(potionManaRegenText);
-                    if (equipItems[slotNumber].itemPotionMoveSpeed != 0)
+                    if (equipItems[slotNumber].ItemPotionMoveSpeed != 0)
                         optionTexts.Add(potionMoveSpeedText);
-                    if (equipItems[slotNumber].itemPotionAtkSpeed != 0)
+                    if (equipItems[slotNumber].ItemPotionAtkSpeed != 0)
                         optionTexts.Add(potionAtkSpeedText);
-                    if (equipItems[slotNumber].itemPotionAtk != 0)
+                    if (equipItems[slotNumber].ItemPotionAtk != 0)
                         optionTexts.Add(potionAtkText);
-                    if (equipItems[slotNumber].itemPotionMAtk != 0)
+                    if (equipItems[slotNumber].ItemPotionMAtk != 0)
                         optionTexts.Add(potionMAtkText);
 
                     unlockButton.gameObject.SetActive(true);
@@ -950,15 +948,15 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 부적";
 
-                    string gainExpText = "경험치 획득량 : " + equipItems[slotNumber].itemGainExp.ToString() + "%";
-                    string gainGoldText = "골드 획득량 : " + equipItems[slotNumber].itemGainGold.ToString() + "%";
-                    string gainCommonMaterialText = "일반재료 획득량 : " + equipItems[slotNumber].itemGainCommonMaterial.ToString() + "%";
-                    string gainRareMAterialText = "레어재료 획득량 : " + equipItems[slotNumber].itemGainRareMaterial.ToString() + "%";
+                    string gainExpText = "경험치 획득량 : " + equipItems[slotNumber].ItemGainExp.ToString() + "%";
+                    string gainGoldText = "골드 획득량 : " + equipItems[slotNumber].ItemGainGold.ToString() + "%";
+                    string gainCommonMaterialText = "일반재료 획득량 : " + equipItems[slotNumber].ItemGainCommonMaterial.ToString() + "%";
+                    string gainRareMAterialText = "레어재료 획득량 : " + equipItems[slotNumber].ItemGainRareMaterial.ToString() + "%";
 
-                    if (equipItems[slotNumber].itemGainExp != 0) optionTexts.Add(gainExpText);
-                    if (equipItems[slotNumber].itemGainGold != 0) optionTexts.Add(gainGoldText);
-                    if (equipItems[slotNumber].itemGainCommonMaterial != 0) optionTexts.Add(gainCommonMaterialText);
-                    if (equipItems[slotNumber].itemGainRareMaterial != 0) optionTexts.Add(gainRareMAterialText);
+                    if (equipItems[slotNumber].ItemGainExp != 0) optionTexts.Add(gainExpText);
+                    if (equipItems[slotNumber].ItemGainGold != 0) optionTexts.Add(gainGoldText);
+                    if (equipItems[slotNumber].ItemGainCommonMaterial != 0) optionTexts.Add(gainCommonMaterialText);
+                    if (equipItems[slotNumber].ItemGainRareMaterial != 0) optionTexts.Add(gainRareMAterialText);
 
                     unlockButton.gameObject.SetActive(true);
                     unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.EXPCHARM));
@@ -1040,7 +1038,7 @@ public class UI_Inventory : MonoBehaviour
         //GameObject itemObj = slots[slotNumber].gameObject.transform.GetChild(0).gameObject;
 
         //무기에 아이템이 장착되어 있지 않을경우
-        if (equipItems[(int)type].itemID == -1)
+        if (equipItems[(int)type].ItemID == -1)
         {
             Destroy(slotObj);
 
@@ -1065,13 +1063,13 @@ public class UI_Inventory : MonoBehaviour
             equipItemObj.transform.SetParent(btn.transform);
 
             //아이템의 이미지를 장착한 아이템 이미지로 설정
-            equipItemObj.GetComponent<Image>().sprite = clickedItem.itemIcon;
+            equipItemObj.GetComponent<Image>().sprite = clickedItem.ItemIcon;
 
             //아이템의 위치를 무기슬롯 transform으로 배치
             equipItemObj.transform.position = btn.transform.position;
 
             //아이템의 이름을 장착한 아이템이름으로 변경
-            equipItemObj.name = clickedItem.itemName;
+            equipItemObj.name = clickedItem.ItemName;
 
 
 
@@ -1095,8 +1093,8 @@ public class UI_Inventory : MonoBehaviour
     {
         GameObject itemObj = equipSlots[(int)type].gameObject.transform.GetChild(0).gameObject;
 
-        Debug.Log(equipItems[(int)type].itemID);
-        AddItem(equipItems[(int)type].itemID);
+        Debug.Log(equipItems[(int)type].ItemID);
+        AddItem(equipItems[(int)type].ItemID);
         equipItems.Remove((int)type);
         equipItems.Add((int)type,new Item());
 
@@ -1115,7 +1113,7 @@ public class UI_Inventory : MonoBehaviour
         GameObject itemObj = slots[slotNumber].gameObject.transform.GetChild(0).gameObject;
 
         //아이템을 인벤토리에 생성하는거 만들어야함
-        //AddItem(equipItems[(int)type].itemID);
+        //AddItem(equipItems[(int)type].ItemID);
 
 
         Item tempEquipItem = equipItems[(int)type];
@@ -1136,7 +1134,7 @@ public class UI_Inventory : MonoBehaviour
         //GameObject itemObj = slots[slotNumber].gameObject.transform.GetChild(0).gameObject;
 
         
-        if (items[slotNumber].itemID == -1)
+        if (items[slotNumber].ItemID == -1)
         {
                
             GameObject slotItemObj = Instantiate(inventoryItem);
@@ -1145,13 +1143,13 @@ public class UI_Inventory : MonoBehaviour
             slotItemObj.transform.SetParent(slots[slotNumber].transform);
       
             //아이템의 이미지를 장착한 아이템 이미지로 설정
-            slotItemObj.GetComponent<Image>().sprite = tempEquipItem.itemIcon;
+            slotItemObj.GetComponent<Image>().sprite = tempEquipItem.ItemIcon;
       
             //아이템의 위치를 무기슬롯 transform으로 배치
             slotItemObj.transform.position = slots[slotNumber].transform.position;
       
             //아이템의 이름을 장착한 아이템이름으로 변경
-            slotItemObj.name = tempEquipItem.itemName;
+            slotItemObj.name = tempEquipItem.ItemName;
 
             items.RemoveAt(slotNumber);
             //장비창 아이템을 인벤토리 슬롯에 추가
@@ -1159,7 +1157,7 @@ public class UI_Inventory : MonoBehaviour
 
         }
       
-        if(equipItems[(int)type].itemID == -1)
+        if(equipItems[(int)type].ItemID == -1)
         {
             GameObject equipItemObj = Instantiate(inventoryItem);
 
@@ -1167,13 +1165,13 @@ public class UI_Inventory : MonoBehaviour
             equipItemObj.transform.SetParent(equipBtn.transform);
 
             //아이템의 이미지를 장착한 아이템 이미지로 설정
-            equipItemObj.GetComponent<Image>().sprite = clickedItem.itemIcon;
+            equipItemObj.GetComponent<Image>().sprite = clickedItem.ItemIcon;
 
             //아이템의 위치를 무기슬롯 transform으로 배치
             equipItemObj.transform.position = equipBtn.transform.position;
 
             //아이템의 이름을 장착한 아이템이름으로 변경
-            equipItemObj.name = clickedItem.itemName;
+            equipItemObj.name = clickedItem.ItemName;
 
             equipItems.Remove((int)type);
             equipItems.Add((int)type, clickedItem);
