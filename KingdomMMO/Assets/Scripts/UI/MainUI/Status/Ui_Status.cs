@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Ui_Status : MonoBehaviour
 {
     PlayerStatus status;
+    UI_Inventory inventory;
+
 
     [Header("공용")]
     [SerializeField]
@@ -128,6 +130,118 @@ public class Ui_Status : MonoBehaviour
     Button lukMinusButton;
 
 
+    #region SubStatus & SubStatus Property
+    int level;
+    int     exp;
+    int     maxExp;
+    float   expPer;
+    int     statAttack;
+    int     levelAttack;
+    int     itemAtttack;
+    float   attackSpeed;
+    int     statHit;
+    int     levelHit;
+    int     itemHit;
+    int     statCritical;
+    int     itemCritical;
+    int     statCriticalDamage;
+    int     itemCriticalDamage;
+    int     statMagicAttack;
+    int     levelMagicAttack;
+    int     itemMagicAttack;
+    int     levelHp;
+    int     statHp;
+    int     itemHp;
+    int     levelMp;
+    int     statMp;
+    int     itemMp;
+    int     statDef;
+    int     itemDef;
+    int     statMagicDef;
+    int     itemMagicDef;
+    int     statFlee;
+    int     itemFlee;
+    float   moveSpeed;
+    float   gainExp;
+    float   gainGold;
+    float   gainCommonMaterial;
+    float   gainRareMaterial;
+    int     statHpRegen;
+    int     itemHpRegen;
+    int     statMpRegen;
+    int     itemMpRegen;
+
+
+    public int Level { get { return level; } set { level = value; } }
+    public int Exp { get { return exp; } set { exp = value; } }
+    public int MaxExp { get { return maxExp; } set { maxExp = value; } }
+    public float ExpPer { get { return expPer; } set { expPer = value; } }
+    public int StatAttack { get { return statAttack; } set { statAttack = value; } }
+    public int LevelAttack { get { return levelAttack; } set { levelAttack = value; } }
+    public int ItemAtttack { get { return itemAtttack; } set { itemAtttack = value; } }
+    public float AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
+    public int StatHit { get { return statHit; } set { statHit = value; } }
+    public int LevelHit { get { return levelHit; } set { levelHit = value; } }
+    public int ItemHit { get { return itemHit; } set { itemHit = value; } }
+    public int StatCritical { get { return statCritical; } set { statCritical = value; } }
+    public int ItemCritical { get { return itemCritical; } set { itemCritical = value; } }
+    public int StatCriticalDamage { get { return statCriticalDamage; } set { statCriticalDamage = value; } }
+    public int ItemCriticalDamage { get { return itemCriticalDamage; } set { itemCriticalDamage = value; } }
+    public int StatMagicAttack { get { return statMagicAttack; } set { statMagicAttack = value; } }
+    public int LevelMagicAttack { get { return levelMagicAttack; } set { levelMagicAttack = value; } }
+    public int ItemMagicAttack { get { return itemMagicAttack; } set { itemMagicAttack = value; } }
+    public int LevelHp { get { return levelHp; } set { levelHp = value; } }
+    public int StatHp { get { return statHp; } set { statHp = value; } }
+    public int ItemHp { get { return itemHp; } set { itemHp = value; } }
+    public int LevelMp { get { return levelMp; } set { levelMp = value; } }
+    public int StatMp { get { return statMp; } set { statMp = value; } }
+    public int ItemMp { get { return itemMp; } set { itemMp = value; } }
+    public int StatDef { get { return statDef; } set { statDef = value; } }
+    public int ItemDef { get { return itemDef; } set { itemDef = value; } }
+    public int StatMagicDef { get { return statMagicDef; } set { statMagicDef = value; } }
+    public int ItemMagicDef { get { return itemMagicDef; } set { itemMagicDef = value; } }
+    public int StatFlee { get { return statFlee; } set { statFlee = value; } }
+    public int ItemFlee { get { return itemFlee; } set { itemFlee = value; } }
+    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
+    public float GainExp { get { return gainExp; } set { gainExp = value; } }
+    public float GainGold { get { return gainGold; } set { gainGold = value; } }
+    public float GainCommonMaterial { get { return gainCommonMaterial; } set { gainCommonMaterial = value; } }
+    public float GainRareMaterial { get { return gainRareMaterial; } set { gainRareMaterial = value; } }
+    public int StatHpRegen { get { return statHpRegen; } set { statHpRegen = value; } }
+    public int ItemHpRegen { get { return itemHpRegen; } set { itemHpRegen = value; } }
+    public int StatMpRegen { get { return statMpRegen; } set { statMpRegen = value; } }
+    public int ItemMpRegen { get { return itemMpRegen; } set { itemMpRegen = value; } }
+
+    #endregion
+
+    [Header("UI 텍스트")]
+    [SerializeField] Text levelText;
+    [SerializeField] Text expText;
+    [SerializeField] Text atkText;
+    [SerializeField] Text atkSpeedText;
+    [SerializeField] Text hitText;
+    [SerializeField] Text criticalText;
+    [SerializeField] Text criticalDamageText;
+    [SerializeField] Text magicAttackText;
+    [SerializeField] Text maxHpText;
+    [SerializeField] Text maxMpText;
+    [SerializeField] Text defText;
+    [SerializeField] Text magicDefText;
+    [SerializeField] Text fleeText;
+    [SerializeField] Text moveSpeedText;
+    [SerializeField] Text gainExpText;
+    [SerializeField] Text gainGoldText;
+    [SerializeField] Text gainCommonMaterialText;
+    [SerializeField] Text gainRareMaterialText;
+    [SerializeField] Text hpRegenText;
+    [SerializeField] Text mpRegenText;
+
+
+    List<Text> statusTexts = new List<Text>();
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -164,6 +278,54 @@ public class Ui_Status : MonoBehaviour
 
         Confirm.onClick.AddListener(ConfirmStatus);
 
+
+        //levelText 
+        //expText 
+        //atkText 
+        //atkSpeedText 
+        //hitText 
+        //criticalText 
+        //criticalDamageText 
+        //magicAttackText 
+        //maxHpText 
+        //maxMpText 
+        //defText 
+        //magicDefText 
+        //fleeText 
+        //moveSpeedText 
+        //gainExpText 
+        //gainGoldText 
+        //gainCommonMaterialText 
+        //gainRareMaterialText 
+        //hpRegenText 
+        //mpRegenText 
+        statusTexts.Add(levelText );
+        statusTexts.Add(expText );
+        statusTexts.Add(atkText );
+        statusTexts.Add(atkSpeedText );
+        statusTexts.Add(hitText );
+        statusTexts.Add(criticalText );
+        statusTexts.Add(criticalDamageText );
+        statusTexts.Add(magicAttackText );
+        statusTexts.Add(maxHpText );
+        statusTexts.Add(maxMpText );
+        statusTexts.Add(defText );
+        statusTexts.Add(magicDefText );
+        statusTexts.Add(fleeText );
+        statusTexts.Add(moveSpeedText );
+        statusTexts.Add(gainExpText );
+        statusTexts.Add(gainGoldText );
+        statusTexts.Add(gainCommonMaterialText );
+        statusTexts.Add(gainRareMaterialText );
+        statusTexts.Add(hpRegenText );
+        statusTexts.Add(mpRegenText );
+
+        for (int i = 0; i < statusTexts.Count; i++)
+        {
+            statusTexts[i].text = "";
+        }
+
+
     }
 
     // Update is called once per frame
@@ -186,6 +348,8 @@ public class Ui_Status : MonoBehaviour
         intRequirePoint = CalculatorStatus(intTemp);
         engRequirePoint = CalculatorStatus(engTemp);
         lukRequirePoint = CalculatorStatus(lukTemp);
+
+        
     }
 
     void ClickPlus(Button btn)
@@ -382,5 +546,10 @@ public class Ui_Status : MonoBehaviour
             text.color = new Color(255, 0, 0);
         else
             text.color = new Color(0, 0, 0);
+    }
+
+    void SetStatus()
+    {
+
     }
 }

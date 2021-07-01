@@ -96,6 +96,8 @@ public class UI_Inventory : MonoBehaviour
     Item clickedItem;
 
     int equipSlotAmount;
+
+
     [Header("장비슬롯")]
     [SerializeField] Button helmetBtn;
     [SerializeField] Button amoreBtn;

@@ -69,6 +69,9 @@ public class PlayerStatus : Status
     [SerializeField]
     private float gainingEquipmentAndRarityMeterial;
 
+    //장비관련
+
+
 
     public int SwordAtk { get { return swordAtk; } set { swordAtk = value; } }
     public int RangeAtk { get { return rangeAtk; } set { rangeAtk = value; } }
