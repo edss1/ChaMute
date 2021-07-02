@@ -23,6 +23,9 @@ using UnityEngine.EventSystems;
 
 public class UI_Inventory : MonoBehaviour
 {
+    DataSaveLoad data;
+    public GameObject dataSaveLoad;
+
     GameObject inventoryPanel;
     GameObject slotPanel;
     [SerializeField]
@@ -35,6 +38,7 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField]
     GameObject inventoryItem;
 
+    #region ToolTip 변수
     [Header("ToolTip관련")]
     [SerializeField]
     Image ToolTipImage;
@@ -85,7 +89,7 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField]
     Button exchangeButton;          //교체 버튼
 
-
+    #endregion
     int slotAmount;
 
     [SerializeField]
@@ -119,7 +123,8 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] Button potionTwoBtn;
     [SerializeField] Button potionThreeBtn;
 
-    enum Equip
+    
+    public enum Equip
     {
         HELMET,
         AMORE,
@@ -145,7 +150,6 @@ public class UI_Inventory : MonoBehaviour
 
     private void Start()
     {
-
         ToolTipImage.gameObject.SetActive(false);
 
         database = itemData.GetComponent<ItemDatabase>();
@@ -230,6 +234,11 @@ public class UI_Inventory : MonoBehaviour
         AddItem(71001);
         AddItem(61001);
         AddItem(61001);
+
+
+        data = dataSaveLoad.GetComponent<DataSaveLoad>();
+        
+        //data.LoadItemDataToJson();
     }
 
     void Update()
@@ -1087,7 +1096,7 @@ public class UI_Inventory : MonoBehaviour
         ToolTipImage.gameObject.SetActive(false);
         equipButton.onClick.RemoveAllListeners();
 
-
+        //data.SaveItemDataToJson();
         return;
     }
 

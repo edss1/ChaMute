@@ -4,25 +4,25 @@
       "level": "1",
       "maxHp": "200",
       "attack": "20",
-      "totalExp":  "0"
+      "maxExp":  "100"
     },
     {
       "level": "2",
       "maxHp": "250",
       "attack": "25",
-      "totalExp": "20"
+      "maxExp": "250"
     },
     {
       "level": "3",
       "maxHp": "300",
       "attack": "30",
-      "totalExp": "40"
+      "maxExp": "500"
     },
     {
       "level": "4",
       "maxHp": "350",
       "attack": "40",
-      "totalExp": "60"
+      "maxExp": "900"
     }
   ]
 }

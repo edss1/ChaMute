@@ -25,7 +25,7 @@ namespace Data
         public int level;
         public int maxHp;
         public int attack;
-        public int totalExp;
+        public int maxExp;
     }
 
     [Serializable]

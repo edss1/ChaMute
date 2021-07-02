@@ -88,23 +88,24 @@ public class PlayerStatus : Status
         {
             exp = value;
 
-            int level = Level;
-            while (true)
-            {
-                Data.Stat stat;
-                if (Managers.Data.StatDict.TryGetValue(level + 1, out stat) == false)
-                    break;
-                if (exp < stat.totalExp)
-                    break;
-                level++;
-            }
-
-            if (level != Level)
-            {
-                Debug.Log("Level UP!");
-                Level = level;
-                SetStat(Level);
-            }
+            //레벨업을 해야할 곳에 추가
+            //int level = Level;
+            //while (true)
+            //{
+            //    Data.Stat stat;
+            //    if (Managers.Data.StatDict.TryGetValue(level + 1, out stat) == false)
+            //        break;
+            //    if (exp < stat.maxExp)
+            //        break;
+            //    level++;
+            //}
+            //
+            //if (level != Level)
+            //{
+            //    Debug.Log("Level UP!");
+            //    Level = level;
+            //    SetStat(Level);
+            //}
         }
     }
   
@@ -152,6 +153,7 @@ public class PlayerStatus : Status
         hp = stat.maxHp;
         maxHp = stat.maxHp;
         attack = stat.attack;
+        maxExp = stat.maxExp;
     }
 
     // Update is called once per frame

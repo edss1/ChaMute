@@ -22,32 +22,29 @@ public class MainUI_Inventory : MonoBehaviour
     Button inventoryPanelExitButton;
     [SerializeField]
     Image inventoryImage;
-
     // Start is called before the first frame update
     void Start()
     {
         inventoryImage.gameObject.SetActive(false);
-        
+        inventoryPanelPopupButton.onClick.AddListener(PopupButton);
+        inventoryPanelExitButton.onClick.AddListener(ExitButton);
     }
 
     // Update is called once per frame
     void Update()
     {
-        inventoryPanelPopupButton.onClick.AddListener(PopupButton);
-        inventoryPanelExitButton.onClick.AddListener(ExitButton);
+    
     }
 
     //일시정지 활성화
     void PopupButton()
     {
         inventoryImage.gameObject.SetActive(true);
-        inventoryPanelPopupButton.onClick.RemoveAllListeners();
     }
 
     void ExitButton()
     {
         
         inventoryImage.gameObject.SetActive(false);
-        inventoryPanelExitButton.onClick.RemoveAllListeners();
     }
 }

@@ -9,6 +9,9 @@ TagManager:
   - Block
   - Floor
   - lockTarget
+  - Inventory
+  - Status
+  - SaveLoad
   layers:
   - Default
   - TransparentFX

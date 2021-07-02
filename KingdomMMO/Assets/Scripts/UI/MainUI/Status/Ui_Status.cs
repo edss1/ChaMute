@@ -8,6 +8,31 @@ public class Ui_Status : MonoBehaviour
     PlayerStatus status;
     UI_Inventory inventory;
 
+    enum SubStatus
+    {
+        LEVEL,
+        EXP,
+        ATK,
+        ATKSPEED,
+        HIT,
+        CRITICAL,
+        CRITICALDAMAGE,
+        MAGICATTACK,
+        MAXHP,
+        MAXMP,
+        DEF,
+        MAGICDEF,
+        FLEE,
+        MOVESPEED,
+        GAINEXP,
+        GAINGOLD,
+        GAINCOMMONMATERIAL,
+        GAINRAREMATERIAL,
+        HPREGEN,
+        MPREGEN
+    }
+
+
 
     [Header("공용")]
     [SerializeField]
@@ -138,7 +163,8 @@ public class Ui_Status : MonoBehaviour
     int     statAttack;
     int     levelAttack;
     int     itemAtttack;
-    float   attackSpeed;
+    float   statAttackSpeed;
+    float   itemAttackSpeed;
     int     statHit;
     int     levelHit;
     int     itemHit;
@@ -179,7 +205,8 @@ public class Ui_Status : MonoBehaviour
     public int StatAttack { get { return statAttack; } set { statAttack = value; } }
     public int LevelAttack { get { return levelAttack; } set { levelAttack = value; } }
     public int ItemAtttack { get { return itemAtttack; } set { itemAtttack = value; } }
-    public float AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
+    public float StatAttackSpeed { get { return statAttackSpeed; } set { statAttackSpeed = value; } }
+    public float ItemAttackSpeed { get { return itemAttackSpeed; } set { itemAttackSpeed = value; } }
     public int StatHit { get { return statHit; } set { statHit = value; } }
     public int LevelHit { get { return levelHit; } set { levelHit = value; } }
     public int ItemHit { get { return itemHit; } set { itemHit = value; } }
@@ -245,6 +272,7 @@ public class Ui_Status : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         strPoint = 1;
         dexPoint = 1;
         agiPoint = 1;
@@ -325,7 +353,8 @@ public class Ui_Status : MonoBehaviour
             statusTexts[i].text = "";
         }
 
-
+        status = GetComponent<PlayerStatus>();
+        inventory = GetComponent<UI_Inventory>();
     }
 
     // Update is called once per frame
@@ -349,7 +378,31 @@ public class Ui_Status : MonoBehaviour
         engRequirePoint = CalculatorStatus(engTemp);
         lukRequirePoint = CalculatorStatus(lukTemp);
 
-        
+        #region SetStatus
+        SetStatus(levelText);
+        SetStatus(expText);
+        SetStatus(atkText);
+        SetStatus(atkSpeedText);
+        SetStatus(hitText);
+        SetStatus(criticalText);
+        SetStatus(criticalDamageText);
+        SetStatus(magicAttackText);
+        SetStatus(maxHpText);
+        SetStatus(maxMpText);
+        SetStatus(defText);
+        SetStatus(magicDefText);
+        SetStatus(fleeText);
+        SetStatus(moveSpeedText);
+        SetStatus(gainExpText);
+        SetStatus(gainGoldText);
+        SetStatus(gainCommonMaterialText);
+        SetStatus(gainRareMaterialText);
+        SetStatus(hpRegenText);
+        SetStatus(mpRegenText);
+        #endregion
+
+        //Debug.Log(inventory.equipItems[2].ItemID);
+        //itemAttackSpeed = inventory.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemAtkSpeed;
     }
 
     void ClickPlus(Button btn)
@@ -548,8 +601,40 @@ public class Ui_Status : MonoBehaviour
             text.color = new Color(0, 0, 0);
     }
 
-    void SetStatus()
+    void SetStatus(Text text)
     {
+        if (text == statusTexts[(int)SubStatus.LEVEL])
+        {
+            text.text = "레벨 : " + status.Level.ToString();
+        }
+        else if (text == statusTexts[(int)SubStatus.EXP])
+        {
+            text.text = "경험치 : " + status.Exp + " / " + status.MaxExp + $"({status.Exp/status.MaxExp}%)";
+        }
+        else if (text == statusTexts[(int)SubStatus.ATK])
+        {
+            text.text = "공격력 : " + status.Attack;
+        }
+        else if (text == statusTexts[(int)SubStatus.ATKSPEED])
+        {   //if(inventory.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemID != -1)
+                text.text = "공격속도 : " + itemAttackSpeed;
+        }
+        else if (text == statusTexts[(int)SubStatus.HIT]) { }
+        else if (text == statusTexts[(int)SubStatus.CRITICAL]) { }
+        else if (text == statusTexts[(int)SubStatus.CRITICALDAMAGE]) { }
+        else if (text == statusTexts[(int)SubStatus.MAGICATTACK]) { }
+        else if (text == statusTexts[(int)SubStatus.MAXHP]) { }
+        else if (text == statusTexts[(int)SubStatus.MAXMP]) { }
+        else if (text == statusTexts[(int)SubStatus.DEF ]) { }
+        else if (text == statusTexts[(int)SubStatus.MAGICDEF ]) { }
+        else if (text == statusTexts[(int)SubStatus.FLEE ]) { }
+        else if (text == statusTexts[(int)SubStatus.MOVESPEED ]) { }
+        else if (text == statusTexts[(int)SubStatus.GAINEXP ]) { }
+        else if (text == statusTexts[(int)SubStatus.GAINGOLD ]) { }
+        else if (text == statusTexts[(int)SubStatus.GAINCOMMONMATERIAL ]) { }
+        else if (text == statusTexts[(int)SubStatus.GAINRAREMATERIAL ]) { }
+        else if (text == statusTexts[(int)SubStatus.HPREGEN ]) { }
+        else if (text == statusTexts[(int)SubStatus.MPREGEN]) { }
 
     }
 }
