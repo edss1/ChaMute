@@ -3416,6 +3416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02697137462c3784a92b58263f2265dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataObj: {fileID: 1830797509}
   statusPointText: {fileID: 1823666591}
   statusPoint: 0
   statusPointTemp: 0
@@ -3519,8 +3520,10 @@ MonoBehaviour:
   intelligence: 0
   energe: 0
   lucky: 0
-  swordAtk: 0
-  rangeAtk: 0
+  itemAttack: 0
+  itemMAttack: 0
+  itemDef: 0
+  itemMDef: 0
   hpRegen: 0
   mpRegen: 0
   weight: 0
@@ -3666,6 +3669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e324898a882b44ab106fc6a95ff32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataSaveLoad: {fileID: 1830797509}
   inventoryPanelPopupButton: {fileID: 397413332}
   inventoryPanelExitButton: {fileID: 1663563334}
   inventoryImage: {fileID: 1573126777}
@@ -15267,8 +15271,10 @@ MonoBehaviour:
     maxHp: 0
     attack: 0
     maxExp: 0
+  playerDataInInventory:
+    itemAttack: 0
   inventory: {fileID: 1364242992}
-  inventoryData:
+  equipInventoryData:
     weaponItemId: 0
     weaponReinforce: 0
 --- !u!4 &1830797511

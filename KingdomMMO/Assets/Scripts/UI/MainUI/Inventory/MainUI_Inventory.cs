@@ -16,6 +16,10 @@ using UnityEngine.UI;
 
 public class MainUI_Inventory : MonoBehaviour
 {
+    DataSaveLoad data;
+
+    [SerializeField]
+    GameObject dataSaveLoad;
     [SerializeField]
     Button inventoryPanelPopupButton;
     [SerializeField]
@@ -25,6 +29,7 @@ public class MainUI_Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        data = dataSaveLoad.GetComponent<DataSaveLoad>();
         inventoryImage.gameObject.SetActive(false);
         inventoryPanelPopupButton.onClick.AddListener(PopupButton);
         inventoryPanelExitButton.onClick.AddListener(ExitButton);
@@ -44,7 +49,10 @@ public class MainUI_Inventory : MonoBehaviour
 
     void ExitButton()
     {
-        
+        data.SavePlayerDataToJsonInInventory();
+        data.LoadPlayerDataToJsonInInventory();
+        data.SaveItemDataToJson();
         inventoryImage.gameObject.SetActive(false);
+        
     }
 }

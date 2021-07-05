@@ -8,6 +8,10 @@ public class Ui_Status : MonoBehaviour
     PlayerStatus status;
     UI_Inventory inventory;
 
+    DataSaveLoad data;
+    [SerializeField]
+    GameObject dataObj;
+
     enum SubStatus
     {
         LEVEL,
@@ -32,7 +36,7 @@ public class Ui_Status : MonoBehaviour
         MPREGEN
     }
 
-
+    #region MainStatus & Text
 
     [Header("공용")]
     [SerializeField]
@@ -154,6 +158,7 @@ public class Ui_Status : MonoBehaviour
     [SerializeField]
     Button lukMinusButton;
 
+    #endregion
 
     #region SubStatus & SubStatus Property
     int level;
@@ -272,6 +277,8 @@ public class Ui_Status : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        data = dataObj.GetComponent<DataSaveLoad>();
+        data.LoadPlayerDataToJsonInInventory();
 
         strPoint = 1;
         dexPoint = 1;
@@ -361,15 +368,15 @@ public class Ui_Status : MonoBehaviour
     void Update()
     {
         ColorChange(strPoint, strTemp, strPointText);
-
-        strRequirePointText.text = strRequirePoint.ToString();
-        dexRequirePointText.text = dexRequirePoint.ToString();
-        agiRequirePointText.text = agiRequirePoint.ToString();
-        vitRequirePointText.text = vitRequirePoint.ToString();
-        intRequirePointText.text = intRequirePoint.ToString();
-        engRequirePointText.text = engRequirePoint.ToString();
-        lukRequirePointText.text = lukRequirePoint.ToString();
-
+        
+            strRequirePointText.text = strRequirePoint.ToString();
+            dexRequirePointText.text = dexRequirePoint.ToString();
+            agiRequirePointText.text = agiRequirePoint.ToString();
+            vitRequirePointText.text = vitRequirePoint.ToString();
+            intRequirePointText.text = intRequirePoint.ToString();
+            engRequirePointText.text = engRequirePoint.ToString();
+            lukRequirePointText.text = lukRequirePoint.ToString();
+        
         strRequirePoint = CalculatorStatus(strTemp);
         dexRequirePoint = CalculatorStatus(dexTemp);
         agiRequirePoint = CalculatorStatus(agiTemp);
@@ -613,7 +620,7 @@ public class Ui_Status : MonoBehaviour
         }
         else if (text == statusTexts[(int)SubStatus.ATK])
         {
-            text.text = "공격력 : " + status.Attack;
+            text.text = "공격력 : " + status.Attack + " + " + status.ItemAttack;
         }
         else if (text == statusTexts[(int)SubStatus.ATKSPEED])
         {   //if(inventory.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemID != -1)

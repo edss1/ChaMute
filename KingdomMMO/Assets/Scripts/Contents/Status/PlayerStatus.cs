@@ -17,13 +17,15 @@ using UnityEngine;
 
 public class PlayerStatus : Status
 {
-   
-    //근거리, 원거리 공격력
-    [Header("플레이어 스테이터스")]
     [SerializeField]
-    private int swordAtk;
+    private int itemAttack;
     [SerializeField]
-    private int rangeAtk;
+    private int itemMAttack;
+    [SerializeField]
+    private int itemDef;
+    [SerializeField]
+    private int itemMDef;
+
 
     //회복량
     [Header("플레이어 자연회복량")]
@@ -73,14 +75,17 @@ public class PlayerStatus : Status
 
 
 
-    public int SwordAtk { get { return swordAtk; } set { swordAtk = value; } }
-    public int RangeAtk { get { return rangeAtk; } set { rangeAtk = value; } }
+
+    public int ItemAttack { get { return itemAttack; } set { itemAttack = value; } }
+    public int ItemMAttack { get { return itemMAttack; } set { itemMAttack = value; } }
+    public int ItemDef { get { return itemDef; } set { itemDef = value; } }
+    public int ItemMDef { get { return itemMDef; } set { itemMDef = value; } }
     public int HpRegen { get { return hpRegen; } set { hpRegen = value; } }
     public int MpRegen { get { return mpRegen; } set { mpRegen = value; } }
     public int Weight { get { return weight; } set { weight = value; } }
     public int MaxWeight { get { return maxWeight; } set { maxWeight = value; } }
     public int StatusPoint { get { return statusPoint; } set { statusPoint = value; } }
-   
+
     public int Exp
     {
         get { return exp; }

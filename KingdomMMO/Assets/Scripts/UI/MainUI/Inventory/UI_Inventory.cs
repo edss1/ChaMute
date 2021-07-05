@@ -28,15 +28,14 @@ public class UI_Inventory : MonoBehaviour
 
     GameObject inventoryPanel;
     GameObject slotPanel;
-    [SerializeField]
-    GameObject itemData;
+    
+    public GameObject itemData;
     ItemDatabase database;
 
     [SerializeField]
     Button inventorySlot;
 
-    [SerializeField]
-    GameObject inventoryItem;
+    public GameObject inventoryItem;
 
     #region ToolTip 변수
     [Header("ToolTip관련")]
@@ -238,7 +237,8 @@ public class UI_Inventory : MonoBehaviour
 
         data = dataSaveLoad.GetComponent<DataSaveLoad>();
         
-        //data.LoadItemDataToJson();
+
+        data.LoadItemDataToJson();
     }
 
     void Update()
@@ -281,9 +281,11 @@ public class UI_Inventory : MonoBehaviour
                 {
                     clickedItem = equipItems[i];
                     slotNumber = i;
+                    if (equipSlots[i].gameObject.transform.childCount != 0)
+                        equipSlots[i].onClick.AddListener(EquipTooltip);
 
-
-                    Debug.Log(equipItems[i].ItemID);
+                    
+                    Debug.Log(slotNumber);
                     // if (slots[i].gameObject.transform.childCount != 0)
                     //     slots[i].onClick.AddListener(EquipTooltip);
 
@@ -702,7 +704,7 @@ public class UI_Inventory : MonoBehaviour
 
     void EquipTooltip()
     {
-        
+
         ToolTipImage.gameObject.SetActive(true);
 
         equipButton.gameObject.SetActive(false);
@@ -1092,11 +1094,14 @@ public class UI_Inventory : MonoBehaviour
             btn.onClick.AddListener(EquipTooltip);
 
         }
-        
+
+        data.SavePlayerDataToJsonInInventory();
+        data.LoadPlayerDataToJsonInInventory();
+        data.SaveItemDataToJson();
+
         ToolTipImage.gameObject.SetActive(false);
         equipButton.onClick.RemoveAllListeners();
 
-        //data.SaveItemDataToJson();
         return;
     }
 
@@ -1113,6 +1118,10 @@ public class UI_Inventory : MonoBehaviour
     
         unlockButton.gameObject.SetActive(false);
         ToolTipImage.gameObject.SetActive(false);
+
+        data.SavePlayerDataToJsonInInventory();
+        data.LoadPlayerDataToJsonInInventory();
+        data.SaveItemDataToJson();
 
         return;
     }
@@ -1188,6 +1197,9 @@ public class UI_Inventory : MonoBehaviour
             equipItems.Add((int)type, clickedItem);
         }
 
+        data.SavePlayerDataToJsonInInventory();
+        data.LoadPlayerDataToJsonInInventory();
+        data.SaveItemDataToJson();
 
         ToolTipImage.gameObject.SetActive(false);
         equipButton.onClick.RemoveAllListeners();
