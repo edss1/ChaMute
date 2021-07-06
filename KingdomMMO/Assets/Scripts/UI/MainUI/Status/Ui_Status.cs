@@ -280,6 +280,7 @@ public class Ui_Status : MonoBehaviour
         data = dataObj.GetComponent<DataSaveLoad>();
         data.LoadPlayerDataToJsonInInventory();
 
+        //초기화
         strPoint = 1;
         dexPoint = 1;
         agiPoint = 1;
@@ -289,6 +290,8 @@ public class Ui_Status : MonoBehaviour
         lukPoint = 1;
 
         statusPoint = 30;
+
+
 
         strTemp = strPoint;
         dexTemp = dexPoint;
@@ -302,15 +305,26 @@ public class Ui_Status : MonoBehaviour
 
         statusPointText.text = statusPoint.ToString();
 
+        #region OnClickListener 연결
+
         strPlusButton.onClick.AddListener(() => ClickPlus(strPlusButton));
-        strMinusButton.onClick.AddListener(() => ClickMinus(strMinusButton));
         dexPlusButton.onClick.AddListener(() => ClickPlus(dexPlusButton));
         agiPlusButton.onClick.AddListener(() => ClickPlus(agiPlusButton));
         vitPlusButton.onClick.AddListener(() => ClickPlus(vitPlusButton));
         intPlusButton.onClick.AddListener(() => ClickPlus(intPlusButton));
         engPlusButton.onClick.AddListener(() => ClickPlus(engPlusButton));
         lukPlusButton.onClick.AddListener(() => ClickPlus(lukPlusButton));
+        strMinusButton.onClick.AddListener(() => ClickMinus(strMinusButton));
+        dexMinusButton.onClick.AddListener(() => ClickMinus(dexMinusButton));
+        agiMinusButton.onClick.AddListener(() => ClickMinus(agiMinusButton));
+        vitMinusButton.onClick.AddListener(() => ClickMinus(vitMinusButton));
+        intMinusButton.onClick.AddListener(() => ClickMinus(intMinusButton));
+        engMinusButton.onClick.AddListener(() => ClickMinus(engMinusButton));
+        lukMinusButton.onClick.AddListener(() => ClickMinus(lukMinusButton));
+       
+        #endregion
 
+        //확인버튼
         Confirm.onClick.AddListener(ConfirmStatus);
 
 
@@ -367,16 +381,27 @@ public class Ui_Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ColorChange(strPoint, strTemp, strPointText);
-        
-            strRequirePointText.text = strRequirePoint.ToString();
-            dexRequirePointText.text = dexRequirePoint.ToString();
-            agiRequirePointText.text = agiRequirePoint.ToString();
-            vitRequirePointText.text = vitRequirePoint.ToString();
-            intRequirePointText.text = intRequirePoint.ToString();
-            engRequirePointText.text = engRequirePoint.ToString();
-            lukRequirePointText.text = lukRequirePoint.ToString();
-        
+        #region MainStatusColorChange
+        Util.ColorChange(strPoint, strTemp, strPointText);
+        Util.ColorChange(dexPoint, dexTemp, dexPointText);
+        Util.ColorChange(agiPoint, agiTemp, agiPointText);
+        Util.ColorChange(vitPoint, vitTemp, vitPointText);
+        Util.ColorChange(intPoint, intTemp, intPointText);
+        Util.ColorChange(engPoint, engTemp, engPointText);
+        Util.ColorChange(lukPoint, lukTemp, lukPointText);
+        #endregion
+
+        #region MainStatusToText
+        strRequirePointText.text = strRequirePoint.ToString();
+        dexRequirePointText.text = dexRequirePoint.ToString();
+        agiRequirePointText.text = agiRequirePoint.ToString();
+        vitRequirePointText.text = vitRequirePoint.ToString();
+        intRequirePointText.text = intRequirePoint.ToString();
+        engRequirePointText.text = engRequirePoint.ToString();
+        lukRequirePointText.text = lukRequirePoint.ToString();
+        #endregion
+
+        #region MainStatusCalculatorIncresed
         strRequirePoint = CalculatorStatus(strTemp);
         dexRequirePoint = CalculatorStatus(dexTemp);
         agiRequirePoint = CalculatorStatus(agiTemp);
@@ -384,6 +409,7 @@ public class Ui_Status : MonoBehaviour
         intRequirePoint = CalculatorStatus(intTemp);
         engRequirePoint = CalculatorStatus(engTemp);
         lukRequirePoint = CalculatorStatus(lukTemp);
+        #endregion
 
         #region SetStatus
         SetStatus(levelText);
@@ -408,8 +434,6 @@ public class Ui_Status : MonoBehaviour
         SetStatus(mpRegenText);
         #endregion
 
-        //Debug.Log(inventory.equipItems[2].ItemID);
-        //itemAttackSpeed = inventory.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemAtkSpeed;
     }
 
     void ClickPlus(Button btn)
@@ -600,13 +624,7 @@ public class Ui_Status : MonoBehaviour
         return (1 + (status / 10));
     }
 
-    void ColorChange(int status, int statusTemp, Text text)
-    {
-        if (statusTemp > status)
-            text.color = new Color(255, 0, 0);
-        else
-            text.color = new Color(0, 0, 0);
-    }
+    
 
     void SetStatus(Text text)
     {
@@ -623,7 +641,7 @@ public class Ui_Status : MonoBehaviour
             text.text = "공격력 : " + status.Attack + " + " + status.ItemAttack;
         }
         else if (text == statusTexts[(int)SubStatus.ATKSPEED])
-        {   //if(inventory.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemID != -1)
+        {   
                 text.text = "공격속도 : " + itemAttackSpeed;
         }
         else if (text == statusTexts[(int)SubStatus.HIT]) { }

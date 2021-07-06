@@ -12,6 +12,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Util : MonoBehaviour
 {
@@ -23,5 +24,13 @@ public class Util : MonoBehaviour
 
         return component;
 
+    }
+
+    public static void ColorChange(int status, int statusTemp, Text text)
+    {
+        if (statusTemp > status)
+            text.color = new Color(255, 0, 0);
+        else
+            text.color = new Color(0, 0, 0);
     }
 }

@@ -128,7 +128,7 @@ public class UI_Inventory : MonoBehaviour
         HELMET,
         AMORE,
         WEAPON,
-        SUBWEAPON,
+        SHIELD,
         CLOAK,
         SHOES,
         ACCESSORYONE,
@@ -170,7 +170,7 @@ public class UI_Inventory : MonoBehaviour
         equipItems.Add((int)Equip.HELMET, new Item());
         equipItems.Add((int)Equip.AMORE, new Item());
         equipItems.Add((int)Equip.WEAPON, new Item());
-        equipItems.Add((int)Equip.SUBWEAPON, new Item());
+        equipItems.Add((int)Equip.SHIELD, new Item());
         equipItems.Add((int)Equip.CLOAK, new Item());
         equipItems.Add((int)Equip.SHOES, new Item());
         equipItems.Add((int)Equip.ACCESSORYONE, new Item());
@@ -533,6 +533,148 @@ public class UI_Inventory : MonoBehaviour
 
                 }
                 break;
+            case Define.ItemType.Helmet:
+                {
+                    itemTypeText.text = "타입 : 방어구";
+
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+
+
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                        optionTexts.Add(maxHpText);
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                        optionTexts.Add(maxManaText);
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                        optionTexts.Add(hpRegenText);
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                        optionTexts.Add(mpRegenText);
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                        optionTexts.Add(maxWeightText);
+                    if (equipItems[slotNumber].ItemFlee != 0)
+                        optionTexts.Add(fleeText);
+
+                    //버튼 활성화
+                    equipButton.gameObject.SetActive(true);
+                    equipButton.onClick.AddListener(() => SlotToEquipItem(helmetBtn, Equip.HELMET));
+                    reinforceButton.gameObject.SetActive(true);
+
+                }
+                break;
+            case Define.ItemType.Shoes:
+                {
+                    itemTypeText.text = "타입 : 방어구";
+
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+
+
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                        optionTexts.Add(maxHpText);
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                        optionTexts.Add(maxManaText);
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                        optionTexts.Add(hpRegenText);
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                        optionTexts.Add(mpRegenText);
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                        optionTexts.Add(maxWeightText);
+                    if (equipItems[slotNumber].ItemFlee != 0)
+                        optionTexts.Add(fleeText);
+
+                    //버튼 활성화
+                    equipButton.gameObject.SetActive(true);
+                    equipButton.onClick.AddListener(() => SlotToEquipItem(shoesBtn, Equip.SHOES));
+                    reinforceButton.gameObject.SetActive(true);
+
+
+                }
+                break;
+            case Define.ItemType.Cloak:
+                {
+                    itemTypeText.text = "타입 : 방어구";
+
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+
+
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                        optionTexts.Add(maxHpText);
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                        optionTexts.Add(maxManaText);
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                        optionTexts.Add(hpRegenText);
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                        optionTexts.Add(mpRegenText);
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                        optionTexts.Add(maxWeightText);
+                    if (equipItems[slotNumber].ItemFlee != 0)
+                        optionTexts.Add(fleeText);
+
+                    //버튼 활성화
+                    equipButton.gameObject.SetActive(true);
+                    equipButton.onClick.AddListener(() => SlotToEquipItem(cloakBtn, Equip.CLOAK));
+                    reinforceButton.gameObject.SetActive(true);
+
+                }
+                break;
+            case Define.ItemType.Shield:
+                {
+                    itemTypeText.text = "타입 : 방어구";
+
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+
+
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                        optionTexts.Add(maxHpText);
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                        optionTexts.Add(maxManaText);
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                        optionTexts.Add(hpRegenText);
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                        optionTexts.Add(mpRegenText);
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                        optionTexts.Add(maxWeightText);
+                    if (equipItems[slotNumber].ItemFlee != 0)
+                        optionTexts.Add(fleeText);
+
+                    //버튼 활성화
+                    equipButton.gameObject.SetActive(true);
+                    equipButton.onClick.AddListener(() => SlotToEquipItem(subWeaponBtn, Equip.SHIELD));
+                    reinforceButton.gameObject.SetActive(true);
+
+
+                }
+                break;
             case Define.ItemType.Accessory:
                 {
                     itemTypeText.text = "타입 : 악세서리";
@@ -862,6 +1004,142 @@ public class UI_Inventory : MonoBehaviour
                     //버튼 활성화
                     unlockButton.gameObject.SetActive(true);
                     unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.AMORE));
+
+                }
+                break;
+            case Define.ItemType.Helmet:
+                {
+                    itemTypeText.text = "타입 : 방어구";
+
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+
+
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                        optionTexts.Add(maxHpText);
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                        optionTexts.Add(maxManaText);
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                        optionTexts.Add(hpRegenText);
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                        optionTexts.Add(mpRegenText);
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                        optionTexts.Add(maxWeightText);
+                    if (equipItems[slotNumber].ItemFlee != 0)
+                        optionTexts.Add(fleeText);
+
+                    //버튼 활성화
+                    unlockButton.gameObject.SetActive(true);
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.HELMET));
+
+                }
+                break;
+            case Define.ItemType.Shoes:
+                {
+                    itemTypeText.text = "타입 : 방어구";
+
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+
+
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                        optionTexts.Add(maxHpText);
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                        optionTexts.Add(maxManaText);
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                        optionTexts.Add(hpRegenText);
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                        optionTexts.Add(mpRegenText);
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                        optionTexts.Add(maxWeightText);
+                    if (equipItems[slotNumber].ItemFlee != 0)
+                        optionTexts.Add(fleeText);
+
+                    //버튼 활성화
+                    unlockButton.gameObject.SetActive(true);
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.SHOES));
+
+                }
+                break;
+            case Define.ItemType.Cloak:
+                {
+                    itemTypeText.text = "타입 : 방어구";
+
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+
+
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                        optionTexts.Add(maxHpText);
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                        optionTexts.Add(maxManaText);
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                        optionTexts.Add(hpRegenText);
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                        optionTexts.Add(mpRegenText);
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                        optionTexts.Add(maxWeightText);
+                    if (equipItems[slotNumber].ItemFlee != 0)
+                        optionTexts.Add(fleeText);
+
+                    //버튼 활성화
+                    unlockButton.gameObject.SetActive(true);
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.CLOAK));
+
+                }
+                break;
+            case Define.ItemType.Shield:
+                {
+                    itemTypeText.text = "타입 : 방어구";
+
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+
+                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+
+
+                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                        optionTexts.Add(maxHpText);
+                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                        optionTexts.Add(maxManaText);
+                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                        optionTexts.Add(hpRegenText);
+                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                        optionTexts.Add(mpRegenText);
+                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                        optionTexts.Add(maxWeightText);
+                    if (equipItems[slotNumber].ItemFlee != 0)
+                        optionTexts.Add(fleeText);
+
+                    //버튼 활성화
+                    unlockButton.gameObject.SetActive(true);
+                    unlockButton.onClick.AddListener(() => UnlockEquipItem(Equip.SHIELD));
 
                 }
                 break;

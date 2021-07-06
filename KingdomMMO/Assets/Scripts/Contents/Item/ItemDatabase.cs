@@ -21,17 +21,17 @@ public class Item
     [SerializeField] private string itemName;                 //  이름
     [SerializeField] private string itemGrade;                //  등급
     [SerializeField] private int itemID;                      //  고유번호
-    [SerializeField] private string itemInfo;                  //  설명
+    [SerializeField] private string itemInfo;                 //  설명
     [SerializeField] private Sprite itemIcon;                 //  아이콘(2D)
-    [SerializeField] private int itemReinforce;               //  강화
-    [SerializeField] private float itemWeight;                  //  아이템의 무게
-    [SerializeField] private bool itemStackable = false;       //중첩 가능or 불가능
+    [SerializeField] private float itemWeight;                //  아이템의 무게
+    [SerializeField] private bool itemStackable = false;      //중첩 가능or 불가능
 
     [Header("무기 주 옵션")]
     [SerializeField] private int itemAttack;                  //  공격력
     [SerializeField] private int itemMAttack;                 //  마법공격력 
     [SerializeField] private float itemAtkSpeed;              //  공격속도
     [SerializeField] private float itemAtkRange;              //  공격 사거리
+    [SerializeField] private int itemWeaponReinforce;               //  강화
 
     [Header("무기 추가(보너스) 옵션")]
     [SerializeField] private int itemHit;                     //  추가 명중률
@@ -50,6 +50,20 @@ public class Item
     [SerializeField] private int itemMpRegen;                 // 추가 마나회복력
     [SerializeField] private int itemMaxWeight;               // 추가 소지량
     [SerializeField] private int itemFlee;                    // 추가 회피력
+    [SerializeField] private int itemAmoreReinforce;          // 갑옷 강화
+    [SerializeField] private int itemHelmetReinforce;         // 헬멧 강화
+    [SerializeField] private int itemShieldReinforce;         // 방패 강화
+    [SerializeField] private int itemCloakReinforce;          // 망토 강화
+    [SerializeField] private int itemShoesReinforce;          // 신발 강화
+    [SerializeField] private int itemAmoreDef;                 // 갑옷 방어력
+    [SerializeField] private int itemHelmetDef;                // 헬멧 방어력
+    [SerializeField] private int itemShieldDef;                // 방패 방어력
+    [SerializeField] private int itemCloakDef;                 // 망토 방어력
+    [SerializeField] private int itemShoesDef;                 // 신발 방어력
+
+
+
+
 
 
     [Header("악세서리 옵션")]
@@ -92,7 +106,7 @@ public class Item
     public int ItemID { get { return itemID; } set { itemID = value; } }
     public string ItemInfo { get { return itemInfo; } set { itemInfo = value; } }
     public Sprite ItemIcon { get { return itemIcon; } set { itemIcon = value; } }
-    public int ItemReinforce { get { return itemReinforce; } set { itemReinforce = value; } }
+    public int ItemWeaponReinforce { get { return itemWeaponReinforce; } set { itemWeaponReinforce = value; } }
     public float ItemWeight { get { return itemWeight; } set { itemWeight = value; } }
     public bool ItemStackable { get { return itemStackable; } set { itemStackable = value; } }
     public int ItemAttack { get { return itemAttack; } set { itemAttack = value; } }
@@ -136,12 +150,16 @@ public class Item
     public float ItemGainCommonMaterial { get { return itemGainCommonMaterial; } set { itemGainCommonMaterial = value; } }
     public int ItemSellingPrice { get { return itemSellingPrice; } set { itemSellingPrice = value; } }
     public int ItemBuyPrice { get { return itemBuyPrice; } set { itemBuyPrice = value; } }
-
-
-
-
-
-
+    public int ItemAmoreReinforce { get { return ItemAmoreReinforce; } set { ItemAmoreReinforce = value; } }
+    public int ItemHelmetReinforce { get { return ItemHelmetReinforce; } set { ItemHelmetReinforce = value; } }
+    public int ItemShieldReinforce { get { return ItemShieldReinforce; } set { ItemShieldReinforce = value; } }
+    public int ItemCloakReinforce { get { return ItemCloakReinforce; } set { ItemCloakReinforce = value; } }
+    public int ItemShoesReinforce { get { return ItemShoesReinforce; } set { ItemShoesReinforce = value; } }
+    public int ItemAmoreDef { get { return ItemAmoreDef; } set { ItemAmoreDef = value; } }
+    public int ItemHelmetDef { get { return ItemHelmetDef; } set { ItemHelmetDef = value; } }
+    public int ItemShieldDef { get { return ItemShieldDef; } set { ItemShieldDef = value; } }
+    public int ItemCloakDef { get { return ItemCloakDef; } set { ItemCloakDef = value; } }
+    public int ItemShoesDef { get { return ItemShoesDef; } set { ItemShoesDef = value; } }
 
 
 
@@ -186,7 +204,7 @@ public class Item
                     itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
 
                     itemInfo = weapon.info;
-                    itemReinforce = weapon.reinforce;
+                    itemWeaponReinforce = weapon.reinforce;
                     itemWeight = weapon.weight;
 
                     //무기옵션
@@ -232,7 +250,7 @@ public class Item
                     }
                     itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
                     itemInfo = amore.info;
-                    itemReinforce = amore.reinforce;
+                    itemAmoreReinforce = amore.reinforce;
                     itemWeight = amore.weight;
 
                     //방어구 옵션
@@ -293,7 +311,6 @@ public class Item
                     }
                     itemIcon = Resources.Load<Sprite>($"Materials/Images/{_itemID}");
                     itemInfo = accessory.info;
-                    itemReinforce = accessory.reinforce;
                     itemWeight = accessory.weight;
 
                     itemStr = accessory.Str;
@@ -433,7 +450,14 @@ public class Item
                 break;
             case Define.ItemType.QuestItem:
                 break;
-
+            case Define.ItemType.Helmet:
+                break;
+            case Define.ItemType.Shield:
+                break;
+            case Define.ItemType.Cloak:
+                break;
+            case Define.ItemType.Shoes:
+                break;
             case Define.ItemType.None:
                 {
                     itemType = Define.ItemType.None;
