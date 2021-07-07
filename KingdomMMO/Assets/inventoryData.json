@@ -1,7 +1,7 @@
 {
-    "weaponItemID": -1,
+    "weaponItemID": 11001,
     "weaponReinforce": 0,
-    "helmetItemID": 0,
+    "helmetItemID": -1,
     "helmetReinforce": 0,
     "amoreItemID": 21001,
     "amoreReinforce": 0,

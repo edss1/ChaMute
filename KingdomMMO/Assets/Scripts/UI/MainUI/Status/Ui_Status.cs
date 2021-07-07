@@ -642,7 +642,7 @@ public class Ui_Status : MonoBehaviour
         }
         else if (text == statusTexts[(int)SubStatus.ATKSPEED])
         {   
-                text.text = "공격속도 : " + itemAttackSpeed;
+                text.text = "공격속도 : " + status.AtkSpd.ToString();
         }
         else if (text == statusTexts[(int)SubStatus.HIT]) { }
         else if (text == statusTexts[(int)SubStatus.CRITICAL]) { }

@@ -101,6 +101,14 @@ public class Item
     [SerializeField] private int itemBuyPrice;                    //구매가격
 
 
+
+    [SerializeField] private int itemExpCharmReinforce;
+    [SerializeField] private int itemGoldCharmReinforce;
+    [SerializeField] private int itemCommonMaterialCharmReinforce;
+    [SerializeField] private int itemRareMaterialCharmReinforce;
+
+
+
     public string ItemName { get { return itemName; } set { itemName = value; } }
     public string ItemGrade { get { return itemGrade; } set { itemGrade = value; } }
     public int ItemID { get { return itemID; } set { itemID = value; } }
@@ -150,16 +158,21 @@ public class Item
     public float ItemGainCommonMaterial { get { return itemGainCommonMaterial; } set { itemGainCommonMaterial = value; } }
     public int ItemSellingPrice { get { return itemSellingPrice; } set { itemSellingPrice = value; } }
     public int ItemBuyPrice { get { return itemBuyPrice; } set { itemBuyPrice = value; } }
-    public int ItemAmoreReinforce { get { return ItemAmoreReinforce; } set { ItemAmoreReinforce = value; } }
-    public int ItemHelmetReinforce { get { return ItemHelmetReinforce; } set { ItemHelmetReinforce = value; } }
-    public int ItemShieldReinforce { get { return ItemShieldReinforce; } set { ItemShieldReinforce = value; } }
-    public int ItemCloakReinforce { get { return ItemCloakReinforce; } set { ItemCloakReinforce = value; } }
-    public int ItemShoesReinforce { get { return ItemShoesReinforce; } set { ItemShoesReinforce = value; } }
-    public int ItemAmoreDef { get { return ItemAmoreDef; } set { ItemAmoreDef = value; } }
-    public int ItemHelmetDef { get { return ItemHelmetDef; } set { ItemHelmetDef = value; } }
-    public int ItemShieldDef { get { return ItemShieldDef; } set { ItemShieldDef = value; } }
-    public int ItemCloakDef { get { return ItemCloakDef; } set { ItemCloakDef = value; } }
-    public int ItemShoesDef { get { return ItemShoesDef; } set { ItemShoesDef = value; } }
+    public int ItemAmoreReinforce { get { return itemAmoreReinforce; } set { itemAmoreReinforce = value; } }
+    public int ItemHelmetReinforce { get { return itemHelmetReinforce; } set { itemHelmetReinforce = value; } }
+    public int ItemShieldReinforce { get { return itemShieldReinforce; } set { itemShieldReinforce = value; } }
+    public int ItemCloakReinforce { get { return itemCloakReinforce; } set { itemCloakReinforce = value; } }
+    public int ItemShoesReinforce { get { return itemShoesReinforce; } set { itemShoesReinforce = value; } }
+    public int ItemAmoreDef { get { return itemAmoreDef; } set { itemAmoreDef = value; } }
+    public int ItemHelmetDef { get { return itemHelmetDef; } set { itemHelmetDef = value; } }
+    public int ItemShieldDef { get { return itemShieldDef; } set { itemShieldDef = value; } }
+    public int ItemCloakDef { get { return itemCloakDef; } set { itemCloakDef = value; } }
+    public int ItemShoesDef { get { return itemShoesDef; } set { itemShoesDef = value; } }
+    
+    public int ItemExpCharmReinforce {get{return itemExpCharmReinforce;}set{ itemExpCharmReinforce = value;}}
+    public int ItemGoldCharmReinforce {get{return itemGoldCharmReinforce;}set{ itemGoldCharmReinforce = value;}}
+    public int ItemCommonMaterialCharmReinforce {get{return itemCommonMaterialCharmReinforce;}set{ itemCommonMaterialCharmReinforce = value;}}
+    public int ItemRareMaterialCharmReinforce {get{return itemRareMaterialCharmReinforce; }set{ itemRareMaterialCharmReinforce = value;}}
 
 
 
