@@ -1,4 +1,7 @@
 {
-    "itemAttack": 14,
-    "itemAttackSpeed": 0
+    "itemAttack": 20,
+    "itemAttackSpeed": 1.2000000476837159,
+    "itemHit": 0,
+    "itemCritical": 0,
+    "itemCriticalDmg": 0
 }

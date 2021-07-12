@@ -630,7 +630,7 @@ public class Ui_Status : MonoBehaviour
     {
         if (text == statusTexts[(int)SubStatus.LEVEL])
         {
-            text.text = "레벨 : " + status.Level.ToString();
+            text.text = "레벨 : " + status.Level;
         }
         else if (text == statusTexts[(int)SubStatus.EXP])
         {
@@ -638,18 +638,39 @@ public class Ui_Status : MonoBehaviour
         }
         else if (text == statusTexts[(int)SubStatus.ATK])
         {
-            text.text = "공격력 : " + status.Attack + " + " + status.ItemAttack;
+            text.text = "공격력 : " + (status.Attack+(strTemp + (strTemp/10)*(strTemp / 10))) + " + " + status.ItemAttack;
         }
         else if (text == statusTexts[(int)SubStatus.ATKSPEED])
         {   
-                text.text = "공격속도 : " + status.AtkSpd.ToString();
+                text.text = "공격속도 : " + (status.ItemAttackSpeed * (1+(0.01*agiTemp))).ToString("F1");
         }
-        else if (text == statusTexts[(int)SubStatus.HIT]) { }
-        else if (text == statusTexts[(int)SubStatus.CRITICAL]) { }
-        else if (text == statusTexts[(int)SubStatus.CRITICALDAMAGE]) { }
-        else if (text == statusTexts[(int)SubStatus.MAGICATTACK]) { }
-        else if (text == statusTexts[(int)SubStatus.MAXHP]) { }
-        else if (text == statusTexts[(int)SubStatus.MAXMP]) { }
+        else if (text == statusTexts[(int)SubStatus.HIT])
+        {
+            text.text = "명중 : " + (status.ItemHit + status.Level + dexTemp);
+        }
+        else if (text == statusTexts[(int)SubStatus.CRITICAL])
+        {
+            text.text = "크리티컬 : " + (status.ItemCritical+lukTemp)+"%";
+        }
+        else if (text == statusTexts[(int)SubStatus.CRITICALDAMAGE])
+        {
+            text.text = "크리티컬 데미지 : " + (status.ItemCriticalDmg + lukTemp);
+        }
+        else if (text == statusTexts[(int)SubStatus.MAGICATTACK])
+        {
+            if (status.ItemMAttack == 0)
+                text.text = "마법 공격력 : " + (status.MAttack + (intTemp + (intTemp / 8) * (intTemp / 8)));
+            else
+                text.text = "마법 공격력 : " + (status.MAttack + (intTemp + (intTemp / 8) * (intTemp / 8))) + " + " + status.ItemMAttack; 
+        }
+        else if (text == statusTexts[(int)SubStatus.MAXHP])
+        {
+            text.text = "최대 체력 : " + (status.MaxHp + status.ItemMaxHp + (vitTemp*10) + (vitTemp/10)*(vitTemp/10));
+        }
+        else if (text == statusTexts[(int)SubStatus.MAXMP])
+        {
+             text.text = "최대 마나 : " + (status.MaxMana + status.ItemMaxMp + (engTemp * 3) + (engTemp / 20) * (engTemp / 20));
+        }
         else if (text == statusTexts[(int)SubStatus.DEF ]) { }
         else if (text == statusTexts[(int)SubStatus.MAGICDEF ]) { }
         else if (text == statusTexts[(int)SubStatus.FLEE ]) { }

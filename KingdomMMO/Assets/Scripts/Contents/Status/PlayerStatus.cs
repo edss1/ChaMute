@@ -25,6 +25,21 @@ public class PlayerStatus : Status
     private int itemDef;
     [SerializeField]
     private int itemMDef;
+    [SerializeField]
+    private float itemAtkSpeed;
+    [SerializeField]
+    private int itemHit;
+    [SerializeField]
+    private int itemCritical;
+    [SerializeField]
+    private int itemCriticalDmg;
+    [SerializeField]
+    private int itemMaxHp;
+    [SerializeField]
+    private int itemMaxMp;
+
+
+
 
 
     //회복량
@@ -78,6 +93,10 @@ public class PlayerStatus : Status
 
     public int ItemAttack { get { return itemAttack; } set { itemAttack = value; } }
     public int ItemMAttack { get { return itemMAttack; } set { itemMAttack = value; } }
+    public float ItemAttackSpeed { get { return itemAtkSpeed; } set { itemAtkSpeed = value; } }
+    public int ItemHit { get { return itemHit; }set { itemHit = value; } }
+    public int ItemCritical { get { return itemCritical; }set { itemCritical = value; } }
+    public int ItemCriticalDmg { get { return itemCriticalDmg; }set { itemCriticalDmg = value; } }
     public int ItemDef { get { return itemDef; } set { itemDef = value; } }
     public int ItemMDef { get { return itemMDef; } set { itemMDef = value; } }
     public int HpRegen { get { return hpRegen; } set { hpRegen = value; } }
@@ -85,6 +104,10 @@ public class PlayerStatus : Status
     public int Weight { get { return weight; } set { weight = value; } }
     public int MaxWeight { get { return maxWeight; } set { maxWeight = value; } }
     public int StatusPoint { get { return statusPoint; } set { statusPoint = value; } }
+    public int ItemMaxHp { get { return itemMaxHp; }set { itemMaxHp = value; } }
+    public int ItemMaxMp { get { return itemMaxMp; }set { itemMaxMp = value; } }
+
+
 
     public int Exp
     {

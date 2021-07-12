@@ -154,6 +154,10 @@ public class DataSaveLoad : MonoBehaviour
     public void SavePlayerDataToJsonInInventory()
     {
         playerDataInInventory.itemAttack = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemAttack;
+        playerDataInInventory.itemAttackSpeed = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemAtkSpeed;
+        playerDataInInventory.itemHit = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemHit;
+        playerDataInInventory.itemCritical = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemCritical;
+        playerDataInInventory.itemCriticalDmg = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemCriticalDamage;
 
 
         string jsonData = JsonUtility.ToJson(playerDataInInventory, true);
@@ -169,6 +173,10 @@ public class DataSaveLoad : MonoBehaviour
 
 
         stat.ItemAttack = playerDataInInventory.itemAttack;
+        stat.ItemAttackSpeed = playerDataInInventory.itemAttackSpeed;
+        stat.ItemHit = playerDataInInventory.itemHit;
+        stat.ItemCritical = playerDataInInventory.itemHit;
+        stat.ItemCriticalDmg = playerDataInInventory.itemHit;
     }
 
 
@@ -300,6 +308,10 @@ public class PlayerData
 public class PlayerDataInInventory
 {
     public int itemAttack;
+    public float itemAttackSpeed;
+    public int itemHit;
+    public int itemCritical;
+    public int itemCriticalDmg;
 }
 
 

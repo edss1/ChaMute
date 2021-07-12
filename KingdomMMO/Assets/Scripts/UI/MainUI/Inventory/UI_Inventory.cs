@@ -537,28 +537,28 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
 
-                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
-                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
-                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
-                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
-                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
-                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+                    string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + items[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + items[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + items[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + items[slotNumber].ItemFlee.ToString();
 
 
-                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                    if (items[slotNumber].ItemMaxHp != 0)
                         optionTexts.Add(maxHpText);
-                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                    if (items[slotNumber].ItemMaxMana != 0)
                         optionTexts.Add(maxManaText);
-                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                    if (items[slotNumber].ItemHpRegen != 0)
                         optionTexts.Add(hpRegenText);
-                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                    if (items[slotNumber].ItemMpRegen != 0)
                         optionTexts.Add(mpRegenText);
-                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                    if (items[slotNumber].ItemMaxWeight != 0)
                         optionTexts.Add(maxWeightText);
-                    if (equipItems[slotNumber].ItemFlee != 0)
+                    if (items[slotNumber].ItemFlee != 0)
                         optionTexts.Add(fleeText);
 
                     //버튼 활성화
@@ -572,28 +572,28 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
 
-                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
-                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
-                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
-                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
-                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
-                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+                    string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + items[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + items[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + items[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + items[slotNumber].ItemFlee.ToString();
 
 
-                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                    if (items[slotNumber].ItemMaxHp != 0)
                         optionTexts.Add(maxHpText);
-                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                    if (items[slotNumber].ItemMaxMana != 0)
                         optionTexts.Add(maxManaText);
-                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                    if (items[slotNumber].ItemHpRegen != 0)
                         optionTexts.Add(hpRegenText);
-                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                    if (items[slotNumber].ItemMpRegen != 0)
                         optionTexts.Add(mpRegenText);
-                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                    if (items[slotNumber].ItemMaxWeight != 0)
                         optionTexts.Add(maxWeightText);
-                    if (equipItems[slotNumber].ItemFlee != 0)
+                    if (items[slotNumber].ItemFlee != 0)
                         optionTexts.Add(fleeText);
 
                     //버튼 활성화
@@ -608,28 +608,28 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
 
-                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
-                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
-                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
-                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
-                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
-                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+                    string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + items[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + items[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + items[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + items[slotNumber].ItemFlee.ToString();
 
 
-                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                    if (items[slotNumber].ItemMaxHp != 0)
                         optionTexts.Add(maxHpText);
-                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                    if (items[slotNumber].ItemMaxMana != 0)
                         optionTexts.Add(maxManaText);
-                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                    if (items[slotNumber].ItemHpRegen != 0)
                         optionTexts.Add(hpRegenText);
-                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                    if (items[slotNumber].ItemMpRegen != 0)
                         optionTexts.Add(mpRegenText);
-                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                    if (items[slotNumber].ItemMaxWeight != 0)
                         optionTexts.Add(maxWeightText);
-                    if (equipItems[slotNumber].ItemFlee != 0)
+                    if (items[slotNumber].ItemFlee != 0)
                         optionTexts.Add(fleeText);
 
                     //버튼 활성화
@@ -643,28 +643,28 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
 
-                    string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
-                    string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
-                    string hpRegenText = "체력 재생 +" + equipItems[slotNumber].ItemHpRegen.ToString();
-                    string mpRegenText = "마나 재생 +" + equipItems[slotNumber].ItemMpRegen.ToString();
-                    string maxWeightText = " 무게 보너스 +" + equipItems[slotNumber].ItemMaxWeight.ToString();
-                    string fleeText = "회피 +" + equipItems[slotNumber].ItemFlee.ToString();
+                    string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
+                    string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
+                    string hpRegenText = "체력 재생 +" + items[slotNumber].ItemHpRegen.ToString();
+                    string mpRegenText = "마나 재생 +" + items[slotNumber].ItemMpRegen.ToString();
+                    string maxWeightText = " 무게 보너스 +" + items[slotNumber].ItemMaxWeight.ToString();
+                    string fleeText = "회피 +" + items[slotNumber].ItemFlee.ToString();
 
 
-                    if (equipItems[slotNumber].ItemMaxHp != 0)
+                    if (items[slotNumber].ItemMaxHp != 0)
                         optionTexts.Add(maxHpText);
-                    if (equipItems[slotNumber].ItemMaxMana != 0)
+                    if (items[slotNumber].ItemMaxMana != 0)
                         optionTexts.Add(maxManaText);
-                    if (equipItems[slotNumber].ItemHpRegen != 0)
+                    if (items[slotNumber].ItemHpRegen != 0)
                         optionTexts.Add(hpRegenText);
-                    if (equipItems[slotNumber].ItemMpRegen != 0)
+                    if (items[slotNumber].ItemMpRegen != 0)
                         optionTexts.Add(mpRegenText);
-                    if (equipItems[slotNumber].ItemMaxWeight != 0)
+                    if (items[slotNumber].ItemMaxWeight != 0)
                         optionTexts.Add(maxWeightText);
-                    if (equipItems[slotNumber].ItemFlee != 0)
+                    if (items[slotNumber].ItemFlee != 0)
                         optionTexts.Add(fleeText);
 
                     //버튼 활성화
