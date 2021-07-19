@@ -292,7 +292,6 @@ public class Ui_Status : MonoBehaviour
         statusPoint = 30;
 
 
-
         strTemp = strPoint;
         dexTemp = dexPoint;
         agiTemp = agiPoint;
@@ -381,6 +380,7 @@ public class Ui_Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         #region MainStatusColorChange
         Util.ColorChange(strPoint, strTemp, strPointText);
         Util.ColorChange(dexPoint, dexTemp, dexPointText);
@@ -624,8 +624,8 @@ public class Ui_Status : MonoBehaviour
         return (1 + (status / 10));
     }
 
-    
 
+    //DataSaveLoad.cs에 SavePlayerDataToJsonInInventory 와 LoadPlayerDataToJsonInInventory에 연동해주어야 작동한다!
     void SetStatus(Text text)
     {
         if (text == statusTexts[(int)SubStatus.LEVEL])
@@ -671,7 +671,10 @@ public class Ui_Status : MonoBehaviour
         {
              text.text = "최대 마나 : " + (status.MaxMana + status.ItemMaxMp + (engTemp * 3) + (engTemp / 20) * (engTemp / 20));
         }
-        else if (text == statusTexts[(int)SubStatus.DEF ]) { }
+        else if (text == statusTexts[(int)SubStatus.DEF ])
+        {
+            text.text = "방어력 : " + (status.ItemDef + (dexTemp/10)) + " + " + status.Vit;
+        }
         else if (text == statusTexts[(int)SubStatus.MAGICDEF ]) { }
         else if (text == statusTexts[(int)SubStatus.FLEE ]) { }
         else if (text == statusTexts[(int)SubStatus.MOVESPEED ]) { }

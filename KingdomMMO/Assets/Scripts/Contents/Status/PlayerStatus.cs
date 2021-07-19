@@ -160,10 +160,7 @@ public class PlayerStatus : Status
         scanRange = 10;
         atkRange = 3;
         atkSpd = 1.0f;
-        //maxHp = 200;
-        //hp = 200;
-        //attack = 20;
-        //level = 1;
+
 
         def = 500;
         Vit = 1;

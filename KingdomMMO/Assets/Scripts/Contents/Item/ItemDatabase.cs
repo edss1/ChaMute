@@ -39,8 +39,16 @@ public class Item
     [SerializeField] private int itemCriticalDamage;          //  추가 크리티컬 데미지
 
     [Header("방어구 옵션")]
-    [SerializeField] private int itemDef;                     //  방어력
-    [SerializeField] private int itemMDef;                    //  마법방어력
+    [SerializeField] private int itemAmoreDef;                 // 갑옷 방어력
+    [SerializeField] private int itemHelmetDef;                // 헬멧 방어력
+    [SerializeField] private int itemShieldDef;                // 방패 방어력
+    [SerializeField] private int itemCloakDef;                 // 망토 방어력
+    [SerializeField] private int itemShoesDef;                 // 신발 방어력
+    [SerializeField] private int itemAmoreMDef;                 // 갑옷 방어력
+    [SerializeField] private int itemHelmetMDef;                // 헬멧 방어력
+    [SerializeField] private int itemShieldMDef;                // 방패 방어력
+    [SerializeField] private int itemCloakMDef;                 // 망토 방어력
+    [SerializeField] private int itemShoesMDef;                 // 신발 방어력
     [SerializeField] private string itemMaterial = "";        //  방어구재질
 
     [Header("방어구 추가(보너스) 옵션")]
@@ -55,11 +63,6 @@ public class Item
     [SerializeField] private int itemShieldReinforce;         // 방패 강화
     [SerializeField] private int itemCloakReinforce;          // 망토 강화
     [SerializeField] private int itemShoesReinforce;          // 신발 강화
-    [SerializeField] private int itemAmoreDef;                 // 갑옷 방어력
-    [SerializeField] private int itemHelmetDef;                // 헬멧 방어력
-    [SerializeField] private int itemShieldDef;                // 방패 방어력
-    [SerializeField] private int itemCloakDef;                 // 망토 방어력
-    [SerializeField] private int itemShoesDef;                 // 신발 방어력
 
 
 
@@ -124,8 +127,8 @@ public class Item
     public int ItemHit { get { return itemHit; } set { itemHit = value; } }
     public int ItemCritical { get { return itemCritical; } set { itemCritical = value; } }
     public int ItemCriticalDamage { get { return itemCriticalDamage; } set { itemCriticalDamage = value; } }
-    public int ItemDef { get { return itemDef; } set { itemDef = value; } }
-    public int ItemMDef { get { return itemMDef; } set { itemMDef = value; } }
+    //public int ItemDef { get { return itemDef; } set { itemDef = value; } }
+    //public int ItemMDef { get { return itemMDef; } set { itemMDef = value; } }
     public string ItemMaterial { get { return itemMaterial; } set { itemMaterial = value; } }
     public int ItemMaxHp { get { return itemMaxHp; } set { itemMaxHp = value; } }
     public int ItemMaxMana { get { return itemMaxMana; } set { itemMaxMana = value; } }
@@ -168,7 +171,12 @@ public class Item
     public int ItemShieldDef { get { return itemShieldDef; } set { itemShieldDef = value; } }
     public int ItemCloakDef { get { return itemCloakDef; } set { itemCloakDef = value; } }
     public int ItemShoesDef { get { return itemShoesDef; } set { itemShoesDef = value; } }
-    
+    public int ItemAmoreMDef { get { return itemAmoreMDef; } set { itemAmoreMDef = value; } }
+    public int ItemHelmetMDef { get { return itemHelmetMDef; } set { itemHelmetMDef = value; } }
+    public int ItemShieldMDef { get { return itemShieldMDef; } set { itemShieldMDef = value; } }
+    public int ItemCloakMDef { get { return itemCloakMDef; } set { itemCloakMDef = value; } }
+    public int ItemShoesMDef { get { return itemShoesMDef; } set { itemShoesMDef = value; } }
+
     public int ItemExpCharmReinforce {get{return itemExpCharmReinforce;}set{ itemExpCharmReinforce = value;}}
     public int ItemGoldCharmReinforce {get{return itemGoldCharmReinforce;}set{ itemGoldCharmReinforce = value;}}
     public int ItemCommonMaterialCharmReinforce {get{return itemCommonMaterialCharmReinforce;}set{ itemCommonMaterialCharmReinforce = value;}}
@@ -267,8 +275,8 @@ public class Item
                     itemWeight = amore.weight;
 
                     //방어구 옵션
-                    itemDef = amore.def;
-                    itemMDef = amore.mDef;
+                    itemAmoreDef = amore.def;
+                    itemAmoreMDef = amore.mDef;
 
                     switch (amore.material)
                     {

@@ -482,7 +482,6 @@ public class UI_Inventory : MonoBehaviour
                         optionTexts.Add(criticalDmgText);
 
 
-                    //버튼 활성화
                     if(equipItems[(int)Equip.WEAPON].ItemID == -1)
                     {
                     equipButton.gameObject.SetActive(true);
@@ -502,8 +501,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemAmoreDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemAmoreMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
@@ -537,8 +536,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemHelmetDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemHelmetMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
@@ -572,8 +571,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemShoesDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemShoesMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
@@ -608,8 +607,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemCloakDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemCloakMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
@@ -643,8 +642,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + items[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + items[slotNumber].ItemShieldDef.ToString();
+                    string mDefText = "마법 방어력 : " + items[slotNumber].ItemShieldMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + items[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + items[slotNumber].ItemMaxMana.ToString();
@@ -977,8 +976,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemAmoreDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemAmoreMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
@@ -1011,8 +1010,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemHelmetDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemHelmetMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
@@ -1045,8 +1044,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemShoesDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemShoesMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
@@ -1079,8 +1078,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemCloakDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemCloakMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();
@@ -1113,8 +1112,8 @@ public class UI_Inventory : MonoBehaviour
                 {
                     itemTypeText.text = "타입 : 방어구";
 
-                    string defText = "방어력 : " + equipItems[slotNumber].ItemDef.ToString();
-                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemMDef.ToString();
+                    string defText = "방어력 : " + equipItems[slotNumber].ItemShieldDef.ToString();
+                    string mDefText = "마법 방어력 : " + equipItems[slotNumber].ItemShieldMDef.ToString();
 
                     string maxHpText = "최대 체력 +" + equipItems[slotNumber].ItemMaxHp.ToString();
                     string maxManaText = "최대 마나 +" + equipItems[slotNumber].ItemMaxMana.ToString();

@@ -3524,6 +3524,12 @@ MonoBehaviour:
   itemMAttack: 0
   itemDef: 0
   itemMDef: 0
+  itemAtkSpeed: 0
+  itemHit: 0
+  itemCritical: 0
+  itemCriticalDmg: 0
+  itemMaxHp: 0
+  itemMaxMp: 0
   hpRegen: 0
   mpRegen: 0
   weight: 0
@@ -15273,10 +15279,42 @@ MonoBehaviour:
     maxExp: 0
   playerDataInInventory:
     itemAttack: 0
+    itemAttackSpeed: 0
+    itemHit: 0
+    itemCritical: 0
+    itemCriticalDmg: 0
+    itemMagicAttack: 0
+    itemMaxHp: 0
+    itemMaxMp: 0
+    itemDef: 0
+    itemMagicDef: 0
   inventory: {fileID: 1364242992}
   equipInventoryData:
-    weaponItemId: 0
+    weaponItemID: 0
     weaponReinforce: 0
+    helmetItemID: 0
+    helmetReinforce: 0
+    amoreItemID: 0
+    amoreReinforce: 0
+    shieldItemID: 0
+    shieldReinforce: 0
+    cloakItemID: 0
+    cloakReinforce: 0
+    shoesItemID: 0
+    shoesReinforce: 0
+    accessoryOneItemID: 0
+    accessoryTwoItemID: 0
+    expCharmItemID: 0
+    expCharmReinforce: 0
+    goldCharmItemID: 0
+    goldCharmReinforce: 0
+    rareMaterialCharmItemID: 0
+    rareMaterialCharmReinforce: 0
+    nomalMaterialCharmItemID: 0
+    nomalMaterialCharmReinforce: 0
+    potionOneItemID: 0
+    potionTwoItemID: 0
+    potionThreeItemID: 0
 --- !u!4 &1830797511
 Transform:
   m_ObjectHideFlags: 0

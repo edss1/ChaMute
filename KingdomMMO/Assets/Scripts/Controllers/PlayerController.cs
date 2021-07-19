@@ -65,7 +65,6 @@ public class PlayerController : BaseController
                 }
             }
 
-            //시야 안에 들어왔을경우 가장 가까운 적을 타겟에 넣고, Move로 바꾸기
             if ((nearEnemy != null) && (Vector3.Distance(nearEnemy.transform.position, this.transform.position) < stat.ScanRange))
             {
 

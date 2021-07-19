@@ -40,7 +40,7 @@ public class DataSaveLoad : MonoBehaviour
 
 
         string jsonData = JsonUtility.ToJson(equipInventoryData, true);
-        string filePath = Path.Combine(Application.dataPath, "inventoryData.json");
+        string filePath = Path.Combine(Application.persistentDataPath, "inventoryData.json");
         File.WriteAllText(filePath, jsonData);
 
 
@@ -49,7 +49,7 @@ public class DataSaveLoad : MonoBehaviour
     public void LoadItemDataToJson()
     {
 
-        string filePath = Path.Combine(Application.dataPath, "inventoryData.json");
+        string filePath = Path.Combine(Application.persistentDataPath, "inventoryData.json");
         string jsonData = File.ReadAllText(filePath);
         equipInventoryData = JsonUtility.FromJson<EquipInventoryData>(jsonData);
 
@@ -128,7 +128,7 @@ public class DataSaveLoad : MonoBehaviour
 
 
         string jsonData = JsonUtility.ToJson(playerData, true);
-        string filePath = Path.Combine(Application.dataPath, "playerData.json");
+        string filePath = Path.Combine(Application.persistentDataPath, "playerData.json");
         File.WriteAllText(filePath, jsonData);
     }
 
@@ -136,7 +136,7 @@ public class DataSaveLoad : MonoBehaviour
     public void LoadPlayerDataToJson()
     {
 
-        string filePath = Path.Combine(Application.dataPath, "playerData.json");
+        string filePath = Path.Combine(Application.persistentDataPath, "playerData.json");
         string jsonData = File.ReadAllText(filePath);
         playerData = JsonUtility.FromJson<PlayerData>(jsonData);
 
@@ -150,24 +150,40 @@ public class DataSaveLoad : MonoBehaviour
 
 
 
-
+    //인벤토리 스탯 추가시 PlayDataInInventory에서 변수 추가
     public void SavePlayerDataToJsonInInventory()
     {
-        playerDataInInventory.itemAttack = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemAttack;
-        playerDataInInventory.itemAttackSpeed = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemAtkSpeed;
-        playerDataInInventory.itemHit = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemHit;
-        playerDataInInventory.itemCritical = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemCritical;
-        playerDataInInventory.itemCriticalDmg = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemCriticalDamage;
+        for (int i = 0; i < System.Enum.GetValues(typeof(UI_Inventory.Equip)).Length ; i++)
+        {
+        if(inv.equipItems[i].ItemAttack != 0) playerDataInInventory.itemAttack = inv.equipItems[i].ItemAttack;
+        if(inv.equipItems[i].ItemAtkSpeed != 0) playerDataInInventory.itemAttackSpeed = inv.equipItems[i].ItemAtkSpeed;
+        if(inv.equipItems[i].ItemHit != 0) playerDataInInventory.itemHit = inv.equipItems[i].ItemHit;
+        if(inv.equipItems[i].ItemCritical != 0) playerDataInInventory.itemCritical = inv.equipItems[i].ItemCritical;
+        if(inv.equipItems[i].ItemCriticalDamage != 0) playerDataInInventory.itemCriticalDmg = inv.equipItems[i].ItemCriticalDamage;
+
+
+        //playerDataInInventory.itemAttackSpeed = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemAtkSpeed;
+        //playerDataInInventory.itemHit     = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemHit;
+        //playerDataInInventory.itemCritical = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemCritical;
+        //playerDataInInventory.itemCriticalDmg = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemCriticalDamage;
+        }Debug.Log("Save");
+
+        //playerDataInInventory.item = inv.equipItems[(int)UI_Inventory.Equip.].Item;
+        //playerDataInInventory.item = inv.equipItems[(int)UI_Inventory.Equip.].Item;
+        //playerDataInInventory.item = inv.equipItems[(int)UI_Inventory.Equip.].Item;
+        //playerDataInInventory.item = inv.equipItems[(int)UI_Inventory.Equip.].Item;
+        //playerDataInInventory.item = inv.equipItems[(int)UI_Inventory.Equip.].Item;
+        //playerDataInInventory.item = inv.equipItems[(int)UI_Inventory.Equip.].Item;
 
 
         string jsonData = JsonUtility.ToJson(playerDataInInventory, true);
-        string filePath = Path.Combine(Application.dataPath, "PlayerDataInInventory.json");
+        string filePath = Path.Combine(Application.persistentDataPath, "PlayerDataInInventory.json");
         File.WriteAllText(filePath, jsonData);
     }
 
     public void LoadPlayerDataToJsonInInventory()
     {
-        string filePath = Path.Combine(Application.dataPath, "PlayerDataInInventory.json");
+        string filePath = Path.Combine(Application.persistentDataPath, "PlayerDataInInventory.json");
         string jsonData = File.ReadAllText(filePath);
         playerDataInInventory = JsonUtility.FromJson<PlayerDataInInventory>(jsonData);
 
@@ -177,6 +193,7 @@ public class DataSaveLoad : MonoBehaviour
         stat.ItemHit = playerDataInInventory.itemHit;
         stat.ItemCritical = playerDataInInventory.itemHit;
         stat.ItemCriticalDmg = playerDataInInventory.itemHit;
+        
     }
 
 
@@ -312,6 +329,12 @@ public class PlayerDataInInventory
     public int itemHit;
     public int itemCritical;
     public int itemCriticalDmg;
+    public int itemMagicAttack;
+    public int itemMaxHp;
+    public int itemMaxMp;
+    public int itemDef;
+    public int itemMagicDef;
+
 }
 
 
