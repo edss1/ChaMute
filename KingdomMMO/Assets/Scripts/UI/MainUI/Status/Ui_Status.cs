@@ -161,7 +161,7 @@ public class Ui_Status : MonoBehaviour
     #endregion
 
     #region SubStatus & SubStatus Property
-    int level;
+    int     level;
     int     exp;
     int     maxExp;
     float   expPer;
@@ -277,6 +277,7 @@ public class Ui_Status : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         data = dataObj.GetComponent<DataSaveLoad>();
         data.LoadPlayerDataToJsonInInventory();
 
@@ -327,26 +328,7 @@ public class Ui_Status : MonoBehaviour
         Confirm.onClick.AddListener(ConfirmStatus);
 
 
-        //levelText 
-        //expText 
-        //atkText 
-        //atkSpeedText 
-        //hitText 
-        //criticalText 
-        //criticalDamageText 
-        //magicAttackText 
-        //maxHpText 
-        //maxMpText 
-        //defText 
-        //magicDefText 
-        //fleeText 
-        //moveSpeedText 
-        //gainExpText 
-        //gainGoldText 
-        //gainCommonMaterialText 
-        //gainRareMaterialText 
-        //hpRegenText 
-        //mpRegenText 
+       
         statusTexts.Add(levelText );
         statusTexts.Add(expText );
         statusTexts.Add(atkText );
@@ -380,6 +362,11 @@ public class Ui_Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        status.Def = status.ItemAmoreDef + status.ItemCloakDef + status.ItemHelmetDef + status.ItemShoesDef + status.ItemShieldDef;
+        status.MDef = status.ItemAmoreMDef + status.ItemCloakMDef + status.ItemHelmetMDef + status.ItemShoesMDef + status.ItemShieldMDef;
+
+
+
 
         #region MainStatusColorChange
         Util.ColorChange(strPoint, strTemp, strPointText);
@@ -634,15 +621,15 @@ public class Ui_Status : MonoBehaviour
         }
         else if (text == statusTexts[(int)SubStatus.EXP])
         {
-            text.text = "경험치 : " + status.Exp + " / " + status.MaxExp + $"({status.Exp/status.MaxExp}%)";
+            text.text = "경험치 : " + status.Exp + " / " + status.MaxExp + $"({status.Exp / status.MaxExp}%)";
         }
         else if (text == statusTexts[(int)SubStatus.ATK])
         {
-            text.text = "공격력 : " + (status.Attack+(strTemp + (strTemp/10)*(strTemp / 10))) + " + " + status.ItemAttack;
+            text.text = "공격력 : " + (status.Attack + (strTemp + (strTemp / 10) * (strTemp / 10))) + " + " + status.ItemAttack;
         }
         else if (text == statusTexts[(int)SubStatus.ATKSPEED])
-        {   
-                text.text = "공격속도 : " + (status.ItemAttackSpeed * (1+(0.01*agiTemp))).ToString("F1");
+        {
+            text.text = "공격속도 : " + (status.ItemAttackSpeed * (1 + (0.01 * agiTemp))).ToString("F1");
         }
         else if (text == statusTexts[(int)SubStatus.HIT])
         {
@@ -650,7 +637,7 @@ public class Ui_Status : MonoBehaviour
         }
         else if (text == statusTexts[(int)SubStatus.CRITICAL])
         {
-            text.text = "크리티컬 : " + (status.ItemCritical+lukTemp)+"%";
+            text.text = "크리티컬 : " + (status.ItemCritical + lukTemp) + "%";
         }
         else if (text == statusTexts[(int)SubStatus.CRITICALDAMAGE])
         {
@@ -661,29 +648,56 @@ public class Ui_Status : MonoBehaviour
             if (status.ItemMAttack == 0)
                 text.text = "마법 공격력 : " + (status.MAttack + (intTemp + (intTemp / 8) * (intTemp / 8)));
             else
-                text.text = "마법 공격력 : " + (status.MAttack + (intTemp + (intTemp / 8) * (intTemp / 8))) + " + " + status.ItemMAttack; 
+                text.text = "마법 공격력 : " + (status.MAttack + (intTemp + (intTemp / 8) * (intTemp / 8))) + " + " + status.ItemMAttack;
         }
         else if (text == statusTexts[(int)SubStatus.MAXHP])
         {
-            text.text = "최대 체력 : " + (status.MaxHp + status.ItemMaxHp + (vitTemp*10) + (vitTemp/10)*(vitTemp/10));
+            text.text = "최대 체력 : " + (status.MaxHp + status.ItemMaxHp + (vitTemp * 10) + (vitTemp / 10) * (vitTemp / 10));
         }
         else if (text == statusTexts[(int)SubStatus.MAXMP])
         {
-             text.text = "최대 마나 : " + (status.MaxMana + status.ItemMaxMp + (engTemp * 3) + (engTemp / 20) * (engTemp / 20));
+            text.text = "최대 마나 : " + (status.MaxMana + status.ItemMaxMp + (engTemp * 3) + (engTemp / 20) * (engTemp / 20));
         }
-        else if (text == statusTexts[(int)SubStatus.DEF ])
+        else if (text == statusTexts[(int)SubStatus.DEF])
         {
-            text.text = "방어력 : " + (status.ItemDef + (dexTemp/10)) + " + " + status.Vit;
+            text.text = "방어력 : " + (5+status.Def + (dexTemp / 10)) + " + " + status.Vit;
         }
-        else if (text == statusTexts[(int)SubStatus.MAGICDEF ]) { }
-        else if (text == statusTexts[(int)SubStatus.FLEE ]) { }
-        else if (text == statusTexts[(int)SubStatus.MOVESPEED ]) { }
-        else if (text == statusTexts[(int)SubStatus.GAINEXP ]) { }
-        else if (text == statusTexts[(int)SubStatus.GAINGOLD ]) { }
-        else if (text == statusTexts[(int)SubStatus.GAINCOMMONMATERIAL ]) { }
-        else if (text == statusTexts[(int)SubStatus.GAINRAREMATERIAL ]) { }
-        else if (text == statusTexts[(int)SubStatus.HPREGEN ]) { }
-        else if (text == statusTexts[(int)SubStatus.MPREGEN]) { }
+        else if (text == statusTexts[(int)SubStatus.MAGICDEF])
+        {
+            text.text = "마법 방어력 : " + (5+status.MDef) + " + " + status.Eng;
+        }
+        else if (text == statusTexts[(int)SubStatus.FLEE])
+        {
+            text.text = "회피 : " + status.Flee + status.Level;
+        }
+        else if (text == statusTexts[(int)SubStatus.MOVESPEED])
+        {
+            text.text = "이동속도 : " + status.MoveSpeed;
+        }
+        else if (text == statusTexts[(int)SubStatus.GAINEXP])
+        {
+            text.text = "경험치 획득량 : " + status.GainingRateExp;
+        }
+        else if (text == statusTexts[(int)SubStatus.GAINGOLD])
+        {
+            text.text = "골드 획득량 : " + status.GainingGold;
+        }
+        else if (text == statusTexts[(int)SubStatus.GAINCOMMONMATERIAL])
+        {
+            text.text = "일반 재료 획득량 : " + status.GainingNomalMeterial;
+        }
+        else if (text == statusTexts[(int)SubStatus.GAINRAREMATERIAL])
+        {
+            text.text = "레어 재료 획득량 : " + status.GainingEquipmentAndRarityMeterial;
+        }
+        else if (text == statusTexts[(int)SubStatus.HPREGEN])
+        {
+            text.text = "체력 회복력 : " + status.HpRegen;
+        }
+        else if (text == statusTexts[(int)SubStatus.MPREGEN])
+        {
+            text.text = "마나 회복력 : " + status.MpRegen;
+        }
 
     }
 }

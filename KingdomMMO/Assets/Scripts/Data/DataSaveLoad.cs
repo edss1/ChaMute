@@ -160,7 +160,26 @@ public class DataSaveLoad : MonoBehaviour
         if(inv.equipItems[i].ItemHit != 0) playerDataInInventory.itemHit = inv.equipItems[i].ItemHit;
         if(inv.equipItems[i].ItemCritical != 0) playerDataInInventory.itemCritical = inv.equipItems[i].ItemCritical;
         if(inv.equipItems[i].ItemCriticalDamage != 0) playerDataInInventory.itemCriticalDmg = inv.equipItems[i].ItemCriticalDamage;
-
+            if (inv.equipItems[i].ItemMAttack != 0) playerDataInInventory.itemMagicAttack = inv.equipItems[i].ItemMAttack;
+            if (inv.equipItems[i].ItemMaxHp != 0) playerDataInInventory.itemMaxHp = inv.equipItems[i].ItemMaxHp ;
+            if (inv.equipItems[i].ItemMaxMana       != 0) playerDataInInventory.itemMaxMp = inv.equipItems[i].ItemMaxMana ;
+            if (inv.equipItems[i].ItemAmoreDef      != 0) playerDataInInventory.itemAmoreDef = inv.equipItems[i].ItemAmoreDef;
+            if (inv.equipItems[i].ItemCloakDef      != 0) playerDataInInventory.itemCloakDef = inv.equipItems[i].ItemCloakDef;
+            if (inv.equipItems[i].ItemHelmetDef     != 0) playerDataInInventory.itemHelmetDef = inv.equipItems[i].ItemHelmetDef;
+            if (inv.equipItems[i].ItemShoesDef      != 0) playerDataInInventory.itemShoesDef = inv.equipItems[i].ItemShoesDef;
+            if (inv.equipItems[i].ItemShieldDef      != 0) playerDataInInventory.itemShieldDef = inv.equipItems[i].ItemShieldDef;
+            if (inv.equipItems[i].ItemAmoreMDef != 0) playerDataInInventory.itemAmoreMDef  = inv.equipItems[i].ItemAmoreMDef;
+            if (inv.equipItems[i].ItemCloakMDef   != 0) playerDataInInventory.itemCloakMDef  = inv.equipItems[i].ItemCloakMDef   ;
+            if (inv.equipItems[i].ItemHelmetMDef  != 0) playerDataInInventory.itemHelmetMDef  = inv.equipItems[i].ItemHelmetMDef  ;
+            if (inv.equipItems[i].ItemShoesMDef   != 0) playerDataInInventory.itemShoesMDef  = inv.equipItems[i].ItemShoesMDef   ;
+            if (inv.equipItems[i].ItemShieldMDef  != 0) playerDataInInventory.itemShieldMDef = inv.equipItems[i].ItemShieldMDef  ;
+            if (inv.equipItems[i].ItemFlee != 0) playerDataInInventory.itemFlee = inv.equipItems[i].ItemFlee ;
+            if (inv.equipItems[i].ItemGainExp != 0) playerDataInInventory.itemGainExp = inv.equipItems[i].ItemGainExp;
+            if (inv.equipItems[i].ItemGainGold != 0) playerDataInInventory.itemGainGold = inv.equipItems[i].ItemGainGold;
+            if (inv.equipItems[i].ItemGainCommonMaterial != 0) playerDataInInventory.itemGainCommonMaterial = inv.equipItems[i].ItemGainCommonMaterial;
+            if (inv.equipItems[i].ItemGainRareMaterial != 0) playerDataInInventory.itemGainRareMaterial = inv.equipItems[i].ItemGainRareMaterial;
+            if (inv.equipItems[i].ItemHpRegen != 0) playerDataInInventory.itemHpRegen = inv.equipItems[i].ItemHpRegen;
+            if (inv.equipItems[i].ItemMpRegen != 0) playerDataInInventory.itemMpRegen = inv.equipItems[i].ItemMpRegen;
 
         //playerDataInInventory.itemAttackSpeed = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemAtkSpeed;
         //playerDataInInventory.itemHit     = inv.equipItems[(int)UI_Inventory.Equip.WEAPON].ItemHit;
@@ -334,6 +353,33 @@ public class PlayerDataInInventory
     public int itemMaxMp;
     public int itemDef;
     public int itemMagicDef;
+
+    public int itemAmoreDef;
+    public int itemCloakDef;
+    public int itemHelmetDef;
+    public int itemShoesDef;
+    public int itemShieldDef;
+
+    public int itemAmoreMDef;
+    public int itemCloakMDef;
+    public int itemHelmetMDef;
+    public int itemShoesMDef;
+    public int itemShieldMDef;
+
+    public int itemFlee;
+
+    public float itemGainExp;
+    public float itemGainGold;
+    public float itemGainCommonMaterial;
+    public float itemGainRareMaterial;
+
+    public int itemHpRegen;
+    public int itemMpRegen;
+
+
+
+
+
 
 }
 

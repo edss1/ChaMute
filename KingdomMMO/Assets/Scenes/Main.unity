@@ -3524,6 +3524,16 @@ MonoBehaviour:
   itemMAttack: 0
   itemDef: 0
   itemMDef: 0
+  itemAmoreDef: 0
+  itemCloakDef: 0
+  itemHelmetDef: 0
+  itemShoesDef: 0
+  itemShieldDef: 0
+  itemCloakMDef: 0
+  itemHelmetMDef: 0
+  itemAmoreMDef: 0
+  itemShoesMDef: 0
+  itemShieldMDef: 0
   itemAtkSpeed: 0
   itemHit: 0
   itemCritical: 0

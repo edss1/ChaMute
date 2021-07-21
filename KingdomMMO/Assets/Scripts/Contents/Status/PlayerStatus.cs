@@ -21,10 +21,21 @@ public class PlayerStatus : Status
     private int itemAttack;
     [SerializeField]
     private int itemMAttack;
-    [SerializeField]
-    private int itemDef;
-    [SerializeField]
-    private int itemMDef;
+    [SerializeField] private int itemDef;
+    [SerializeField] private int itemMDef;
+
+    [SerializeField] private int itemAmoreDef   ;
+    [SerializeField] private int itemCloakDef   ;
+    [SerializeField] private int itemHelmetDef  ;
+    [SerializeField] private int itemShoesDef   ;
+    [SerializeField] private int itemShieldDef  ;
+    [SerializeField] private int itemCloakMDef  ;
+    [SerializeField] private int itemHelmetMDef ;
+    [SerializeField] private int itemAmoreMDef  ;
+    [SerializeField] private int itemShoesMDef  ;
+    [SerializeField] private int itemShieldMDef ;
+
+
     [SerializeField]
     private float itemAtkSpeed;
     [SerializeField]
@@ -98,7 +109,19 @@ public class PlayerStatus : Status
     public int ItemCritical { get { return itemCritical; }set { itemCritical = value; } }
     public int ItemCriticalDmg { get { return itemCriticalDmg; }set { itemCriticalDmg = value; } }
     public int ItemDef { get { return itemDef; } set { itemDef = value; } }
+    public int ItemAmoreDef  { get { return itemAmoreDef ; } set { itemAmoreDef  = value; } }
+    public int ItemCloakDef  { get { return itemCloakDef ; } set { itemCloakDef  = value; } }
+    public int ItemHelmetDef { get { return itemHelmetDef; } set { itemHelmetDef = value; } }
+    public int ItemShoesDef  { get { return itemShoesDef ; } set { itemShoesDef  = value; } }
+    public int ItemShieldDef { get { return itemShieldDef; } set { itemShieldDef = value; } }
+
     public int ItemMDef { get { return itemMDef; } set { itemMDef = value; } }
+    public int ItemCloakMDef  { get { return itemCloakMDef ; } set { itemCloakMDef  = value; } }
+    public int ItemHelmetMDef { get { return itemHelmetMDef; } set { itemHelmetMDef = value; } }
+    public int ItemAmoreMDef  { get { return itemAmoreMDef ; } set { itemAmoreMDef  = value; } }
+    public int ItemShoesMDef  { get { return itemShoesMDef ; } set { itemShoesMDef  = value; } }
+    public int ItemShieldMDef { get { return itemShieldMDef; } set { itemShieldMDef = value; } }
+
     public int HpRegen { get { return hpRegen; } set { hpRegen = value; } }
     public int MpRegen { get { return mpRegen; } set { mpRegen = value; } }
     public int Weight { get { return weight; } set { weight = value; } }
